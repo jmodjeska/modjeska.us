@@ -1,2 +1,2 @@
 # modjeska.us
-Static modjeska.us website
+Static website at https://modjeska.us.
