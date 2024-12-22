@@ -1,2 +1,4 @@
 .DS_Store
 s3/
+templates/
+data/
