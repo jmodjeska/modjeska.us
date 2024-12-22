@@ -10,9 +10,9 @@ frontend:
   artifacts:
     baseDirectory: /
     files:
+      - '**/*'
       - '!build/**/*'
       - '!static-backups/**/*'
       - '!templates/**/*'
-      - '**/*'
   cache:
     paths: []
