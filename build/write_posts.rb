@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'fileutils'
 require_relative 'builder'
 
 execution_dir = 'modjeska.us'
@@ -44,7 +43,6 @@ build_list.each do |cat|
   @b.merge_data_to_template(template, data).each_with_index do |page, i|
     filename = "#{data['posts'][i]['slug']}.html"
     puts "-=> Building #{filename} ..."
-    FileUtils.mkdir_p("#{build_dir}/#{cat}")
     File.write("#{build_dir}/#{cat}/#{filename}", page)
   end
 end

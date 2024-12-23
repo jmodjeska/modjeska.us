@@ -3,12 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd build
     build:
       commands:
-        - ruby build.rb
+        - rspec
+        - ruby build/write_files.rb
   artifacts:
-    baseDirectory: /
+    baseDirectory: /build
     files:
       - 'index.html'
       - '404.html'
