@@ -5,6 +5,7 @@ frontend:
       commands:
     build:
       commands:
+        - gem install rspec
         - rspec
         - ruby build/write_files.rb
   artifacts:
