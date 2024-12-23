@@ -1,0 +1,24 @@
+posts:
+  - title: Snow Day
+    slug: snow-day
+    description: Pictures from the first snowy days of the year in Seattle.
+    paragraph_text: Pictures from the first snowy days of the year in Seattle &mdash; February 11 &ndash; 14, 2021.
+    imagedata_array: >-
+      {"filename": "2021-02-13 13.46.08-1.jpg", "aspectRatio": "1.4800"},
+      {"filename": "2021-02-11 15.51.03-1.jpg", "aspectRatio": "0.8800"},
+      {"filename": "2021-02-13 15.34.37.jpg", "aspectRatio": "1.5100"},
+      {"filename": "2021-02-13 13.27.01-1.jpg", "aspectRatio": "0.9200"},
+      {"filename": "2021-02-13 13.25.46-1.jpg", "aspectRatio": "1.4200"},
+      {"filename": "2021-02-11 15.25.13.jpg", "aspectRatio": "0.7400"},
+  - title: Spain 2019
+    slug: spain-2019
+    description: Pictures from Spain 2018 &mdash; Madrid, &Aacute;vila, Segovia, Sevilla, Granada, M&aacute;laga.
+    paragraph_text: Madrid, &Aacute;vila, Segovia, Sevilla, Granada, M&aacute;laga
+    imagedata_array: >-
+      {"filename": "alhambra-5.jpg", "aspectRatio": "0.7500"},
+      {"filename": "sevilla-alcazar-light.jpg", "aspectRatio": "0.7500"},
+      {"filename": "granada-graffiti.jpg", "aspectRatio": "1.3300"},
+      {"filename": "sevilla-alcazar-duck.jpg", "aspectRatio": "1.1400"},
+      {"filename": "madrid-caixa.jpg", "aspectRatio": "1.3300"},
+      {"filename": "sevilla-cathedral-6.jpg", "aspectRatio": "0.7500"},
+      {"filename": "segovia-cathedral.jpg", "aspectRatio": "1.0000"},

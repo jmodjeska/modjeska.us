@@ -1,0 +1,38 @@
+  <meta charset="UTF-8">
+  <title>@@TITLE@@ &mdash; Jeremy Modjeska</title>
+
+  <link rel="canonical" href="https://modjeska.us/pictures-@@SLUG@@/">
+	<meta name="description" content="@@DESCRIPTION@@">
+  <meta property="og:description" content="@@DESCRIPTION@@">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="@@TITLE@@ &mdash; Jeremy Modjeska">
+  <meta property="og:url" content="https://modjeska.us/pictures-@@SLUG@@/">
+  <meta property="og:site_name" content="Jeremy Modjeska">
+  <link rel="shortlink" href="https://modjeska.us/pictures-@@SLUG@@/">
+
+  <div id="wrapper" class="clearfix">
+    <div class="container">
+      <div class="row centered mt mb">
+        <div class="col-lg-12">
+            <section class="post-entry jm-gallery">
+              <h1 id="mce_5">@@TITLE@@</h1>
+              <p>@@PARAGRAPH_TEXT@@</p>
+
+              <div id="pig">
+                <img id="gsPreviewImg">
+              </div>
+              <script type="text/javascript">
+                var imageData = [@@IMAGEDATA_ARRAY@@];
+                var pig = new Pig(imageData, {
+                  urlForSize: function(filename, size) {
+                  return 'https://i.modjeska.us/galleries/@@SLUG@@/' + 'img/' + size + '/' + filename;
+                },
+                addAnchorTag: true,
+                anchorTargetDir: "https://i.modjeska.us/galleries/@@SLUG@@/",
+                anchorClass: "swipebox"
+                }).enable();
+                ;( function( $ ) {
+                  $( '.swipebox' ).swipebox();
+                } )( jQuery );
+              </script>
+            </section>
