@@ -80,3 +80,15 @@ xdescribe 'Production env validations' do
     expect(@b.check_files).to be true
   end
 end
+
+describe 'HTML file operations' do
+  it 'returns the correct file slug for a file in the pictures dir' do
+    @b = Builder.new
+    expect(@b.file_slug('snow-day.html', 'pictures')).to eq 'pictures-snow-day'
+  end
+
+  it 'returns the correct file slug for a file in another dir' do
+    @b = Builder.new
+    expect(@b.file_slug('zoom-meetings.html', 'words')).to eq 'zoom-meetings'
+  end
+end

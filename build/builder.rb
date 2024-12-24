@@ -80,4 +80,10 @@ class Builder
     end
     return output
   end
+
+  # Identifies the file slug name
+  def file_slug(file, dir)
+    basename = File.basename(file, File.extname(file))
+    return dir == 'pictures' ? "#{dir}-#{basename}" : basename
+  end
 end
