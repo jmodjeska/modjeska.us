@@ -4,7 +4,7 @@ require_relative 'builder'
 
 execution_dir = 'modjeska.us'
 current_dir = File.basename(Dir.getwd)
-build_dir = 'build'
+build_dir = 'build/site'
 
 unless execution_dir == current_dir
   abort 'EXIT: Call the build script from the root project directory, ' \
@@ -12,6 +12,8 @@ unless execution_dir == current_dir
 end
 
 @b = Builder.new
+
+puts '-=> Build step: write posts from data files + templates'
 
 puts '-=> Checking for required files ...'
 unless @b.check_files

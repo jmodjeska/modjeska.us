@@ -9,8 +9,9 @@ frontend:
         - rspec
         - pwd
         - ruby build/write_posts.rb
+        - ruby build/copy_wp_style_slugs.rb
   artifacts:
-    baseDirectory: /build
+    baseDirectory: /build/site
     files:
       - 'index.html'
       - '404.html'
