@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<?xml encoding="utf-8" ?>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Words &mdash; Jeremy Modjeska</title>
+
+  <!-- SEO, Social -->
+  <link rel="canonical" href="https://modjeska.us/words/">
+  <meta name="description" content="Thoughts on software engineering, language, law, and assorted nerdistry. And a contract law flowchart that people seem to like.">
+  <meta property="og:description" content="Thoughts on software engineering, language, law, and assorted nerdistry. And a contract law flowchart that people seem to like.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Words &mdash; Jeremy Modjeska">
+  <meta property="og:url" content="https://modjeska.us/words/">
+  <meta property="og:site_name" content="Jeremy Modjeska">
+  <meta property="og:image" content="https://i.modjeska.us/2018/04/home-5.jpg">
+  <meta property="og:image:width" content="1700">
+  <meta property="og:image:height" content="778">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@jmodjeska">
+  <link rel="shortlink" href="https://modjeska.us/words">
+
+  <!-- Fonts + Styles -->
+  <link rel="dns-prefetch" href="//use.fontawesome.com">
+  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap.min.css?ver=3.2.0" type="text/css" media="all">
+  <link rel="stylesheet" id="wpbase-css" href="https://i.modjeska.us/css/wpbase.min.css?ver=3.2.0" type="text/css" media="all">
+  <link rel="stylesheet" id="magnific-css" href="https://i.modjeska.us/css/magnific.css?ver=0.9.4" type="text/css" media="all">
+  <link rel="stylesheet" id="font-awesome-css" href="https://use.fontawesome.com/91b690d857.css?ver=4.1.0" type="text/css" media="all">
+  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/style.css?ver=3.2.0" type="text/css" media="all">
+  <link rel="stylesheet" id="supplemental-custom-css" href="https://i.modjeska.us/css/supplemental-style.css?ver=1.0" type="text/css" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://i.modjeska.us/js/jquery.min.js?ver=3.6.1" id="jquery-core-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/jquery.cycle.all.min.js?ver=6.1.7" id="jquery-cycle-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/responsive-modernizr.js?ver=2.5.3" id="modernizr-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/magnific.min.js?ver=0.9.4" id="magnific-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/imagesloaded.pkgd.min.js?ver=6.1.7" id="imagesloaded-script-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/jquery.isotope.min.js?ver=6.1.7" id="isotope-script-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/bootstrap.js?ver=6.1.7" id="bootstrap-script-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/custom.js?ver=6.1.7" id="custom-script-js"></script>
+  <script type="text/javascript" src="https://i.modjeska.us/js/newwindow.js?ver=1.0" id="newwindow-js"></script>
+
+  <!-- Icons -->
+  <link rel="icon" href="https://i.modjeska.us/icon/android-chrome-192x192.png?v=2" sizes="192x192">
+  <link rel="icon" href="https://i.modjeska.us/icon/android-chrome-512x512.png?v=2" sizes="512x512">
+  <link rel="apple-touch-icon" href="https://i.modjeska.us/icon/apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.modjeska.us/icon/favicon-32x32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.modjeska.us/icon/favicon-16x16.png?v=2">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-45674718-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-45674718-2');
+  </script>
+  <script>
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+    analytics.load("M5E8AntSbyIDwcFSvmjGjaKV8C931did");
+    analytics.page();
+    }}();
+  </script>
+</head>
+
+<!-- Content -->
+<body class="portfolio-template-default single single-portfolio">
+  <header>
+    <nav role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
+          </div>
+          <div class="navbar-collapse collapse navbar-right navbar-responsive-collapse">
+			      <ul id="menu-top-menu" class="nav navbar-nav-jm">
+              <li id="menu-item-102" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-102"><a href="https://modjeska.us/pictures/">Pictures</a></li>
+              <li id="menu-item-103" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item active menu-item-103"><a href="https://modjeska.us/words/">Words</a></li>
+              <li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-104"><a href="https://modjeska.us/code/">Code</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- navbar -->
+    </nav>
+  </header>
+
+  <div id="wrapper" class="clearfix">
+  <div id="workwrap" style="background-image: url('https://i.modjeska.us/2018/04/home-5.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <h1>WORDS</h1>
+        </div>
+      </div>
+    </div>
+  </div><!-- /wrapper -->
+
+  <section id="works"></section>
+    <div class="container">
+      <div class="row centered mt mb">
+        <div class="col-lg-12 col-lg-offset-0">
+          <div class="jm-gallery jm-words" style="font-size: 18px; line-height: 1.9em;">
+            <h2>Mournful shades of vermillion tinged with regret and stupid rhino tears.</h2>
+
+            <h3><a href="https://modjeska.us/empowering-leaders-with-g-r-e-a-t-decision-making/">Empowering Leaders with G.R.E.A.T. Decision Making</a></h3>
+            <div class="publication-meta">published on</div><div class="publication-link"><a href="https://www.highspot.com/blog/empowering-leaders-with-g-r-e-a-t-decision-making/" target="_blank">Highspot Blog</a></div>
+            <p>The G.R.E.A.T. Decision Making model describes five essential ingredients to equip decision-makers for success. It is a recipe for empowering rising leaders with more authority and for driving efficiency in a growing organization.</p>
+
+            <h3><a href="https://modjeska.us/remote-internships-are-here-to-stay-heres-what-weve-learned/">Remote Internships Are Here to Stay &ndash; Here&rsquo;s What We&rsquo;ve Learned</a></h3>
+            <div class="publication-meta">published on</div><div class="publication-link"><a href="https://www.highspot.com/blog/remote-internships-are-here-to-stay-heres-what-weve-learned/" target="_blank">Highspot Blog</a></div>
+            <p>Highspot and Smartsheet believe in internships as important levers for hiring and building diverse teams, as springboards for people entering the engineering field, and as worthy investments in the future of tech workers. For both of our companies, the rapid shift to remote internships beginning in 2020 was a major adjustment for everyone involved. In this article: why internships matter, the challenges of moving from in-person to remote internships, and the solutions we&rsquo;ve discovered.</p>
+
+            <h3><a href="https://modjeska.us/zoom-meetings-for-live-music/">Zoom Meetings for Live Music</a></h3>
+            <p>During these times of great stress and mandatory quarantine, we need live music more than ever. Here&rsquo;s how to unlock the full potential of your Zoom app and maximize the audio quality of your live remote music event. Includes tips for hosts, musicians, and participants.</p>
+
+            <h3><a href="https://modjeska.us/the-process-is-the-decision/">The Process is the Decision: How decision-making frameworks influence outcomes</a></h3>
+            <div class="publication-meta">published on</div><div class="publication-link"><a href="https://www.highspot.com/blog/your-process-is-the-decision-how-decision-making-frameworks-influence-outcomes/" target="_blank">Highspot Blog</a></div>
+            <p>Organizational process design is paramount to successful leadership. Intentional or not, we construct and model the communication frameworks that govern the way our teams make decisions. Ideally, we approach this responsibility deliberately, establishing processes that empower where empowerment matters; that safeguard where boundaries are called for; that flex and harden and stretch; that encourage outcomes consistent with our guiding principles. Inevitably, the processes we adopt won&rsquo;t just guide our decisions &mdash; in tangible ways, the processes are the decisions.</p>
+
+            <h3><a href="https://modjeska.us/diversity-engineering-internships/">Improving diversity through engineering internship programs</a></h3>
+            <div class="publication-meta">published on</div><div class="publication-link"><a href="https://medium.com/@jmodjeska/improving-diversity-through-engineering-internship-programs-fc8153bdbab2" target="_blank">Medium</a></div>
+            <p>Partnering with socially-conscious coding bootcamps for your software engineering internship program can form the foundation of your diversity initiative and provide access to engineering careers for traditionally underrepresented groups. Are these internships right for your company, and are you adequately prepared to host an intern?</p>
+
+            <h3><a href="https://moz.com/devblog/moz-analytics-db-free/" target="_blank" rel="noopener noreferrer">Going Database-Free in Elixir</a></h3>
+            <div class="publication-meta">published on</div><div class="publication-link"><a href="https://moz.com/devblog/moz-analytics-db-free/" target="_blank">Moz Dev Blog</a></div>
+            <p>My engineering team undertook a comprehensive overhaul of our backend architecture to improve the performance and speed of our application and to unlock significant new features in high demand by our customers. We abandoned MySQL database storage in favor of a database-free architecture and an Elixir-driven data indexing model. In my post on the Moz Blog, I discuss our new architecture, the competitive and technical reasons we chose to invest in this project, and some interesting implementation challenges we faced.</p>
+
+            <h3><a href="https://modjeska.us/in-china-cycling-is-a-way-of-life/">Cycling in China</a></h3>
+            <p>I spend a lot of time advocating for and worrying about the future of cycling in Seattle. Despite the gradually-improving bike infrastructure here, and the growing adoption of cycling as a way of life, we&rsquo;re still a car-centric city where riders are largely unseen by drivers and bike facilities are a funding afterthought. On a recent visit to China, I saw what cycling looks like as a way of life.</p>
+
+            <h3><a href="https://modjeska.us/the-privilege-of-the-writ/">The Privilege of the Writ</a></h3>
+            <div class="publication-meta">published on</div><div class="publication-link"><a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1672941" target="_blank">SSRN</a></div>
+            <p>A survey of Habeas Corpus law before and after 9/11.</p>
+
+            <h3><a href="https://modjeska.us/contract-law-flow-chart/">Contract Law Flow Chart</a></h3>
+            <p>A study tool for business law covering the basics of contract law in the United States, including common law contracts, Uniform Commercial Code (UCC) contracts, and the basic requirements and terminology associated with contracts.</p>
+
+            <h3><a href="https://modjeska.us/kiyemba-v-obama-part-ii-new-borders/">Kiyemba v. Obama Part II: New borders</a></h3>
+            <p>The Guantanamo detainee case <i>Kiyemba v. Obama</i> is a potentially landmark separation-of-powers case headed for the US Supreme Court in March 2010, with major policy issues and the futures of 13 detainees at stake. In this multi-part story, I will try to dig into the background and questions raised by the case. This is a follow-up to <a href="https://modjeska.us/kiyemba-v-obama-part-i/">Part I: Jamal Kiyemba's long journey home</a>.</p>
+
+            <h3><a href="https://modjeska.us/kiyemba-v-obama-part-i/">Kiyemba v. Obama Part I: Jamal Kiyemba's long journey home</a></h3>
+            <p>Jamal Kiyemba doesn&rsquo;t have anything to do with the Supreme Court case that bore his name in 2010. He is a free man; he lives in Uganda, and as well as anyone might expect after what he went though, he is apparently leading a normal life there. But his full-circle journey, one that spanned four continents, is necessary prologue to the legal battle that waged on under his name.</p>
+
+            <h3><a href="https://modjeska.us/character-development-the-future-of-the-written-chinese-language/">Character Development: The past and future of the Chinese written language</a></h3>
+            <p>A short exploration of the history, controversy, and possible future of China&rsquo;s dualistic written language. And the perspective of a student trying to balance an appreciation for culture with a desire to learn the language sometime in his lifetime.</p>
+          </div>
+        </div><!-- col -->
+
+        <div class="col-lg-10 col-lg-offset-1 mt"></div>
+        <footer class="article-footer">
+          <div class="post-edit"></div>
+        </footer>
+      </div><!-- /row -->
+    </div><!-- /container -->
+
+    <div id="social">
+      <div class="container">
+        <div class="row centered">
+          <div class="col-xs-2">
+            &nbsp;
+          </div><!-- /col -->
+          <div class="col-xs-2">
+            <a href="https://instagr.am/jmodjeska" title="instagram" target="_blank">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </div><!-- /col -->
+          <div class="col-xs-2">
+            <a href="https://linkedin.com/in/modjeska" title="linkedin" target="_blank">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </div><!-- /col -->
+          <div class="col-xs-2">
+            <a href="https://github.com/jmodjeska" title="github" target="_blank">
+              <i class="fa fa-github"></i>
+            </a>
+          </div><!-- /col -->
+          <div class="col-xs-2">
+            <a href="https://uberworld.org" title="uberworld" target="_blank">
+              <i class="fa fa-terminal"></i>
+            </a>
+          </div><!-- /col -->
+          <div class="col-xs-2">
+            &nbsp;
+          </div><!-- /col -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </div><!-- /social -->
+
+    <footer id="footerwrap">
+      <div class="container">
+        <div class="row centered">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <div id="text-6" class="widget_text">
+              <h4 id="widget-title-one" class="widget-title-footer">ABOUT</h4>
+              <div class="hline-w"></div>
+              <div class="textwidget">
+                <p>This personal website of Jeremy Modjeska is &copy; by the author
+                <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/legalcode">BY-NC-ND</a>.
+                Powered by a herd of Siberian mountain goats.
+                This website is not suitable for carbon-based lifeforms.</p>
+              </div>
+            </div>
+          </div><!-- /col -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </footer>
+
+    <script>
+      var cmsg = (function(){ /*
+
+         __
+        /\_\     ___ ___
+        \/\ \  /' __` __`\
+         \ \ \ /\ \/\ \/\ \
+         _\ \ \\ \_\ \_\ \_\
+        /\ \_\ \\/_/\/_/\/_/
+        \ \____/
+         \/___/
+
+        */}).toString().split('\n').slice(1, -1).join('\n');
+      console.log(cmsg);
+    </script>
+  </body>
+  </html>

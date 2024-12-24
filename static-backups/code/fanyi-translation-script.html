@@ -2,17 +2,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-	<title>@@TITLE@@ &mdash; Jeremy Modjeska</title>
+	<title>Fanyi Translation Script &mdash; Jeremy Modjeska</title>
 
   <!-- SEO, Social -->
-  <link rel="canonical" href="https://modjeska.us/code-@@SLUG@@/">
-	<meta name="description" content="@@DESCRIPTION@@">
-  <meta property="og:description" content="@@DESCRIPTION@@">
+  <link rel="canonical" href="https://modjeska.us/code-fanyi-translation-script/">
+	<meta name="description" content="Fanyi is a simple translation script that employs the free Microsoft Translator API to translate a newline-separated text file, line by line, into almost any language. This is a simple internationalization proof-of-concept.">
+  <meta property="og:description" content="Fanyi is a simple translation script that employs the free Microsoft Translator API to translate a newline-separated text file, line by line, into almost any language. This is a simple internationalization proof-of-concept.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="@@TITLE@@ &mdash; Jeremy Modjeska">
-  <meta property="og:url" content="https://modjeska.us/code-@@SLUG@@/">
+  <meta property="og:title" content="Fanyi Translation Script &mdash; Jeremy Modjeska">
+  <meta property="og:url" content="https://modjeska.us/code-fanyi-translation-script/">
   <meta property="og:site_name" content="Jeremy Modjeska">
   <meta property="og:image" content="https://i.modjeska.us/2018/08/code-card.png">
 	<meta property="og:image:width" content="1000">
@@ -20,7 +20,7 @@
 	<meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@jmodjeska">
-  <link rel="shortlink" href="https://modjeska.us/code-@@SLUG@@/">
+  <link rel="shortlink" href="https://modjeska.us/code-fanyi-translation-script/">
 
   <!-- Fonts + Styles -->
   <link rel="dns-prefetch" href="//use.fontawesome.com">
@@ -110,19 +110,78 @@
             <div class="blog-media">
               <section class="post-entry">
                 <header class="page-header blog-title">
-                  <h1 class="general-title"><a href="https://modjeska.us/@@SLUG@@/" rel="bookmark" title="Permanent Link to @@TITLE@@">@@TITLE@@</a></h1>
+                  <h1 class="general-title"><a href="https://modjeska.us/fanyi-translation-script/" rel="bookmark" title="Permanent Link to Fanyi Translation Script">Fanyi Translation Script</a></h1>
                   <div class="post-meta">
-                    <p>Published on: <span class="publish-on">@@PUBLISHED_ON@@</span></p>
+                    <p>Published on: <span class="publish-on">April 10, 2018</span></p>
                   </div>
                 </header>
                 <div class="post-desc">
                   <div class="publication-meta">source code</div>
                   <div class="github-link">
                     <a href="https://github.com/jmodjeska" target="_blank">jmodjeska</a> / <b>
-                    <a href="@@GITHUB_URL@@" target="_blank">@@GITHUB_URL_NAME@@</a></b>
+                    <a href="https://github.com/jmodjeska/fanyi" target="_blank">fanyi</a></b>
                   </div>
 
-                  @@POST_CONTENT@@
+                  <p>Fanyi is a simple translation script that employs the free <a href="http://www.microsoft.com/en-us/translator/getstarted.aspx">Microsoft Translator API</a> in order to translate a newline-separated text file, line by line, into almost any language. I wrote it to facilitate an internationalization proof-of-concept. Of course it isn&rsquo;t meant for production use since the quality of the translations will be poor.</p>
+<p>The script allows for a custom list of excluded words or phrases, so you can exempt from translation your brand names, HTML entities, and other untranslatable strings. Since each line is treated as a single entity, excluded strings are skipped, then merged back in.</p>
+<h3>Example</h3>
+<p>Translate a three-line file into Chinese, excluding HTML entities and two brand names.</p>
+<p><b>Input</b>:</p>
+<pre>Acme company product home page
+Click &lt;b&gt;here&lt;/b&gt; to login
+Read about Acme's new product, the Cornballer!
+</pre>
+<p><b>Output</b>:</p>
+<pre>Acme &#20844;&#21496;&#20135;&#21697;&#20027;&#39029;
+&#28857;&#20987;&lt;b&gt;&#36825;&#37324;&lt;/b&gt;&#30331;&#24405;
+&#38405;&#35835;Acme&#30340;&#26032;&#20135;&#21697;, Cornballer!
+</pre>
+<h3>Usage Synopsis</h3>
+<p>Single file conversion:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+    <div id="crayon-676a611039d72553362873" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
+perl fanyi.pl input_filename.txt output_filename.txt</textarea></div>
+      <div class="crayon-main" style="">
+        <table class="crayon-table">
+          <tr class="crayon-row">
+        <td class="crayon-nums " data-settings="show">
+          <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a611039d72553362873-1">1</div></div>
+        </td>
+            <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a611039d72553362873-1"><span class="crayon-e">perl </span><span class="crayon-v">fanyi</span><span class="crayon-e">.pl</span><span class="crayon-h"> </span><span class="crayon-v">input_filename</span><span class="crayon-e">.txt</span><span class="crayon-h"> </span><span class="crayon-v">output_filename</span><span class="crayon-e">.txt</span></div></div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+<!-- [Format Time: 0.0011 seconds] -->
+<p></p>
+<p>Multiple file conversion recursively through a directory tree:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+    <div id="crayon-676a611039d7b678566938" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+
+      <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
+find /path/to/target_directory -type f -exec sh -c '
+perl /path/to/fanyi.pl $0 $0.new &amp;amp;&amp;amp;
+mv $0.new $0
+' {} \;</textarea></div>
+      <div class="crayon-main" style="">
+        <table class="crayon-table">
+          <tr class="crayon-row">
+        <td class="crayon-nums " data-settings="show">
+          <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a611039d7b678566938-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a611039d7b678566938-2">2</div><div class="crayon-num" data-line="crayon-676a611039d7b678566938-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a611039d7b678566938-4">4</div></div>
+        </td>
+            <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a611039d7b678566938-1"><span class="crayon-r">find</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">path</span><span class="crayon-o">/</span><span class="crayon-st">to</span><span class="crayon-o">/</span><span class="crayon-v">target_directory</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-r">type</span><span class="crayon-h"> </span><span class="crayon-v">f</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-e">exec </span><span class="crayon-r">sh</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">c</span><span class="crayon-h"> </span>'</div><div class="crayon-line crayon-striped-line" id="crayon-676a611039d7b678566938-2"><span class="crayon-v">perl</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">path</span><span class="crayon-o">/</span><span class="crayon-st">to</span><span class="crayon-o">/</span><span class="crayon-v">fanyi</span><span class="crayon-e">.pl</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-cn">0.new</span><span class="crayon-h"> </span><span class="crayon-o">&amp;</span><span class="crayon-v">amp</span><span class="crayon-sy">;</span><span class="crayon-o">&amp;</span><span class="crayon-v">amp</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-676a611039d7b678566938-3"><span class="crayon-r">mv</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-cn">0.new</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-cn">0</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a611039d7b678566938-4">'<span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">\</span><span class="crayon-sy">;</span></div></div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p></p>
+<p>Check out the <a href="https://github.com/jmodjeska/fanyi" target="_blank" rel="noopener">project on Github</a>.</p>
+
 
                 </div><!-- /post -->
               </section>
