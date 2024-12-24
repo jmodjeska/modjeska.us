@@ -35,10 +35,15 @@ puts '-=> Build step: copy files to support WP-style slugs'
     next if file == 'index.html'
     next unless File.extname(file) == '.html'
     source = "#{build_dir}/#{dir}/#{file}"
-    root_level_dir = "#{build_dir}/#{@b.file_slug(file, dir)}"
+    slug = @b.file_slug(file, dir)
+    root_level_dir = "#{build_dir}/#{slug}"
 
     puts "-=> Copying #{source} to #{root_level_dir}.html"
     FileUtils.cp(source, "#{root_level_dir}.html")
+
+    puts "-=> Copying #{source} to #{build_dir}/#{dir}/#{slug}/index.html"
+    FileUtils.mkdir_p("#{build_dir}/#{dir}/#{slug}")
+    FileUtils.cp(source, "#{build_dir}/#{dir}/#{slug}/index.html")
 
     puts "-=> Copying #{source} to #{root_level_dir}/index.html"
     FileUtils.mkdir_p(root_level_dir)
