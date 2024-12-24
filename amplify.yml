@@ -7,7 +7,7 @@ frontend:
       commands:
         - gem install rspec
         - rspec
-        - cd /
+        - pwd
         - ruby build/write_posts.rb
   artifacts:
     baseDirectory: /build
