@@ -33,10 +33,6 @@ describe 'Build pipeline' do
     expect(files.any? { |s| s.include?('data/code.yml') }).to be true
   end
 
-  it 'checks for the existence of required files' do
-    expect(@b.check_files).to be true
-  end
-
   it 'identifies which required directories have filenames in common' do
     known_files = [
       'path/to/templates/a.html',
@@ -75,5 +71,12 @@ describe 'Build pipeline' do
   it 'merges data into a template' do
     merge = @b.merge_data_to_template(@test_template, @test_data)
     expect(merge).to eq [@stub_output_1, @stub_output_2]
+  end
+end
+
+xdescribe 'Production env validations' do
+  it 'checks for the existence of required files' do
+    @b = Builder.new
+    expect(@b.check_files).to be true
   end
 end

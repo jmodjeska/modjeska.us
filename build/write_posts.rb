@@ -14,7 +14,10 @@ end
 @b = Builder.new
 
 puts '-=> Checking for required files ...'
-@b.check_files
+unless @b.check_files
+  puts '-=> Some files were missing; proceeding without them ...'
+  @b.ignore_missing_directories
+end
 
 build_list = @b.directories_to_build
 if build_list.nil? || build_list.empty?

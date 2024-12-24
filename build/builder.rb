@@ -25,15 +25,22 @@ class Builder
     return list
   end
 
-  # Validates all files are where we expect them to be
+  # Validates expected files are present
   def check_files
+    temp_file_list = @file_list.dup
     expected_files_count = @file_list.count
-    @file_list.delete_if do |file|
+    temp_file_list.delete_if do |file|
       next if File.exist?(file)
       puts "MISSING: #{file}"
       true
     end
-    return @file_list.count == expected_files_count
+    return temp_file_list.count == expected_files_count
+  end
+
+  # Removes directories from the build if their data or template is missing
+  def ignore_missing_directories
+    @file_list.delete_if { |f| !File.exist?(f) }
+    return check_files
   end
 
   # Determine which web directories have the required data to build
