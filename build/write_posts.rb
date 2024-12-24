@@ -25,7 +25,7 @@ build_list = @b.directories_to_build
 if build_list.nil? || build_list.empty?
   abort 'EXIT: Intersection of data and templates ie empty!'
 end
-puts "-=> Building directories: #{build_list.join(',')} ..."
+puts "-=> Building directories: #{build_list.join(', ')} ..."
 
 # Write pages if directory is in the build list
 build_list.each do |cat|
@@ -35,7 +35,7 @@ build_list.each do |cat|
   data = YAML.load_file(data_f)
 
   unless @b.check_for_posts(data)
-    puts "-=> No post data found in the file #{data_file}"
+    puts "-=> No post data found in the file #{data_f}"
     next
   end
 
