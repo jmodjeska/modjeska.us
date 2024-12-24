@@ -13,10 +13,6 @@ frontend:
   artifacts:
     baseDirectory: /build/site
     files:
-      - 'index.html'
-      - '404.html'
-      - 'pictures/**/*'
-      - 'words/**/*'
-      - 'code/**/*'
+      - '**/*'
   cache:
     paths: []
