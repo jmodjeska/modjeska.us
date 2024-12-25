@@ -14,12 +14,6 @@ Custom SSL cert:
 Origin:
 `www.example.com` (doesn't matter)
 
-Event:
-`Viewer Request`
-
-Cache behavior:
-`*`
-
 ### Route53
 
 ```
@@ -32,6 +26,12 @@ d3m1d0o784rh45.cloudfront.net
 
 Region:
 `us-east-1`
+
+Event:
+`Viewer Request`
+
+Cache behavior:
+`*`
 
 Code:
 
