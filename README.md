@@ -65,9 +65,9 @@ def lambda_handler(event, context):
 ```
 
 Execution role:
-`RewriteWebsiteCategoryURLs-role-qcfj5shs`
+`RewriteWebsiteCategoryURLs`
 
-### IAM (`RewriteWebsiteCategoryURLs-role-qcfj5shs`)
+### IAM (`RewriteWebsiteCategoryURLs`)
 
 Permissions policies:
 `AWSLambdaBasicExecutionRole`
