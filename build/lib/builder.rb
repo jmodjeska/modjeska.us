@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 require 'yaml'
+require_relative 'config'
 
 # Build pipeline functions
 class Builder
   attr_reader :required_directories, :required_files, :file_list
 
   def initialize
-    @required_directories = {
-      'templates': 'html',
-      'data': 'yml'
-    }
-    @required_files = %w[code pictures words]
+    @required_files = REQUIRED_FILES
+    @required_directories = REQUIRED_DIRECTORIES
     @file_list = build_file_list
   end
 
@@ -77,6 +75,7 @@ class Builder
       temp = template.dup
       post.each { |k, v| temp.gsub!("@@#{k.upcase}@@", v.to_s) }
       output[i] = temp
+      output[i] << File.read(FOOTER)
     end
     return output
   end

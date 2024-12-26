@@ -1,15 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'builder'
+require_relative 'lib/builder'
+require_relative 'lib/config'
 
-execution_dir = 'modjeska.us'
 current_dir = File.basename(Dir.getwd)
-build_dir = 'build/site'
-
-unless execution_dir == current_dir
-  abort 'EXIT: Call the build script from the root project directory, ' \
-    "#{execution_dir} (currently calling from '#{current_dir})'."
-end
+check_dir(current_dir)
 
 @b = Builder.new
 
@@ -47,7 +42,7 @@ build_list.each do |cat|
   puts "-=> Building pages for #{cat} ..."
   @b.merge_data_to_template(template, data).each_with_index do |page, i|
     filename = "#{data['posts'][i]['slug']}.html"
-    puts "-=> Building #{filename} ..."
-    File.write("#{build_dir}/#{cat}/#{filename}", page)
+    puts "-   #{filename}"
+    File.write("#{BUILD_DIR}/#{cat}/#{filename}", page)
   end
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'builder'
+require_relative 'lib/builder'
+require_relative 'lib/config'
 require 'fileutils'
 
 #
@@ -17,35 +18,31 @@ require 'fileutils'
 # Ensure this script runs after the build in amplify.yml.
 #
 
-execution_dir = 'modjeska.us'
 current_dir = File.basename(Dir.getwd)
-build_dir = 'build/site'
-
-unless execution_dir == current_dir
-  abort 'EXIT: Call this script from the root project directory, ' \
-    "#{execution_dir} (currently calling from '#{current_dir})'."
-end
+check_dir(current_dir)
 
 puts '-=> Build step: copy files to support WP-style slugs'
 
 @b = Builder.new
 
 @b.required_files.each do |dir|
-  Dir.each_child("#{build_dir}/#{dir}") do |file|
+  Dir.each_child("#{BUILD_DIR}/#{dir}") do |file|
     next if file == 'index.html'
     next unless File.extname(file) == '.html'
-    source = "#{build_dir}/#{dir}/#{file}"
+    source = "#{BUILD_DIR}/#{dir}/#{file}"
     slug = @b.file_slug(file, dir)
-    root_level_dir = "#{build_dir}/#{slug}"
+    root_level_dir = "#{BUILD_DIR}/#{slug}"
 
-    puts "-=> Copying #{source} to #{root_level_dir}.html"
+    puts "-=> Copying #{source} to ..."
+
+    puts "-   #{root_level_dir}.html"
     FileUtils.cp(source, "#{root_level_dir}.html")
 
-    puts "-=> Copying #{source} to #{build_dir}/#{dir}/#{slug}/index.html"
-    FileUtils.mkdir_p("#{build_dir}/#{dir}/#{slug}")
-    FileUtils.cp(source, "#{build_dir}/#{dir}/#{slug}/index.html")
+    puts "-   #{BUILD_DIR}/#{dir}/#{slug}/index.html"
+    FileUtils.mkdir_p("#{BUILD_DIR}/#{dir}/#{slug}")
+    FileUtils.cp(source, "#{BUILD_DIR}/#{dir}/#{slug}/index.html")
 
-    puts "-=> Copying #{source} to #{root_level_dir}/index.html"
+    puts "-   #{root_level_dir}/index.html"
     FileUtils.mkdir_p(root_level_dir)
     FileUtils.cp(source, "#{root_level_dir}/index.html")
   end

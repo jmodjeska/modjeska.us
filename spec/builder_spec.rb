@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../build/builder'
+require_relative '../build/lib/builder'
 
 def create_instance_vars
   test_template_file = 'spec/support/test_template.html'
@@ -23,6 +23,7 @@ describe 'Build pipeline' do
 
   before(:each) do
     @b = Builder.new
+    stub_const 'FOOTER', 'spec/support/footer.html'
   end
 
   it 'verifies that a list of required files was built' do
@@ -39,10 +40,10 @@ describe 'Build pipeline' do
       'path/to/templates/b.html',
       'path/to/templates/c.html',
       'path/to/templates/d.html',
-      'path/to/data/a.html',
-      'path/to/data/c.html',
-      'path/to/data/e.html',
-      'path/to/data/f.html'
+      'path/to/data/a.yml',
+      'path/to/data/c.yml',
+      'path/to/data/e.yml',
+      'path/to/data/f.yml'
     ]
     @b.check_files
     expect(@b.directories_to_build(known_files)).to eq %w[a c]
@@ -74,7 +75,7 @@ describe 'Build pipeline' do
   end
 end
 
-xdescribe 'Production env validations' do
+describe 'Production env validations' do
   it 'checks for the existence of required files' do
     @b = Builder.new
     expect(@b.check_files).to be true

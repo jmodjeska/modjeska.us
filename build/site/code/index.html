@@ -213,12 +213,22 @@
                 <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/legalcode">BY-NC-ND</a>.
                 Powered by a herd of Siberian mountain goats.
                 This website is not suitable for carbon-based lifeforms.</p>
+                <i><p id="tw-quote-placeholder"></p></i>
               </div>
             </div>
           </div><!-- /col -->
         </div><!-- /row -->
       </div><!-- /container -->
     </footer>
+
+    <script src="https://i.modjeska.us/js/quotesdb.js"></script>
+    <script>
+      var twline = lines[Math.floor(Math.random()*lines.length)];
+      document.addEventListener("DOMContentLoaded", () => {
+        const placeholderElement = document.getElementById("tw-quote-placeholder");
+        placeholderElement.textContent = twline;
+      });
+    </script>
 
     <script>
       var cmsg = (function(){ /*
