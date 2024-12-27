@@ -104,11 +104,14 @@ posts:
   - title: DIY Masonry-Style Image Gallery
     slug: diy-image-gallery
     description: Automatically generate thumbnails, JavaScript, and HTML for your image gallery. Using Progressive Image Grid (pig.js), this project creates gorgeous and lightweight Google Photos-style masonry photo galleries. Open-source code includes optional WordPress integration.
-    published_on: April 23, 2018
+    published_on: April 23, 2018 (updated December 27, 2024)
     github_url: https://github.com/jmodjeska/pigg
     github_url_name: pigg
     post_content: |2
-      <p>I recently gave up on image gallery plugins for WordPress. They come with extra overhead, they do too many things I don&rsquo;t need, and they don&rsquo;t do enough of what I want. Furthermore, I dislike how WordPress organizes content. I want control, automation, and a beautiful layout.<br><img decoding="async" width="1000" height="615" class="alignnone size-full wp-image-1793" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us" srcset="https://i.modjeska.us/2018/04/gallery_final.png 1000w, https://i.modjeska.us/2018/04/gallery_final-300x185.png 300w, https://i.modjeska.us/2018/04/gallery_final-768x472.png 768w" sizes="(max-width: 1000px) 100vw, 1000px"><br>Take a look at one of my <b><a href="/pictures-china-2014/" target="_blank" rel="noopener">image galleries</a></b> for a working demo of what I came up with. This post will walk you through how to build image galleries like this one with minimal effort.</p>
+      <p>Image gallery plugins come with extra overhead: they do too many things I don&rsquo;t need, and they don&rsquo;t do enough of what I want. I want control, automation, and a beautiful masonry layout, like this:
+      <br>
+      <img decoding="async" width="1000" height="615" class="alignnone size-full wp-image-1793" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us" srcset="https://i.modjeska.us/2018/04/gallery_final.png 1000w, https://i.modjeska.us/2018/04/gallery_final-300x185.png 300w, https://i.modjeska.us/2018/04/gallery_final-768x472.png 768w" sizes="(max-width: 1000px) 100vw, 1000px"><br>Take a look at one of my <b><a href="/pictures-china-2014/" target="_blank" rel="noopener">image galleries</a></b> for a working demo of what I came up with. This post will walk you through how to build image galleries like this one.</p>
+
       <h3>Steps</h3>
       <ol class="bignum">
       <li>
@@ -124,22 +127,24 @@ posts:
       <li>
       <span>3.</span>
       <p><strong><a href="#automation">Automation</a></strong>.
-      While the PIG library is handy, it doesn&rsquo;t do the heavy lifting of generating all those image thumbnails and directory structures we need. As with all problems in the universe, the solution is a Perl script to automate things.</p></li>
+      While the PIG library is handy, it doesn&rsquo;t do the heavy lifting of generating all those image thumbnails and directory structures we need. As with all problems in the universe, the solution is a script to automate things. I provide Ruby and Perl versions.</p></li>
 
       <li>
       <span>4.</span>
       <p><strong><a href="#wordpress">WordPress Integration</a></strong>.
       The above steps are sufficient to facilitate the creation of image galleries with minimal effort. You can stop there if you want to, or optionally add some code to WordPress to simplify adding PIG-powered galleries. This step will not require any plugin installation. Instead, we&rsquo;ll build a lightweight custom plugin from scratch so you have complete visibility and control over what is going on.</p></li>
-
       </ol>
-      <p><a name="pig"></a></p>
-      <p><a name="pig"></a></p>
+
       <h3>Basic PIG</h3>
-      <p><a name="pig"></a><a name="pig"></a></p>
+
       <p><a href="https://github.com/schlosser/pig.js">Dan Schlosser&rsquo;s Progressive Image Grid (PIG.js)</a> is a responsive and lightweight JavaScript library that progressively and elegantly loads images as you scroll. It looks similar to the Google Photos album layout, which is the look I was interested in for my photo galleries. To get started, let&rsquo;s see a test project using pure standard PIG without any modifications.</p>
+
       <p><b>Click on the source code link at the top</b> and clone the Github project, or just <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-1">download the files for example-project-1</a>. You should be able to open index.html locally in your browser and see a simple gallery with four images:</p>
-      <p><img decoding="async" loading="lazy" width="768" height="684" class="alignnone size-medium wp-image-1783" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1" srcset="https://i.modjeska.us/2018/04/pig-example-1-768x684.png 768w, https://i.modjeska.us/2018/04/pig-example-1-300x267.png 300w, https://i.modjeska.us/2018/04/pig-example-1-1024x912.png 1024w, https://i.modjeska.us/2018/04/pig-example-1.png 1262w" sizes="(max-width: 768px) 100vw, 768px"></p>
+
+      <p><img decoding="async" loading="lazy" width="768" height="684" class="alignnone size-medium" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1" srcset="https://i.modjeska.us/2018/04/pig-example-1-768x684.png 768w, https://i.modjeska.us/2018/04/pig-example-1-300x267.png 300w, https://i.modjeska.us/2018/04/pig-example-1-1024x912.png 1024w, https://i.modjeska.us/2018/04/pig-example-1.png 1262w" sizes="(max-width: 768px) 100vw, 768px"></p>
+
       <p>Easy, right? But wait &hellip;</p>
+
       <p><b>These images aren&rsquo;t clickable!</b> PIG doesn&rsquo;t have support for image modals or linking.</p>
       <p><b>There are a lot of extra images!</b> While there are only four images on the page, each full-size image requires four additional thumbnails in the /img directory &mdash; that&rsquo;s 16 additional images I had to create for this simple page.</p>
       <pre>&#9500;&#9472;&#9472; img
@@ -165,39 +170,29 @@ posts:
       ...
       </pre>
       <p><b>There is math happening in here!</b> The JavaScript contains an aspect ratio for each image in order for PIG to work its magic. So, on top of creating 16 images, I had to divide height and width to get ratios.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429b0735676621" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
       var imageData = [
-      {"filename": "vn.jpg", "aspectRatio": "1.3300"},    // 1.3300: that requires math!
-      {"filename": "vn2.jpg", "aspectRatio": "1.6300"},
-      {"filename": "vn3.jpg", "aspectRatio": "1.3300"},
-      {"filename": "vn4.jpg", "aspectRatio": "1.3300"},
-      ];</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429b0735676621-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429b0735676621-2">2</div><div class="crayon-num" data-line="crayon-676a52ae429b0735676621-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429b0735676621-4">4</div><div class="crayon-num" data-line="crayon-676a52ae429b0735676621-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429b0735676621-6">6</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429b0735676621-1"><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">imageData</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429b0735676621-2"><span class="crayon-sy">{</span><span class="crayon-s">"filename"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"vn.jpg"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"aspectRatio"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"1.3300"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">/</span><span class="crayon-o">/</span><span class="crayon-h"> </span><span class="crayon-cn">1.3300</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">that</span><span class="crayon-h"> </span><span class="crayon-e">requires</span><span class="crayon-h"> </span><span class="crayon-e">math</span><span class="crayon-o">!</span></div><div class="crayon-line" id="crayon-676a52ae429b0735676621-3"><span class="crayon-sy">{</span><span class="crayon-s">"filename"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"vn2.jpg"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"aspectRatio"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"1.6300"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429b0735676621-4"><span class="crayon-sy">{</span><span class="crayon-s">"filename"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"vn3.jpg"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"aspectRatio"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"1.3300"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-676a52ae429b0735676621-5"><span class="crayon-sy">{</span><span class="crayon-s">"filename"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"vn4.jpg"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"aspectRatio"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"1.3300"</span><span class="crayon-sy">}</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429b0735676621-6"><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0016 seconds] -->
+        {"filename": "vn.jpg", "aspectRatio": "1.3300"},    // 1.3300: that requires math!
+        {"filename": "vn2.jpg", "aspectRatio": "1.6300"},
+        {"filename": "vn3.jpg", "aspectRatio": "1.3300"},
+        {"filename": "vn4.jpg", "aspectRatio": "1.3300"},
+      ];
+      </pre>
 
       <p>Obviously, Dan has created a great tool for us to get started, but it doesn&rsquo;t yet do the dishes or double on sax for us, so in the next steps we&rsquo;ll fix it up and automate like crazy.</p>
       <p><a name="more-pig"></a></p>
-      <p><a name="more-pig"></a></p>
+
       <h3>Extending PIG</h3>
-      <p><a name="more-pig"></a><a name="more-pig"></a></p>
+
       <p>Let&rsquo;s move on to <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-2">Example Project 2</a>. Copy the files as before and open index.html.</p>
+
       <p><img decoding="async" loading="lazy" width="1000" height="875" class="alignnone size-full wp-image-1806" src="https://i.modjeska.us/2018/04/pig-example-2.png" alt="PIGG Example 2" srcset="https://i.modjeska.us/2018/04/pig-example-2.png 1000w, https://i.modjeska.us/2018/04/pig-example-2-300x263.png 300w, https://i.modjeska.us/2018/04/pig-example-2-768x672.png 768w" sizes="(max-width: 1000px) 100vw, 1000px"></p>
+
       <p>Well that&rsquo;s underwheming: it looks exactly the same!</p>
+
       <p>But a few things changed under the hood. First, <b>images are clickable now</b>. How&rsquo;d we accomplish that? Cheating, of course: our friend <a href="https://github.com/mark-rodgers/pig.js">Mark Rodgers has modified PIG</a> to support the Swipebox library. Now images are clickable and open in fancy modals &mdash; go ahead, click on them!</p>
+
           <div id="pig">
             <img id="gsPreviewImg">
           </div>
@@ -225,88 +220,61 @@ posts:
               $( '.swipebox' ).swipebox();
             } )( jQuery );
           </script>
+
       <br>
+
       <p>How did we do that? Let&rsquo;s take a look at what changed in the index.html source. First, we&rsquo;ve <b>added the Swipebox libraries</b>, and we&rsquo;ve modified the source for pig.js:</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429ba443945529" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
         &lt;script src="https://code.jquery.com/jquery-2.0.3.min.js"&gt;&lt;/script&gt;
-        &lt;script src=".../jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="https://rawgit.com/jmodjeska/pigg/master/js/pig.js"&gt;</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429ba443945529-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429ba443945529-2">2</div><div class="crayon-num" data-line="crayon-676a52ae429ba443945529-3">3</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429ba443945529-1"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-ta">&lt;script </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"https://code.jquery.com/jquery-2.0.3.min.js"</span><span class="crayon-o">&gt;</span><span class="crayon-ta">&lt;/script&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429ba443945529-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-ta">&lt;script </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">".../jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"</span><span class="crayon-o">&gt;</span><span class="crayon-ta">&lt;/script&gt;</span></div><div class="crayon-line" id="crayon-676a52ae429ba443945529-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">script </span><span class="crayon-r">type</span><span class="crayon-o">=</span><span class="crayon-s">"text/javascript"</span><span class="crayon-h"> </span><span class="crayon-v">src</span><span class="crayon-o">=</span><span class="crayon-s">"https://rawgit.com/jmodjeska/pigg/master/js/pig.js"</span><span class="crayon-o">&gt;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0012 seconds] -->
+        &lt;script src=".../jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"&gt;&lt;/script>
+        &lt;script type="text/javascript" src="https://rawgit.com/jmodjeska/pigg/master/js/pig.js"&gt;&lt;/script>
+      </pre>
 
       <p>In this case, we&rsquo;re using my version of pig.js as the source. It&rsquo;s identical to Mark&rsquo;s, except with a minor change to improve compatibility with WordPress (more on that later). This is the version we&rsquo;ll be using for the remainder of the process. What else changed?</p>
       <p>We also have some <b>anchor text directives</b> in the JavaScript.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429bd049050730" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-            addAnchorTag: true,
-            anchorTargetDir: "",
-            anchorClass: "swipebox"
-            }).enable();
-            ;( function( $ ) {
-              $( '.swipebox' ).swipebox();
-            } )( jQuery );</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429bd049050730-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429bd049050730-2">2</div><div class="crayon-num" data-line="crayon-676a52ae429bd049050730-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429bd049050730-4">4</div><div class="crayon-num" data-line="crayon-676a52ae429bd049050730-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429bd049050730-6">6</div><div class="crayon-num" data-line="crayon-676a52ae429bd049050730-7">7</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429bd049050730-1"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">addAnchorTag</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">true</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429bd049050730-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">anchorTargetDir</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">""</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-676a52ae429bd049050730-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">anchorClass</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"swipebox"</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429bd049050730-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-e">.enable</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-676a52ae429bd049050730-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">;</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429bd049050730-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'.swipebox'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-e">.swipebox</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-676a52ae429bd049050730-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-i">jQuery</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0006 seconds] -->
+      <pre>
+        addAnchorTag: true,
+        anchorTargetDir: "",
+        anchorClass: "swipebox"
+        }).enable();
+          ;( function( $ ) {
+          $( '.swipebox' ).swipebox();
+        } )( jQuery );
+      </pre>
 
       <p>So this gallery does what we want it to now! Let&rsquo;s move on to automating things.</p>
       <p><a name="automation"></a></p>
+
+      <br>
+
       <h3>Automation</h3>
+
       <p>Now for the fun part: making a robot do all the math, image resizing, and directory setup so we don&rsquo;t have to. Let&rsquo;s even have it output a ready-to-use HTML file. This section assumes a basic understanding of running scripts, and a Mac or Unix/Linux system. This probably won&rsquo;t work on Windows.</p>
-      <p>We&rsquo;ll work with <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-3">Example Project 3</a>, which right now is just four images. Using <a href="https://github.com/jmodjeska/pigg/blob/master/util/pigg.pl">pigg.pl</a>, we&rsquo;ll transform those four images into a gallery without any math or manual file creation. This automation script is the reason you&rsquo;re here, and the first step in this process featuring any work I&rsquo;ve actually done myself and not just copied from others. Let&rsquo;s walk through configuration and setup.</p>
-      <p><b>Install Perl dependencies</b>. This assumes you have <a href="https://www.cpan.org/">CPAN</a> setup locally or on the server where you&rsquo;ll run this script.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+      <p>We&rsquo;ll work with <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-3">Example Project 3</a>, which right now is just four images. Using <a href="https://github.com/jmodjeska/pigg/blob/main//perl/">pigg.pl (Perl)</a> or <a href="https://github.com/jmodjeska/pigg/tree/main/ruby">pigg.rb (Ruby)</a>, we&rsquo;ll transform those four images into a gallery without any math or manual file creation. This automation script is the reason you&rsquo;re here, and the first step in this process featuring any work I&rsquo;ve actually done myself and not just copied from others. Let&rsquo;s walk through configuration and setup.</p>
 
-          <div id="crayon-676a52ae429c1795070971" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+      <br>
 
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
+      <h3>Automation with Perl</h3>
+      <div class="alert alert-danger" role="alert">
+        <b>Caution</b>: As of December 2024, Image::Scale seems to no longer work on MacOS, even with the requisite packages installed. I'm keeping these instructions for those who know what they're doing, but I suggest you skip down to the <b>Automation with Ruby</b> section for an easier and more reliable experience.
+      </div>
+
+      <br>
+
+      <p><b>Install Perl dependencies</b>. If using the Perl script, and assuming you have <a href="https://www.cpan.org/">CPAN</a> setup locally or on the server where you&rsquo;ll run this script, install these libraries:</p>
+
+      <pre>
         cpan Image::Size
-        cpan Image::Scale</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429c1795070971-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c1795070971-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429c1795070971-1"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">cpan </span><span class="crayon-v">Image</span><span class="crayon-o">::</span><span class="crayon-e">Size</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c1795070971-2"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-e">cpan </span><span class="crayon-v">Image</span><span class="crayon-o">::</span><span class="crayon-v">Scale</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0002 seconds] -->
+        cpan Image::Scale
+      </pre>
+
+      <br>
 
       <p>If you get an error regarding <b>libpng</b> and/or <b>ligjpeg</b>, you may need to install those explicitly:</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429c4402847109" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
       # CentOS / Amazon Linux
       sudo yum install libpng-devel
       sudo yum install libjpeg-devel
@@ -314,111 +282,56 @@ posts:
       # Ubuntu
       apt-get install libjpeg-dev
       apt-get install libpng-dev
-      # Mac (should be pre-installed)
+
+      # Mac
       brew install libjpeg
-      brew install libpng</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429c4402847109-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c4402847109-2">2</div><div class="crayon-num" data-line="crayon-676a52ae429c4402847109-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c4402847109-4">4</div><div class="crayon-num" data-line="crayon-676a52ae429c4402847109-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c4402847109-6">6</div><div class="crayon-num" data-line="crayon-676a52ae429c4402847109-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c4402847109-8">8</div><div class="crayon-num" data-line="crayon-676a52ae429c4402847109-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c4402847109-10">10</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429c4402847109-1"><span class="crayon-c"># CentOS / Amazon Linux</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c4402847109-2"><span class="crayon-e">sudo </span><span class="crayon-e">yum </span><span class="crayon-e">install </span><span class="crayon-v">libpng</span><span class="crayon-o">-</span><span class="crayon-e">devel</span></div><div class="crayon-line" id="crayon-676a52ae429c4402847109-3"><span class="crayon-e">sudo </span><span class="crayon-e">yum </span><span class="crayon-e">install </span><span class="crayon-v">libjpeg</span><span class="crayon-o">-</span><span class="crayon-v">devel</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c4402847109-4">&nbsp;</div><div class="crayon-line" id="crayon-676a52ae429c4402847109-5"><span class="crayon-c"># Ubuntu</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c4402847109-6"><span class="crayon-v">apt</span><span class="crayon-o">-</span><span class="crayon-r">get</span><span class="crayon-h"> </span><span class="crayon-e">install </span><span class="crayon-v">libjpeg</span><span class="crayon-o">-</span><span class="crayon-e">dev</span></div><div class="crayon-line" id="crayon-676a52ae429c4402847109-7"><span class="crayon-v">apt</span><span class="crayon-o">-</span><span class="crayon-r">get</span><span class="crayon-h"> </span><span class="crayon-e">install </span><span class="crayon-v">libpng</span><span class="crayon-o">-</span><span class="crayon-v">dev</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c4402847109-8"><span class="crayon-c"># Mac (should be pre-installed)</span></div><div class="crayon-line" id="crayon-676a52ae429c4402847109-9"><span class="crayon-e">brew </span><span class="crayon-e">install </span><span class="crayon-e">libjpeg</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c4402847109-10"><span class="crayon-e">brew </span><span class="crayon-e">install </span><span class="crayon-v">libpng</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0006 seconds] -->
+      brew install libpng
+      </pre>
+
+      <br>
 
       <p><b>Open pigg.pl for configuration</b>.</p>
+
       <p>Decide where to serve pig.js from. It&rsquo;s fine to serve my version from Github, but safer to upload it to your own server in case I change/break it in the future.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429c7167581563" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
+        # Path to where pig.js is located on the internet
+        # You can use my version on Github, or upload and serve your own
+        # on your website (I recommend the second thing, in case I change
+        # or break my version in the future!)
+        our $pig = 'https://yourwebserver.com/css/pig.js';
+      </pre>
 
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      # Path to where pig.js is located on the internet
-      # You can use my version on Github, or upload and serve your own
-      # on your website (I recommend the second thing, in case I change
-      # or break my version in the future!)
-      our $pig = 'https://yourwebserver.com/css/pig.js';</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429c7167581563-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c7167581563-2">2</div><div class="crayon-num" data-line="crayon-676a52ae429c7167581563-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429c7167581563-4">4</div><div class="crayon-num" data-line="crayon-676a52ae429c7167581563-5">5</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429c7167581563-1"><span class="crayon-c"># Path to where pig.js is located on the internet</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c7167581563-2"><span class="crayon-c"># You can use my version on Github, or upload and serve your own</span></div><div class="crayon-line" id="crayon-676a52ae429c7167581563-3"><span class="crayon-c"># on your website (I recommend the second thing, in case I change</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429c7167581563-4"><span class="crayon-c"># or break my version in the future!)</span></div><div class="crayon-line" id="crayon-676a52ae429c7167581563-5"><span class="crayon-i">our</span><span class="crayon-h"> </span><span class="crayon-v">$pig</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'https://yourwebserver.com/css/pig.js'</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0003 seconds] -->
+      <br>
 
       <p>Where will images live on your server?</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429ca824391739" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
+        # Base URI to where the images will live
+        # Do not use WordPress's media uploader; upload the finished product
+        # directly to your server
+        our $uri = 'https://yourwebsite.com/galleries/';
+      </pre>
 
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      # Base URI to where the images will live
-      # Do not use WordPress's media uploader; upload the finished product
-      # directly to your server
-      our $uri = 'https://yourwebsite.com/galleries/';</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429ca824391739-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429ca824391739-2">2</div><div class="crayon-num" data-line="crayon-676a52ae429ca824391739-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429ca824391739-4">4</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429ca824391739-1"><span class="crayon-c"># Base URI to where the images will live</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429ca824391739-2"><span class="crayon-c"># Do not use WordPress's media uploader; upload the finished product</span></div><div class="crayon-line" id="crayon-676a52ae429ca824391739-3"><span class="crayon-c"># directly to your server</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429ca824391739-4"><span class="crayon-i">our</span><span class="crayon-h"> </span><span class="crayon-v">$uri</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'https://yourwebsite.com/galleries/'</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0002 seconds] -->
+      <br>
 
       <p>Do you want to automatically generate an index.html file when you create a gallery? Start with &lsquo;yes&rsquo; for this tutorial. If you decide to use this script with WordPress, you&rsquo;ll want to turn this off.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429cd007445762" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
+        # Do you want to generate an index.html file when you create a gallery?
+        our $flag_html = 'yes';
+      </pre>
 
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      # Do you want to generate an index.html file when you create a gallery?
-      our $flag_html = 'yes';</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429cd007445762-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429cd007445762-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429cd007445762-1"><span class="crayon-c"># Do you want to generate an index.html file when you create a gallery?</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429cd007445762-2"><span class="crayon-i">our</span><span class="crayon-h"> </span><span class="crayon-v">$flag_html</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'yes'</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0002 seconds] -->
+      <br>
 
       <p><b>Save pigg.pl and test drive it.</b> Be sure to use the <i>full path</i> to where you&rsquo;ve saved Example Project 3.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429d0237312107" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
+        [jm@local /]$ cd /path/to/pigg/util/
+        [jm@local util]$ perl pigg.pl /path/to/pigg/example-project-3/
+      </pre>
 
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      [jm@macbook /]$ cd /path/to/pigg/util/
-      [jm@macbook util]$ perl pigg.pl /path/to/pigg/example-project-3/</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429d0237312107-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429d0237312107-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429d0237312107-1"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-v">macbook</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">cd</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">path</span><span class="crayon-o">/</span><span class="crayon-st">to</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-o">/</span><span class="crayon-v">util</span><span class="crayon-o">/</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429d0237312107-2"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-e">macbook </span><span class="crayon-v">util</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">perl </span><span class="crayon-v">pigg</span><span class="crayon-e">.pl</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">path</span><span class="crayon-o">/</span><span class="crayon-st">to</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-o">/</span><span class="crayon-v">example</span><span class="crayon-o">-</span><span class="crayon-v">project</span><span class="crayon-o">-</span><span class="crayon-cn">3</span><span class="crayon-o">/</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0005 seconds] -->
+      <br>
 
       <p>You should see output like this:</p>
       <pre>
@@ -450,12 +363,96 @@ posts:
       ----------------------------------------------------------------
       Upload example-project-3 to https://yourwebsite.com/galleries/example-project-3
       </pre>
+
       <p>You now have a full gallery project ready to use. If you upload it to yourwebsite.com/galleries/example-project-3, you can browse to https://yourwebsite.com/galleries/example-project-3 to view your new gallery!</p>
       <p><a name="wordpress"></a></p>
+
+      <br>
+
+      <h3>Automation with Ruby</h3>
+
+      <p><b>Install ImageMagick</b>. Follow the installation instructions on the <a href="https://imagemagick.org/script/download.php">ImageMagick project website</a> to install ImageMagick, a multipurpose image manipulation library. On MacOS:</p>
+
+      <pre>
+        brew install imagemagick
+      </pre>
+
+      <br>
+
+      <p><b>Install the mini_magick and rspec gems</b>. Once you have ImageMagick successfully installed, get the mini_magick gem and rspec:</p>
+
+      <pre>
+        gem install mini_magick
+        gem install rspec
+      </pre>
+
+      <br>
+
+      <p><b>Run tests</b></p>
+
+      <pre>
+        cd /path/to/pigg/ruby
+        rspec
+      </pre>
+
+      <br>
+
+      <p>You should see something like this to indicate the tests all passed:</p>
+
+      <pre>
+        ..............
+
+        Finished in 0.29299 seconds (files took 0.07217 seconds to load)
+        14 examples, 0 failures
+      </pre>
+
+      <br>
+
+      <p><b>Test it out</b></p>
+
+      <pre>
+        cd /path/to/pigg/ruby
+        ruby pigg.rb /path/to/pigg/example-project-3/
+      </pre>
+
+      <br>
+
+      <p>You should see some output similar to this:</p>
+
+      <pre>
+        -=> Checking source directory: /path/to/test_dir ... OK
+        -=> Creating img directory at /path/to/test_dir/img ... OK
+        -=> Setting up new gallery structure at /path/to/test_dir/img ... OK
+        -=> Generating images ...
+            ✔ /path/to/test_dir/img/20/cambodia-kampong-thom-9.jpeg
+            ✔ /path/to/test_dir/img/100/cambodia-kampong-thom-9.jpeg
+            ✔ /path/to/test_dir/img/250/cambodia-kampong-thom-9.jpeg
+            ✔ /path/to/test_dir/img/500/cambodia-kampong-thom-9.jpeg
+            ✔ /path/to/test_dir/img/20/cambodia-angkor-wat-6.jpeg
+            ✔ /path/to/test_dir/img/100/cambodia-angkor-wat-6.jpeg
+            ✔ /path/to/test_dir/img/250/cambodia-angkor-wat-6.jpeg
+            ✔ /path/to/test_dir/img/500/cambodia-angkor-wat-6.jpeg
+            ✔ /path/to/test_dir/img/20/vietnam-can-tho-to-chau-doc-4.jpeg
+            ✔ /path/to/test_dir/img/100/vietnam-can-tho-to-chau-doc-4.jpeg
+            ✔ /path/to/test_dir/img/250/vietnam-can-tho-to-chau-doc-4.jpeg
+            ✔ /path/to/test_dir/img/500/vietnam-can-tho-to-chau-doc-4.jpeg
+        -=> Generating image manifest for use as a JS var ... OK
+
+            var imageData = [
+              {"filename"=>"cambodia-kampong-thom-9.jpeg", "aspectRatio"=>"1.2800"},
+              {"filename"=>"cambodia-angkor-wat-6.jpeg", "aspectRatio"=>"1.3300"},
+              {"filename"=>"vietnam-can-tho-to-chau-doc-4.jpeg", "aspectRatio"=>"1.3300"},
+            ]
+
+      </pre>
+
+      <br>
+
       <h3>WordPress</h3>
-      <p></p>
       <p>You don&rsquo;t want to upload a plain HTML file to serve your gallery on WordPress, so let&rsquo;s turn now to <a href="https://github.com/jmodjeska/pigg/blob/master/wordpress/plugins/pigg/pigg.php">pigg.php</a>, a WordPress plugin file.</p>
+
       <p><b>First, a note about image storage</b>. I don&rsquo;t like how WordPress organizes image uploads, so I&rsquo;m storing my gallery data directly on my server. Instead of this garbage that has a bunch of extra files I&rsquo;ll never use:</p>
+
       <pre>&#9500;&#9472;&#9472; /uploads/
         &#9500;&#9472;&#9472; 2018/
           &#9500;&#9472;&#9472; 04/
@@ -467,191 +464,86 @@ posts:
           &#9500;&#9472;&#9472; image1.jpg
           &#9500;&#9472;&#9472; . . .
       </pre>
+
       <p>How about this instead?</p>
+
       <pre>&#9500;&#9472;&#9472; /galleries/
         &#9500;&#9472;&#9472; china-2014/
           &#9500;&#9472;&#9472; image1.jpg
           &#9500;&#9472;&#9472; image2.jpg
           &#9500;&#9472;&#9472; . . .
       </pre>
+
       <p>Better, right? OK, now let&rsquo;s configure a WordPress plugin that will be compatible with this straightforward image hierarchy.</p>
+
       <p><b>Shortcode summary</b>. The plugin &mdash; which we&rsquo;re going to add manually because it&rsquo;s fun and gives you full control over everything that&rsquo;s happening &mdash; will let you create a gallery with this simple shortcode:</p>
-      <pre>[pig gallery="gallery-name" images="image1.jpg/1.33,image2.jpg/1.24 . . ."]</pre>
+
+      <pre>
+        [pig gallery="gallery-name" images="image1.jpg/1.33,image2.jpg/1.24 . . ."]
+      </pre>
+
       <p><b>Configure pigg.php</b>. Once again, we need to tell the robot where <i>pig.js</i> is, and where images will live on the server:</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429d4730260659" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+      <pre>
+        # Line 27:
+        <script type="text/javascript" src="https://raw.githubusercontent.com/jmodjeska/pigg/master/js/pig.js"></script>
 
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      # Line 27:
-      &lt;script type="text/javascript" src="https://raw.githubusercontent.com/jmodjeska/pigg/master/js/pig.js"&gt;&lt;/script&gt;</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429d4730260659-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429d4730260659-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429d4730260659-1"><span class="crayon-c"># Line 27:</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429d4730260659-2"><span class="crayon-ta">&lt;script </span><span class="crayon-e ">type</span><span class="crayon-o">=</span><span class="crayon-s">"text/javascript"</span><span class="crayon-h"> </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"https://raw.githubusercontent.com/jmodjeska/pigg/master/js/pig.js"</span><span class="crayon-o">&gt;</span><span class="crayon-ta">&lt;/script&gt;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0002 seconds] -->
-
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
-
-          <div id="crayon-676a52ae429d7077222109" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      # Line 52:
-      $gallery = 'https://yourserver.com/galleries/' . $gallery;</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429d7077222109-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429d7077222109-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429d7077222109-1"><span class="crayon-c"># Line 52:</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429d7077222109-2"><span class="crayon-v">$gallery</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'https://yourserver.com/galleries/'</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">$gallery</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0002 seconds] -->
+        # Line 52:
+        $gallery = 'https://yourserver.com/galleries/' . $gallery;
+      </pre>
 
       <p>Save the file. You&rsquo;re ready to install it on your server now.</p>
+
       <p><b>Manual plugin installation</b>. Locate your WordPress plugins folder on your web server or using your FTP client. It should be in <i>wp-content</i>:</p>
+
       <pre>[jm@remote-webserver wp-content]$ ls
       index.php  plugins  themes  upgrade  uploads
       </pre>
+
       <p>Create a new directory inside <i>plugins</i> called <i>pigg</i>:</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429da476099759" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      [jm@remote-webserver wp-content]$ cd plugins
-      [jm@remote-webserver plugins]$ mkdir pigg</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429da476099759-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429da476099759-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429da476099759-1"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-v">remote</span><span class="crayon-o">-</span><span class="crayon-e">webserver </span><span class="crayon-v">wp</span><span class="crayon-o">-</span><span class="crayon-v">content</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">cd</span><span class="crayon-h"> </span><span class="crayon-i">plugins</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429da476099759-2"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-v">remote</span><span class="crayon-o">-</span><span class="crayon-e">webserver </span><span class="crayon-v">plugins</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">mkdir</span><span class="crayon-h"> </span><span class="crayon-v">pigg</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0004 seconds] -->
+      <pre>
+        [jm@remote-webserver wp-content]$ cd plugins
+        [jm@remote-webserver plugins]$ mkdir pigg
+      </pre>
 
       <p><b>Place pigg.php in the new directory</b>. Use FTP or, if you&rsquo;re logged in to your server:</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429dd448517804" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      [jm@remote-webserver plugins]$ cd pigg
-      [jm@remote-webserver plugins]$ wget https://raw.githubusercontent.com/jmodjeska/pigg/master/wordpress/plugins/pigg/pigg.php</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429dd448517804-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429dd448517804-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429dd448517804-1"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-v">remote</span><span class="crayon-o">-</span><span class="crayon-e">webserver </span><span class="crayon-v">plugins</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">cd</span><span class="crayon-h"> </span><span class="crayon-i">pigg</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429dd448517804-2"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-v">remote</span><span class="crayon-o">-</span><span class="crayon-e">webserver </span><span class="crayon-v">plugins</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">wget </span><span class="crayon-v">https</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-o">/</span><span class="crayon-v">raw</span><span class="crayon-e">.githubusercontent</span><span class="crayon-e">.com</span><span class="crayon-o">/</span><span class="crayon-v">jmodjeska</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-o">/</span><span class="crayon-v">master</span><span class="crayon-o">/</span><span class="crayon-v">wordpress</span><span class="crayon-o">/</span><span class="crayon-v">plugins</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-e">.php</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0006 seconds] -->
+      <pre>
+        [jm@remote-webserver plugins]$ cd pigg
+        [jm@remote-webserver plugins]$ wget https://raw.githubusercontent.com/jmodjeska/pigg/master/wordpress/plugins/pigg/pigg.php
+      </pre>
 
       <p><b>Verify the plugin is installed</b> by navigating to your WordPress dashboard &gt; Plugins:</p>
       <p><img decoding="async" loading="lazy" width="2056" height="310" class="alignnone size-full wp-image-1828" src="https://i.modjeska.us/2018/04/pig-plugin.png" alt="" srcset="https://i.modjeska.us/2018/04/pig-plugin.png 2056w, https://i.modjeska.us/2018/04/pig-plugin-300x45.png 300w, https://i.modjeska.us/2018/04/pig-plugin-768x116.png 768w, https://i.modjeska.us/2018/04/pig-plugin-1024x154.png 1024w" sizes="(max-width: 2056px) 100vw, 2056px"></p>
       <p><b>Update pigg.pl configuration</b>. Back on your local machine, let&rsquo;s change some config values in the Perl script to tell it we&rsquo;re using WordPress now.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429e0626173951" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
+      <p><b>Hey, does anyone need this bit for Ruby?</b> Open a <a href="https://github.com/jmodjeska/pigg/tree/main">Github issue</a> and I'll add it!</p>
 
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      # Do you want to generate an index.html file when you create a gallery?
-      our $flag_html = 'no';</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429e0626173951-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429e0626173951-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429e0626173951-1"><span class="crayon-c"># Do you want to generate an index.html file when you create a gallery?</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429e0626173951-2"><span class="crayon-i">our</span><span class="crayon-h"> </span><span class="crayon-v">$flag_html</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'no'</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0002 seconds] -->
+      <pre>
+        # Do you want to generate an index.html file when you create a gallery?
+        our $flag_html = 'no';
 
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
-
-          <div id="crayon-676a52ae429e3777855383" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      # Do you want to output a WordPress shortcode when you create a gallery?
-      our $flag_wordpress = 'yes';</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429e3777855383-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429e3777855383-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429e3777855383-1"><span class="crayon-c"># Do you want to output a WordPress shortcode when you create a gallery?</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429e3777855383-2"><span class="crayon-i">our</span><span class="crayon-h"> </span><span class="crayon-v">$flag_wordpress</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'yes'</span><span class="crayon-sy">;</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0002 seconds] -->
+        # Do you want to output a WordPress shortcode when you create a gallery?
+        our $flag_wordpress = 'yes';
+      </pre>
 
       <p><b>Delete everything inside the <i>example-project-3</i> folder except for the four images</b>.</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429e5128984377" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      [jm@macbook /]$ cd /path/to/pigg/example-project-3/
-      [jm@macbook example-project-3]$ rm -rf img
-      [jm@macbook example-project-3]$ rm index.html
-      [jm@macbook example-project-3]$ ls
-      vn.jpg	vn2.jpg	vn3.jpg	vn4.jpg</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429e5128984377-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429e5128984377-2">2</div><div class="crayon-num" data-line="crayon-676a52ae429e5128984377-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429e5128984377-4">4</div><div class="crayon-num" data-line="crayon-676a52ae429e5128984377-5">5</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429e5128984377-1"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-v">macbook</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">cd</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">path</span><span class="crayon-o">/</span><span class="crayon-st">to</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-o">/</span><span class="crayon-v">example</span><span class="crayon-o">-</span><span class="crayon-v">project</span><span class="crayon-o">-</span><span class="crayon-cn">3</span><span class="crayon-o">/</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429e5128984377-2"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-e">macbook </span><span class="crayon-v">example</span><span class="crayon-o">-</span><span class="crayon-v">project</span><span class="crayon-o">-</span><span class="crayon-cn">3</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">rm</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-e">rf </span><span class="crayon-i">img</span></div><div class="crayon-line" id="crayon-676a52ae429e5128984377-3"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-e">macbook </span><span class="crayon-v">example</span><span class="crayon-o">-</span><span class="crayon-v">project</span><span class="crayon-o">-</span><span class="crayon-cn">3</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">rm</span><span class="crayon-h"> </span><span class="crayon-v">index</span><span class="crayon-e">.html</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429e5128984377-4"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-e">macbook </span><span class="crayon-v">example</span><span class="crayon-o">-</span><span class="crayon-v">project</span><span class="crayon-o">-</span><span class="crayon-cn">3</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">ls</span></div><div class="crayon-line" id="crayon-676a52ae429e5128984377-5"><span class="crayon-v">vn</span><span class="crayon-e">.jpg</span><span class="crayon-h">	</span><span class="crayon-v">vn2</span><span class="crayon-e">.jpg</span><span class="crayon-h">	</span><span class="crayon-v">vn3</span><span class="crayon-e">.jpg</span><span class="crayon-h">	</span><span class="crayon-v">vn4</span><span class="crayon-e">.jpg</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0009 seconds] -->
+      <pre>
+        [jm@local /]$ cd /path/to/pigg/example-project-3/
+        [jm@local example-project-3]$ rm -rf img
+        [jm@local example-project-3]$ rm index.html
+        [jm@local example-project-3]$ ls
+        vn.jpg	vn2.jpg	vn3.jpg	vn4.jpg
+      </pre>
 
       <p><b>Re-run pigg.pl with the new configuration</b>. Same command as before:</p>
-      <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-          <div id="crayon-676a52ae429e9733514382" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 10px; margin-bottom: 10px; font-size: 12px !important; line-height: 18px !important;">
-
-            <div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 18px !important;">
-      [jm@macbook /]$ cd /path/to/pigg/util/
-      [jm@macbook util]$ perl pigg.pl /path/to/pigg/example-project-3/</textarea></div>
-            <div class="crayon-main" style="">
-              <table class="crayon-table">
-                <tr class="crayon-row">
-              <td class="crayon-nums " data-settings="show">
-                <div class="crayon-nums-content" style="font-size: 12px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-676a52ae429e9733514382-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-676a52ae429e9733514382-2">2</div></div>
-              </td>
-                  <td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 18px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-676a52ae429e9733514382-1"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-v">macbook</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-r">cd</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">path</span><span class="crayon-o">/</span><span class="crayon-st">to</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-o">/</span><span class="crayon-v">util</span><span class="crayon-o">/</span></div><div class="crayon-line crayon-striped-line" id="crayon-676a52ae429e9733514382-2"><span class="crayon-sy">[</span><span class="crayon-v">jm</span><span class="crayon-sy">@</span><span class="crayon-e">macbook </span><span class="crayon-v">util</span><span class="crayon-sy">]</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-e">perl </span><span class="crayon-v">pigg</span><span class="crayon-e">.pl</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">path</span><span class="crayon-o">/</span><span class="crayon-st">to</span><span class="crayon-o">/</span><span class="crayon-v">pigg</span><span class="crayon-o">/</span><span class="crayon-v">example</span><span class="crayon-o">-</span><span class="crayon-v">project</span><span class="crayon-o">-</span><span class="crayon-cn">3</span><span class="crayon-o">/</span></div></div></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-      <!-- [Format Time: 0.0006 seconds] -->
+      <pre>
+        [jm@local /]$ cd /path/to/pigg/util/
+        [jm@local util]$ perl pigg.pl /path/to/pigg/example-project-3/
+      </pre>
 
       <p>Now examine the bottom of the command output. We generated our image tree again, but now instead of an HTML file, we have a WordPress shortcode:</p>
       <pre>. . .
@@ -663,8 +555,10 @@ posts:
       WordPress shortcode for this gallery:
 
       [pig gallery="example-project-3" images="vn.jpg/1.3300,vn4.jpg/1.3300,vn2.jpg/1.6300,vn3.jpg/1.3300"]
-      </pre><br>
-      <p><b>Upload your files and use the shortcode in a post.</b> Place the whole directory, <i>example-project-3</i>, on your server where designated. Then, create a new WordPress post and include the shortcode provided. That&rsquo;s it! You should now have a fully-functional gallery on WordPress.</p>
+      </pre>
+      <br>
+
+      <p><b>Upload your files and use the shortcode in a post.</b> Place the whole directory, <i>example-project-3</i>, on your server where designated. Then, create a new WordPress post and include the shortcode provided. You should now have a fully-functional gallery on WordPress.</p>
   - title: Fetch a Remote CSV in Google Sheets with Basic Auth
     slug: csv-google-sheets-basic-auth
     description: Google Apps Script custom function that facilitates importing a remote CSV file into your Google Sheets document. It provides for basic HTTP auth traversal.
