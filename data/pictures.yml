@@ -1,4 +1,25 @@
 posts:
+  - title: France 2013
+    slug: france-2013
+    description: Pictures from France 2013
+    paragraph_text: Paris and Saint-Rémy-de-Provence
+    imagedata_array: |2
+                { "filename": "2013-09-26 10.43.18.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-18 18.13.17-2.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-22 17.23.56.jpg", "aspectRatio": "0.9900" },
+                { "filename": "2013-09-20 15.07.18.jpg", "aspectRatio": "1.3300" },
+                { "filename": "2013-09-17 18.42.03-2.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-27 14.00.45.jpg", "aspectRatio": "1.0100" },
+                { "filename": "2013-09-20 15.42.01.jpg", "aspectRatio": "1.3300" },
+                { "filename": "2013-09-26 11.15.14-1.jpg", "aspectRatio": "1.3300" },
+                { "filename": "2013-09-18 13.18.30-1.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-25 12.41.01.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-27 18.29.07.jpg", "aspectRatio": "0.9900" },
+                { "filename": "2013-09-21 13.32.08-2.jpg", "aspectRatio": "1.3300" },
+                { "filename": "2013-09-17 17.42.53-1.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-24 16.24.34-2.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-25 13.42.44.jpg", "aspectRatio": "1.0000" },
+                { "filename": "2013-09-17 17.23.23-1.jpg", "aspectRatio": "1.0000" },
   - title: Southeast Asia 2023
     slug: southeast-asia-2023
     description: Pictures a cycling trip across Vietnam, Cambodia, and Thailand
