@@ -44,10 +44,10 @@ def lambda_handler(event, context):
     host_header = headers.get('host', [{'value': ''}])[0]['value']
 
     # Define the subdomain to redirect from and apex domain to redirect to
-    subdomain = 'www.modjeska.us'
+    subdomains = ['www.modjeska.us', 'j.modjeska.us']
     apex_domain = 'https://modjeska.us'
 
-    if host_header == subdomain:
+    if host_header in subdomains:
         # Construct the redirect URL
         redirect_url = f"{apex_domain}{request['uri']}"
 
