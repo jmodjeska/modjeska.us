@@ -7,21 +7,14 @@
   <meta name="robots" content="noindex, follow">
 
   <!-- Fonts + Styles -->
-  <link rel="dns-prefetch" href="//use.fontawesome.com">
   <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap.min.css?ver=3.2.0" type="text/css" media="all">
   <link rel="stylesheet" id="wpbase-css" href="https://i.modjeska.us/css/wpbase.min.css?ver=3.2.0" type="text/css" media="all">
-  <link rel="stylesheet" id="font-awesome-css" href="https://use.fontawesome.com/91b690d857.css?ver=4.1.0" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/style.css?ver=3.2.0" type="text/css" media="all">
   <link rel="stylesheet" id="supplemental-custom-css" href="https://i.modjeska.us/css/supplemental-style.css?ver=1.0" type="text/css" media="all">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
   <!-- Scripts -->
-  <script type="text/javascript" src="https://i.modjeska.us/js/jquery.min.js?ver=3.6.1" id="jquery-core-js"></script>
-  <script type="text/javascript" src="https://i.modjeska.us/js/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
-  <script type="text/javascript" src="https://i.modjeska.us/js/jquery.cycle.all.min.js?ver=6.1.7" id="jquery-cycle-js"></script>
-  <script type="text/javascript" src="https://i.modjeska.us/js/responsive-modernizr.js?ver=2.5.3" id="modernizr-js"></script>
-  <script type="text/javascript" src="https://i.modjeska.us/js/imagesloaded.pkgd.min.js?ver=6.1.7" id="imagesloaded-script-js"></script>
-  <script type="text/javascript" src="https://i.modjeska.us/js/jquery.isotope.min.js?ver=6.1.7" id="isotope-script-js"></script>
   <script type="text/javascript" src="https://i.modjeska.us/js/bootstrap.js?ver=6.1.7" id="bootstrap-script-js"></script>
   <script type="text/javascript" src="https://i.modjeska.us/js/custom.js?ver=6.1.7" id="custom-script-js"></script>
 
@@ -114,21 +107,18 @@
     <div class="container">
       <div class="row centered">
         <div class="col-xs-2">
-          &nbsp;
-        </div><!-- /col -->
-        <div class="col-xs-2">
           <a href="https://instagr.am/jmodjeska" title="instagram" target="_blank">
-            <i class="fa fa-instagram"></i>
+            <i class="fa-brands fa-instagram"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
           <a href="https://linkedin.com/in/modjeska" title="linkedin" target="_blank">
-            <i class="fa fa-linkedin"></i>
+            <i class="fa-brands fa-linkedin"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
           <a href="https://github.com/jmodjeska" title="github" target="_blank">
-            <i class="fa fa-github"></i>
+            <i class="fa-brands fa-github"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
@@ -137,46 +127,63 @@
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
-          &nbsp;
+          <a href="https://canyoutrustrobots.com" title="can you trust robots?" target="_blank">
+            <i class="fa fa-robot"></i>
+          </a>
+        </div><!-- /col -->
+        <div class="col-xs-2">
+          <a href="https://whereisjeremy.live" title="where is jeremy?" target="_blank">
+            <i class="fa-solid fa-earth-americas"></i>
+          </a>
         </div><!-- /col -->
       </div><!-- /row -->
     </div><!-- /container -->
   </div><!-- /social -->
 
   <footer id="footerwrap">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
-          <div id="text-6" class="widget_text">
-            <h4 id="widget-title-one" class="widget-title-footer">ABOUT</h4>
-            <div class="hline-w"></div>
-            <div class="textwidget">
-              <p>This personal website of Jeremy Modjeska is &copy; by the author
-              <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/legalcode">BY-NC-ND</a>.
-              Powered by a herd of mountain goats.
-              This website is not suitable for carbon-based lifeforms.</p>
+      <div class="container">
+        <div class="row centered">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <div id="text-6" class="widget_text">
+              <h4 id="widget-title-one" class="widget-title-footer">ABOUT</h4>
+              <div class="hline-w"></div>
+              <div class="textwidget">
+                <p>This personal website of Jeremy Modjeska is &copy; by the author
+                <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/legalcode">BY-NC-ND</a>.
+                Powered by a herd of mountain goats.
+                This website is not suitable for carbon-based lifeforms.</p>
+                <i><p id="tw-quote-placeholder"></p></i>
+              </div>
             </div>
-          </div>
-        </div><!-- /col -->
-      </div><!-- /row -->
-    </div><!-- /container -->
-  </footer>
+          </div><!-- /col -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </footer>
 
-  <script>
-    var cmsg = (function(){ /*
+    <script src="https://i.modjeska.us/js/quotesdb.js?ver=1.0"></script>
+    <script>
+      var twline = lines[Math.floor(Math.random()*lines.length)];
+      document.addEventListener("DOMContentLoaded", () => {
+        const placeholderElement = document.getElementById("tw-quote-placeholder");
+        placeholderElement.textContent = twline;
+      });
+    </script>
 
-       __
-      /\_\     ___ ___
-      \/\ \  /' __` __`\
-       \ \ \ /\ \/\ \/\ \
-       _\ \ \\ \_\ \_\ \_\
-      /\ \_\ \\/_/\/_/\/_/
-      \ \____/
-       \/___/
+    <script>
+      var cmsg = (function(){ /*
 
-      */}).toString().split('\n').slice(1, -1).join('\n');
-    console.log(cmsg);
+          __
+        /\_\     ___ ___
+        \/\ \  /' __` __`\
+          \ \ \ /\ \/\ \/\ \
+          _\ \ \\ \_\ \_\ \_\
+        /\ \_\ \\/_/\/_/\/_/
+        \ \____/
+          \/___/
+
+        */}).toString().split('\n').slice(1, -1).join('\n');
+      console.log(cmsg);
   </script>
 </body>
 </html>
