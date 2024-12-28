@@ -1,6 +1,8 @@
 # modjeska.us
 Static website at https://modjeska.us
 
+![Homepage Image](https://i.modjeska.us/images/modj-gh-hero.jpeg)
+
 ## Subdomain redirects
 
 ### Cloudfront
