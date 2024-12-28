@@ -89,6 +89,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Arrow and auto-scrolling
       const scrollIndicator = document.querySelector('.scroll-down-indicator');
       if (scrollIndicator) {
         scrollIndicator.addEventListener('click', () => {
@@ -111,7 +112,14 @@
         });
       }
     });
-    window.addEventListener('beforeunload', () => {
+    // Scroll to top on reload
+    document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    });
+      window.addEventListener('beforeunload', () => {
       window.scrollTo(0, 0);
     });
   </script>
