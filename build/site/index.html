@@ -53,6 +53,27 @@
     analytics.page();
     }}();
   </script>
+
+  <style>
+    .scroll-down-indicator {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 8vh;
+    color: #555;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
+  </style>
 </head>
 
 <!-- Content -->
@@ -61,7 +82,36 @@
     <div class="caption">
       <h1>Jeremy Modjeska</h1>
     </div>
+    <div class="scroll-down-indicator">
+      <i class="fa fa-angle-down"></i>
+    </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollIndicator = document.querySelector('.scroll-down-indicator');
+      if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+          window.scrollBy({
+            top: window.innerHeight,
+            behavior: 'smooth',
+          });
+          scrollIndicator.style.opacity = 0;
+          setTimeout(() => {
+            scrollIndicator.style.display = 'none';
+          }, 300);
+        });
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            scrollIndicator.style.opacity = 0;
+            setTimeout(() => {
+              scrollIndicator.style.display = 'none';
+            }, 300);
+          }
+        });
+      }
+    });
+  </script>
 
   <div id="wrapper" class="clearfix">
     <div class="container">
