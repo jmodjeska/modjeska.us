@@ -111,6 +111,9 @@
         });
       }
     });
+    window.addEventListener('beforeunload', () => {
+      window.scrollTo(0, 0);
+    });
   </script>
 
   <div id="wrapper" class="clearfix">
