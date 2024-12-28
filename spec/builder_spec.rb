@@ -28,7 +28,7 @@ describe 'Build pipeline' do
 
   it 'verifies that a list of required files was built' do
     files = @b.build_file_list
-    expected_count = @b.required_directories.count * @b.required_files.count
+    expected_count = @b.required_dirs.count * @b.required_files.count
     expect(files.count).to eq expected_count
     expect(files.any? { |s| s.include?('templates/code.html') }).to be true
     expect(files.any? { |s| s.include?('data/code.yml') }).to be true

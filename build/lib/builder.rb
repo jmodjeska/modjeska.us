@@ -5,20 +5,18 @@ require_relative 'config'
 
 # Build pipeline functions
 class Builder
-  attr_reader :required_directories, :required_files, :file_list
+  attr_reader :required_dirs, :required_files, :file_list
 
   def initialize
     @required_files = REQUIRED_FILES
-    @required_directories = REQUIRED_DIRECTORIES
+    @required_dirs = REQUIRED_DIRECTORIES
     @file_list = build_file_list
   end
 
   def build_file_list
     list = []
-    @required_files.each do |basename|
-      @required_directories.each do |dir, ext|
-        list << File.expand_path("#{dir}/#{basename}.#{ext}", Dir.pwd)
-      end
+    @required_files.product(@required_dirs.to_a) do |basename, (dir, ext)|
+      list << File.expand_path("#{dir}/#{basename}.#{ext}", Dir.pwd)
     end
     return list
   end
@@ -54,16 +52,14 @@ class Builder
 
   # Validates that a YAML data blob contains post data
   def check_for_posts(data)
-    return true if data.is_a?(Hash) && data.key?('posts')
-    return false
+    return data.is_a?(Hash) && data.key?('posts')
   end
 
   # Validates that data.yml will merge correctly into template.html
   def match_data_to_template(template, data)
     data_keys = data['posts'][0].keys
     template_keys = template.scan(/@@(.*?)@@/).flatten.uniq.map(&:downcase)
-    return true if data_keys.sort == template_keys.sort
-    return false
+    return data_keys.sort == template_keys.sort
   end
 
   # Returns an array of posts
