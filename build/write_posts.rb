@@ -46,3 +46,10 @@ build_list.each do |cat|
     File.write("#{BUILD_DIR}/#{cat}/#{filename}", page)
   end
 end
+
+# Create root pages
+puts '-=> Building root pages ...'
+ROOT_PAGES.each do |page|
+  puts "-   #{page}"
+  @b.append_footer("root-pages/#{page}", "#{BUILD_DIR}/#{page}")
+end

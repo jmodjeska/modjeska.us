@@ -16,3 +16,11 @@ REQUIRED_DIRECTORIES = {
 }.freeze
 
 REQUIRED_FILES = %w[code pictures words].freeze
+
+ROOT_PAGES = [
+  'index.html',
+  '404.html',
+  'code/index.html',
+  'words/index.html',
+  'pictures/index.html'
+].freeze

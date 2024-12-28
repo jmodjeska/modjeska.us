@@ -85,4 +85,12 @@ class Builder
     basename = File.basename(file, File.extname(file))
     return dir == 'pictures' ? "#{dir}-#{basename}" : basename
   end
+
+  # Appends the footer (for root files build)
+  def append_footer(input_filename, output_filename)
+    content = File.read(input_filename)
+    content << File.read(FOOTER)
+    File.write(output_filename, content)
+    return File.exist?(output_filename)
+  end
 end
