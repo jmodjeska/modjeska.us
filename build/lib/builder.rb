@@ -59,6 +59,7 @@ class Builder
   def match_data_to_template(template, data)
     data_keys = data['posts'][0].keys
     template_keys = template.scan(/@@(.*?)@@/).flatten.uniq.map(&:downcase)
+    template_keys -= RESERVED_PAGE_PARTS
     return data_keys.sort == template_keys.sort
   end
 
@@ -70,10 +71,17 @@ class Builder
     data['posts'].each_with_index do |post, i|
       temp = template.dup
       post.each { |k, v| temp.gsub!("@@#{k.upcase}@@", v.to_s) }
-      output[i] = temp
-      output[i] << File.read(FOOTER)
+      output[i] = add_page_parts(temp)
     end
     return output
+  end
+
+  # Add page parts
+  def add_page_parts(content)
+    content.gsub!('@@HEAD@@', File.read(HEAD))
+    content.gsub!('@@NAV@@', File.read(NAV))
+    content << File.read(FOOTER)
+    return content
   end
 
   # Identifies the file slug name
@@ -82,10 +90,10 @@ class Builder
     return dir == 'pictures' ? "#{dir}-#{basename}" : basename
   end
 
-  # Appends the footer (for root files build)
-  def append_footer(input_filename, output_filename)
+  # Builds a root page
+  def build_root_page(input_filename, output_filename)
     content = File.read(input_filename)
-    content << File.read(FOOTER)
+    content = add_page_parts(content)
     File.write(output_filename, content)
     return File.exist?(output_filename)
   end

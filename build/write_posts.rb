@@ -25,12 +25,12 @@ puts "-=> Building directories: #{build_list.join(', ')} ..."
 # Write pages if directory is in the build list
 build_list.each do |cat|
   template_f = @b.file_list.detect { |e| e.include?("templates/#{cat}.html") }
-  data_f = @b.file_list.detect { |e| e.include?("data/#{cat}.yml") }
+  data_file = @b.file_list.detect { |e| e.include?("data/#{cat}.yml") }
   template = File.read(template_f)
-  data = YAML.load_file(data_f)
+  data = YAML.load_file(data_file)
 
   unless @b.check_for_posts(data)
-    puts "-=> No post data found in the file #{data_f}"
+    puts "-=> No post data found in the file #{data_file}"
     next
   end
 
@@ -51,5 +51,5 @@ end
 puts '-=> Building root pages ...'
 ROOT_PAGES.each do |page|
   puts "-   #{page}"
-  @b.append_footer("root-pages/#{page}", "#{BUILD_DIR}/#{page}")
+  @b.build_root_page("root-pages/#{page}", "#{BUILD_DIR}/#{page}")
 end
