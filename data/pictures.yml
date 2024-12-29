@@ -428,7 +428,7 @@ posts:
   - title: China 2017
     slug: china-2017
     description: Pictures from China 2017 &mdash; Beijing, Great Wall, Shanghai, Wuyishan, Xiamen, Xiaban Village, Hong Kong. &#21271;&#20140;&#12289;&#24917;&#30000;&#23786;&#38271;&#22478;&#12289;&#21476;&#21271;&#21475;&#38271;&#22478;&#12289;&#37329;&#23665;&#23725;&#38271;&#22478;&#12289;&#40644;&#23830;&#20851;&#38271;&#22478;&#12289;&#19978;&#28023;&#12289;&#31119;&#24314;&#27494;&#22839;&#23665;&#12289;&#31119;&#24314;&#21414;&#38376;&#12289;&#31119;&#24314;&#21335;&#38742;&#19979;&#22338;&#26449;&#12289;&#39321;&#28207;.
-    paragraph_text: Beijing, Great Wall, Shanghai, Wuyishan, Xiamen, Xiaban Village, Hong Kong<br>北京、慕田峪长城、古北口长城、金山岭长城、黄崖关长城、上海、福建武夷山、福建厦门、福建南靖下坂村、香港
+    paragraph_text: Beijing, Great Wall, Shanghai, Wuyishan, Xiamen, Xiaban Village, Hong Kong<br><span lang="zh" translate="no">北京、慕田峪长城、古北口长城、金山岭长城、黄崖关长城、上海、福建武夷山、福建厦门、福建南靖下坂村、香港</span>
     imagedata_array: |2
                 {"filename": "2017-05-07 14.52.41.jpg", "aspectRatio": "1.4100"},
                 {"filename": "2017-05-04 11.00.24.jpg", "aspectRatio": "1.5900"},
@@ -534,7 +534,7 @@ posts:
   - title: China 2016
     slug: china-2016
     description: Pictures from China 2016 &mdash; Chengdu, Leshan, Emeishan, Xi&rsquo;an, Pingyao, Beijing, Inner Mongolia. &#25104;&#37117;&#12289;&#20048;&#23665;&#12289;&#23784;&#30473;&#23665;&#12289;&#35199;&#23433;&#12289;&#24179;&#36965;&#12289;&#21271;&#20140;&#12289;&#20869;&#33945;&#21476;.
-    paragraph_text: Chengdu, Leshan, Emeishan, Xi'an, Pingyao, Beijing, Inner Mongolia<br>成都、乐山、峨眉山、西安、平遥、北京、内蒙古
+    paragraph_text: Chengdu, Leshan, Emeishan, Xi'an, Pingyao, Beijing, Inner Mongolia<br><span lang="zh" translate="no">成都、乐山、峨眉山、西安、平遥、北京、内蒙古</span>
     imagedata_array: |2
                 {"filename": "2016-03-19 18.22.36-1.jpg", "aspectRatio": "1.5400"},
                 {"filename": "emeishan_fire.jpg", "aspectRatio": "1.7700"},
@@ -608,7 +608,7 @@ posts:
   - title: China 2015
     slug: china-2015
     description: Pictures from China 2015 &mdash; Hong Kong, Shenzhen, Guangzhou, Yangshuo &#39321;&#28207;&#12289;&#28145;&#22323;&#12289;&#24191;&#24030;&#12289;&#25196;&#24030;.
-    paragraph_text: Hong Kong, Shenzhen, Guangzhou, Yangshuo<br>香港、深圳、广州、扬州
+    paragraph_text: Hong Kong, Shenzhen, Guangzhou, Yangshuo<br><span lang="zh" translate="no">香港、深圳、广州、扬州</span>
     imagedata_array: |2
                 {"filename": "2015-04-03 19.28.51-1.jpg", "aspectRatio": "1.0000"},
                 {"filename": "2015-04-06 03.02.51.jpg", "aspectRatio": "0.7500"},
@@ -671,7 +671,7 @@ posts:
   - title: China 2014
     slug: china-2014
     description: Pictures from China 2014 &mdash; Kunming, Dali, Lijiang, Baisha, Tiger Leaping Gorge, Shibao Mountain. &#26118;&#26126;&#12289;&#22823;&#29702;&#12289;&#20029;&#27743;&#12289;&#34382;&#36339;&#23777;&#12289;&#30707;&#23453;&#23665;.
-    paragraph_text: Kunming, Dali, Lijiang, Baisha, Tiger Leaping Gorge, Shibao Mountain<br>昆明、大理、丽江、虎跳峡、石宝山
+    paragraph_text: Kunming, Dali, Lijiang, Baisha, Tiger Leaping Gorge, Shibao Mountain<br><span lang="zh" translate="no">昆明、大理、丽江、虎跳峡、石宝山</span<
     imagedata_array: |2
                 {"filename": "kunming_4.jpg", "aspectRatio": "1.7700"},
                 {"filename": "2014-10-14 12.11.18.jpg", "aspectRatio": "1.3300"},
