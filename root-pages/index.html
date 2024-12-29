@@ -22,7 +22,7 @@
   <meta name="twitter:site" content="@jmodjeska">
 
   <!-- Index custom style -->
-  <link rel="stylesheet" id="index-custom-css" href="https://i.modjeska.us/css/index-custom-style.css?ver=1.4" type="text/css" media="all">
+  <link rel="stylesheet" id="index-custom-css" href="https://i.modjeska.us/css/index-custom-style.css?ver=1.5" type="text/css" media="all">
 
   <style>
     .scroll-down-indicator {
@@ -81,6 +81,15 @@
             }, 300);
           }
         });
+      }
+    });
+
+    // Replace lo-rez background image
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgElement = document.querySelector('.bg');
+      if (bgElement) {
+        const imageUrl = 'https://i.modjeska.us/images/home-11.jpg';
+        bgElement.style.backgroundImage = `url(${imageUrl})`;
       }
     });
   </script>

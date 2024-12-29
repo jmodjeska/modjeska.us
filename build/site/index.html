@@ -22,7 +22,7 @@
   <meta name="twitter:site" content="@jmodjeska">
 
   <!-- Index custom style -->
-  <link rel="stylesheet" id="index-custom-css" href="https://i.modjeska.us/css/index-custom-style.css?ver=1.4" type="text/css" media="all">
+  <link rel="stylesheet" id="index-custom-css" href="https://i.modjeska.us/css/index-custom-style.css?ver=1.5" type="text/css" media="all">
 
   <style>
     .scroll-down-indicator {
@@ -123,6 +123,15 @@
         });
       }
     });
+
+    // Replace lo-rez background image
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgElement = document.querySelector('.bg');
+      if (bgElement) {
+        const imageUrl = 'https://i.modjeska.us/images/home-11.jpg';
+        bgElement.style.backgroundImage = `url(${imageUrl})`;
+      }
+    });
   </script>
 
   <div id="wrapper" class="clearfix">
@@ -173,7 +182,7 @@
         </div><!-- /col -->
         <div class="col-xs-2">
           <a href="https://uberworld.org" title="uberworld" target="_blank">
-            <i class="fa fa-terminal" style="font-size: 28px"></i>
+            <i class="fa fa-terminal" style="font-size: 28px; padding-top: 4px;"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
