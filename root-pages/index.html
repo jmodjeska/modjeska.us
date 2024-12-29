@@ -22,7 +22,6 @@
   <meta name="twitter:site" content="@jmodjeska">
 
   <!-- Index custom style -->
-  <link rel="stylesheet" id="index-custom-css" href="https://i.modjeska.us/css/index-custom-style.css?ver=1.5" type="text/css" media="all">
   <link rel="preload" as="image" href="https://i.modjeska.us/images/home-11.jpg">
 
   <style>
@@ -42,6 +41,95 @@
     }
     50% {
       transform: translateY(5px);
+    }
+  }
+
+  body, html {
+  height: 100%;
+  margin: 0;
+  text-decoration: none;
+  background-color: #2f2f2f;
+  font-family: "Montserrat";
+  }
+
+  .bg {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://i.modjeska.us/images/home-11-placeholder.jpg");
+    height: 100%;
+  }
+
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(51, 51, 51, 0.75);
+  }
+
+  .caption h1 {
+    font: "Montserrat", sans-serif;
+    color: #fff;
+    padding: 18px;
+    font-size: 6vh;
+    letter-spacing: 1vw;
+  }
+
+  ::selection {
+    background: #666;
+    color: white;
+    text-shadow: none;
+  }
+
+  #headerwrap {
+    min-height: 400px;
+    padding-top: 150px;
+    margin-top: -70px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  #headerwrap h1, #blogwrap h1 {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  .homepage-row {
+    margin-bottom: 0px;
+    margin-top: 90px;
+  }
+
+  .homepage-row h2 {
+    font-size: 45px;
+  }
+
+  #widget-title-two:before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    padding-right: 6px;
+    content: "\f099";
+  }
+
+  #social i {
+    font-size: 30px;
+  }
+
+  @media only screen and (max-width: 60em) {
+    h1{
+      font-size: 40px !important;
+    }
+    .navbar-fixed-top,
+    .navbar-fixed-bottom {
+      position: fixed;
+    }
+    .ms-item {
+      width: 99%;
     }
   }
   </style>
