@@ -108,15 +108,17 @@ posts:
     github_url: https://github.com/jmodjeska/pigg
     github_url_name: pigg
     post_content: |2
-      <p>Image gallery plugins come with extra overhead: they do too many things I don&rsquo;t need, and they don&rsquo;t do enough of what I want. I want control, automation, and a beautiful masonry layout, like this:
-      <br>
-      <img decoding="async" width="1000" height="615" class="alignnone size-full wp-image-1793" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us" srcset="https://i.modjeska.us/2018/04/gallery_final.png 1000w, https://i.modjeska.us/2018/04/gallery_final-300x185.png 300w, https://i.modjeska.us/2018/04/gallery_final-768x472.png 768w" sizes="(max-width: 1000px) 100vw, 1000px"><br>Take a look at one of my <b><a href="/pictures-china-2014/" target="_blank" rel="noopener">image galleries</a></b> for a working demo of what I came up with. This post will walk you through how to build image galleries like this one.</p>
+      <p>Image gallery plugins come with extra overhead: they do too many things I don&rsquo;t need, and they don&rsquo;t do enough of what I want. I want control, automation, and a beautiful masonry layout, like this:</p>
+
+      <img decoding="async" width="1000" height="615" class="alignnone size-full post-image-border" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us" srcset="https://i.modjeska.us/2018/04/gallery_final.png 1000w, https://i.modjeska.us/2018/04/gallery_final-300x185.png 300w, https://i.modjeska.us/2018/04/gallery_final-768x472.png 768w" sizes="(max-width: 1000px) 100vw, 1000px">
+
+      <p>Take a look at one of my <b><a href="/pictures-china-2014/" target="_blank" rel="noopener">image galleries</a></b> for a working demo of what I came up with. This post will walk you through how to build image galleries like this one.</p>
 
       <h3>Steps</h3>
       <ol class="bignum">
       <li>
       <span>1.</span>
-      <p><strong><a href="#pig">Basic PIG</a></strong>.
+      <p><strong><a href="#basic-pig">Basic PIG</a></strong>.
       Progressive Image Grid (PIG.js) is the JavaScript library that will power our image gallery. We&rsquo;ll get a simple test page up and running with out-of-the-box PIG.</p></li>
 
       <li>
@@ -131,17 +133,18 @@ posts:
 
       <li>
       <span>4.</span>
-      <p><strong><a href="#wordpress">WordPress Integration</a></strong>.
+      <p><strong><a href="#wordpress">WordPress Integration (optional)</a></strong>.
       The above steps are sufficient to facilitate the creation of image galleries with minimal effort. You can stop there if you want to, or optionally add some code to WordPress to simplify adding PIG-powered galleries. This step will not require any plugin installation. Instead, we&rsquo;ll build a lightweight custom plugin from scratch so you have complete visibility and control over what is going on.</p></li>
       </ol>
 
+      <span id="basic-pig"></span>
       <h3>Basic PIG</h3>
 
       <p><a href="https://github.com/schlosser/pig.js">Dan Schlosser&rsquo;s Progressive Image Grid (PIG.js)</a> is a responsive and lightweight JavaScript library that progressively and elegantly loads images as you scroll. It looks similar to the Google Photos album layout, which is the look I was interested in for my photo galleries. To get started, let&rsquo;s see a test project using pure standard PIG without any modifications.</p>
 
       <p><b>Click on the source code link at the top</b> and clone the Github project, or just <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-1">download the files for example-project-1</a>. You should be able to open index.html locally in your browser and see a simple gallery with four images:</p>
 
-      <p><img decoding="async" loading="lazy" width="768" height="684" class="alignnone size-medium" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1" srcset="https://i.modjeska.us/2018/04/pig-example-1-768x684.png 768w, https://i.modjeska.us/2018/04/pig-example-1-300x267.png 300w, https://i.modjeska.us/2018/04/pig-example-1-1024x912.png 1024w, https://i.modjeska.us/2018/04/pig-example-1.png 1262w" sizes="(max-width: 768px) 100vw, 768px"></p>
+      <img decoding="async" loading="lazy" width="768" height="684" class="alignnone size-medium post-image-border" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1" srcset="https://i.modjeska.us/2018/04/pig-example-1-768x684.png 768w, https://i.modjeska.us/2018/04/pig-example-1-300x267.png 300w, https://i.modjeska.us/2018/04/pig-example-1-1024x912.png 1024w, https://i.modjeska.us/2018/04/pig-example-1.png 1262w" sizes="(max-width: 768px) 100vw, 768px">
 
       <p>Easy, right? But wait &hellip;</p>
 
@@ -187,39 +190,37 @@ posts:
 
       <p>Let&rsquo;s move on to <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-2">Example Project 2</a>. Copy the files as before and open index.html.</p>
 
-      <p><img decoding="async" loading="lazy" width="1000" height="875" class="alignnone size-full wp-image-1806" src="https://i.modjeska.us/2018/04/pig-example-2.png" alt="PIGG Example 2" srcset="https://i.modjeska.us/2018/04/pig-example-2.png 1000w, https://i.modjeska.us/2018/04/pig-example-2-300x263.png 300w, https://i.modjeska.us/2018/04/pig-example-2-768x672.png 768w" sizes="(max-width: 1000px) 100vw, 1000px"></p>
+      <img decoding="async" loading="lazy" width="1000" height="875" class="alignnone size-full post-image-border" src="https://i.modjeska.us/2018/04/pig-example-2.png" alt="PIGG Example 2" srcset="https://i.modjeska.us/2018/04/pig-example-2.png 1000w, https://i.modjeska.us/2018/04/pig-example-2-300x263.png 300w, https://i.modjeska.us/2018/04/pig-example-2-768x672.png 768w" sizes="(max-width: 1000px) 100vw, 1000px">
 
       <p>Well that&rsquo;s underwheming: it looks exactly the same!</p>
 
       <p>But a few things changed under the hood. First, <b>images are clickable now</b>. How&rsquo;d we accomplish that? Cheating, of course: our friend <a href="https://github.com/mark-rodgers/pig.js">Mark Rodgers has modified PIG</a> to support the Swipebox library. Now images are clickable and open in fancy modals &mdash; go ahead, click on them!</p>
 
-          <div id="pig">
-            <img id="gsPreviewImg">
-          </div>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-          <!-- <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script> -->
-          <script src="https://i.modjeska.us/js/jquery.swipebox.min.js"></script>
-          <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"></script> -->
-          <script type="text/javascript" src="https://i.modjeska.us/js/pig.js"></script>
-          <script type="text/javascript">
-            var imageData = [
-              {"filename": "2018-02-04 16.20.02.jpg", "aspectRatio": "1.3300"},
-              {"filename": "2018-02-04 16.55.53.jpg", "aspectRatio": "1.3300"},
-              {"filename": "2018-02-04 16.29.34.jpg", "aspectRatio": "1.3300"},
-              {"filename": "2018-02-04 16.23.00.jpg", "aspectRatio": "1.6300"},
-            ];
-            var pig = new Pig(imageData, {
-              urlForSize: function(filename, size) {
-              return 'https://i.modjeska.us/galleries/vietnam-2018/' + 'img/' + size + '/' + filename;
-            },
-            addAnchorTag: true,
-            anchorTargetDir: "https://i.modjeska.us/galleries/vietnam-2018/",
-            anchorClass: "swipebox"
-            }).enable();
-            ;( function( $ ) {
-              $( '.swipebox' ).swipebox();
-            } )( jQuery );
-          </script>
+        <div id="pig">
+          <img id="gsPreviewImg">
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
+        <script src="https://i.modjeska.us/js/jquery.swipebox.min.js"></script>
+        <script type="text/javascript" src="https://i.modjeska.us/js/pig.js"></script>
+        <script type="text/javascript">
+          var imageData = [
+            {"filename": "2018-02-04 16.20.02.jpg", "aspectRatio": "1.3300"},
+            {"filename": "2018-02-04 16.55.53.jpg", "aspectRatio": "1.3300"},
+            {"filename": "2018-02-04 16.29.34.jpg", "aspectRatio": "1.3300"},
+            {"filename": "2018-02-04 16.23.00.jpg", "aspectRatio": "1.6300"},
+          ];
+          var pig = new Pig(imageData, {
+            urlForSize: function(filename, size) {
+            return 'https://i.modjeska.us/galleries/vietnam-2018/' + 'img/' + size + '/' + filename;
+          },
+          addAnchorTag: true,
+          anchorTargetDir: "https://i.modjeska.us/galleries/vietnam-2018/",
+          anchorClass: "swipebox"
+          }).enable();
+          ;( function( $ ) {
+            $( '.swipebox' ).swipebox();
+          } )( jQuery );
+        </script>
 
       <br>
 
@@ -245,10 +246,10 @@ posts:
       </pre>
 
       <p>So this gallery does what we want it to now! Let&rsquo;s move on to automating things.</p>
-      <p><a name="automation"></a></p>
 
       <br>
 
+      <a name="automation"></a>
       <h3>Automation</h3>
 
       <p>Now for the fun part: making a robot do all the math, image resizing, and directory setup so we don&rsquo;t have to. Let&rsquo;s even have it output a ready-to-use HTML file. This section assumes a basic understanding of running scripts, and a Mac or Unix/Linux system. This probably won&rsquo;t work on Windows.</p>
@@ -365,7 +366,6 @@ posts:
       </pre>
 
       <p>You now have a full gallery project ready to use. If you upload it to yourwebsite.com/galleries/example-project-3, you can browse to https://yourwebsite.com/galleries/example-project-3 to view your new gallery!</p>
-      <p><a name="wordpress"></a></p>
 
       <br>
 
@@ -448,6 +448,7 @@ posts:
 
       <br>
 
+      <span id="wordpress"></span>
       <h3>WordPress</h3>
       <p>You don&rsquo;t want to upload a plain HTML file to serve your gallery on WordPress, so let&rsquo;s turn now to <a href="https://github.com/jmodjeska/pigg/blob/master/wordpress/plugins/pigg/pigg.php">pigg.php</a>, a WordPress plugin file.</p>
 
