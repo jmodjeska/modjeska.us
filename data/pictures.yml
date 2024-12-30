@@ -22,8 +22,8 @@ posts:
                 { "filename": "2013-09-17 17.23.23-1.jpg", "aspectRatio": "1.0000" },
   - title: Southeast Asia 2023
     slug: southeast-asia-2023
-    description: Pictures a cycling trip across Vietnam, Cambodia, and Thailand
-    paragraph_text: Pictures a cycling trip across Vietnam, Cambodia, and Thailand
+    description: Pictures from a cycling trip across Vietnam, Cambodia, and Thailand
+    paragraph_text: Pictures from a cycling trip across Vietnam, Cambodia, and Thailand
     imagedata_array: |2
                 { "filename": "1-1-trip-map.png", "aspectRatio": "1.2200" },
                 { "filename": "mekong-river-3.JPG", "aspectRatio": "1.3700" },
