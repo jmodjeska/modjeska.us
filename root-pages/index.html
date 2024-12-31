@@ -29,15 +29,15 @@
   <link rel="preload" href="https://i.modjeska.us/css/fa-6-0-0b3-site-only-min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   <!-- Fonts + Styles -->
-  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap.min.css?ver=3.2.0" type="text/css">
-  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/style.css?ver=3.2.0" type="text/css">
-  <link rel="stylesheet" id="supplemental-custom-css" href="https://i.modjeska.us/css/supplemental-style.css?ver=2.2" type="text/css">
-  <link rel="stylesheet" href="https://i.modjeska.us/css/fa-6-0-0b3-site-only-min.css?ver=1.0" type="text/css">
+  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=1.4" type="text/css">
+  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=1.0?ver=1.2" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://i.modjeska.us/css/fa-6-0-0b3-site-only-min.css?ver=1.0" type="text/css">
 
   <!-- Index custom style -->
   <style>
-    .scroll-down-indicator {
+  body, html { background-color: #2f2f2f; }
+  .scroll-down-indicator {
     position: fixed;
     bottom: 10px;
     left: 10px;
@@ -46,24 +46,10 @@
     cursor: pointer;
     animation: bounce 1.5s infinite;
   }
-
   @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(5px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
   }
-
-  body, html {
-    height: 100%;
-    margin: 0;
-    text-decoration: none;
-    background-color: #2f2f2f;
-    font-family: "Montserrat", sans-serif;
-  }
-
   .bg {
     position: relative;
     background-position: center;
@@ -72,7 +58,6 @@
     background-image: url("https://i.modjeska.us/images/home-11-placeholder.jpg");
     height: 100%;
   }
-
   .caption {
     position: absolute;
     left: 0;
@@ -81,47 +66,31 @@
     text-align: center;
     background-color: rgba(51, 51, 51, 0.75);
   }
-
   .caption h1 {
-    font: "Montserrat", sans-serif;
     color: #fff;
     padding: 18px;
     font-size: 6vh;
     letter-spacing: 1vw;
   }
-
   ::selection {
     background: #666;
     color: white;
     text-shadow: none;
   }
-
-  #wrapper {
-    background-color: white;
-  }
-
+  #wrapper { background-color: white; }
   .homepage-row {
     background-color: white;
     margin-bottom: 0px;
     margin-top: 90px;
   }
-
   .homepage-row h2 {
     color: #428bca;
     font-size: 45px;
   }
-
   @media only screen and (max-width: 60em) {
-    h1{
-      font-size: 40px !important;
-    }
-    .navbar-fixed-top,
-    .navbar-fixed-bottom {
-      position: fixed;
-    }
-    .ms-item {
-      width: 99%;
-    }
+    h1 { font-size: 40px !important; }
+    .navbar-fixed-top, .navbar-fixed-bottom { position: fixed; }
+    .ms-item { width: 99%; }
   }
   </style>
 
