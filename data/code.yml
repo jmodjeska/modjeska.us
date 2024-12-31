@@ -227,22 +227,23 @@ posts:
       <p>How did we do that? Let&rsquo;s take a look at what changed in the index.html source. First, we&rsquo;ve <b>added the Swipebox libraries</b>, and we&rsquo;ve modified the source for pig.js:</p>
 
       <pre>
-        &lt;script src="https://code.jquery.com/jquery-2.0.3.min.js"&gt;&lt;/script&gt;
-        &lt;script src=".../jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"&gt;&lt;/script>
-        &lt;script type="text/javascript" src="https://rawgit.com/jmodjeska/pigg/master/js/pig.js"&gt;&lt;/script>
+      &lt;script src="https://code.jquery.com/jquery-2.0.3.min.js"&gt;&lt;/script&gt;
+      &lt;script src=".../jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"&gt;&lt;/script>
+      &lt;script type="text/javascript"
+        src="https://rawgit.com/jmodjeska/pigg/master/js/pig.js"&gt;&lt;/script>
       </pre>
 
       <p>In this case, we&rsquo;re using my version of pig.js as the source. It&rsquo;s identical to Mark&rsquo;s, except with a minor change to improve compatibility with WordPress (more on that later). This is the version we&rsquo;ll be using for the remainder of the process. What else changed?</p>
       <p>We also have some <b>anchor text directives</b> in the JavaScript.</p>
 
       <pre>
-        addAnchorTag: true,
-        anchorTargetDir: "",
-        anchorClass: "swipebox"
-        }).enable();
-          ;( function( $ ) {
-          $( '.swipebox' ).swipebox();
-        } )( jQuery );
+      addAnchorTag: true,
+      anchorTargetDir: "",
+      anchorClass: "swipebox"
+      }).enable();
+        ;( function( $ ) {
+        $( '.swipebox' ).swipebox();
+      } )( jQuery );
       </pre>
 
       <p>So this gallery does what we want it to now! Let&rsquo;s move on to automating things.</p>
@@ -267,8 +268,8 @@ posts:
       <p><b>Install Perl dependencies</b>. If using the Perl script, and assuming you have <a href="https://www.cpan.org/">CPAN</a> setup locally or on the server where you&rsquo;ll run this script, install these libraries:</p>
 
       <pre>
-        cpan Image::Size
-        cpan Image::Scale
+      cpan Image::Size
+      cpan Image::Scale
       </pre>
 
       <br>
@@ -296,11 +297,11 @@ posts:
       <p>Decide where to serve pig.js from. It&rsquo;s fine to serve my version from Github, but safer to upload it to your own server in case I change/break it in the future.</p>
 
       <pre>
-        # Path to where pig.js is located on the internet
-        # You can use my version on Github, or upload and serve your own
-        # on your website (I recommend the second thing, in case I change
-        # or break my version in the future!)
-        our $pig = 'https://yourwebserver.com/css/pig.js';
+      # Path to where pig.js is located on the internet
+      # You can use my version on Github, or upload and serve your own
+      # on your website (I recommend the second thing, in case I change
+      # or break my version in the future!)
+      our $pig = 'https://yourwebserver.com/css/pig.js';
       </pre>
 
       <br>
@@ -308,10 +309,10 @@ posts:
       <p>Where will images live on your server?</p>
 
       <pre>
-        # Base URI to where the images will live
-        # Do not use WordPress's media uploader; upload the finished product
-        # directly to your server
-        our $uri = 'https://yourwebsite.com/galleries/';
+      # Base URI to where the images will live
+      # Do not use WordPress's media uploader; upload the finished product
+      # directly to your server
+      our $uri = 'https://yourwebsite.com/galleries/';
       </pre>
 
       <br>
@@ -319,8 +320,8 @@ posts:
       <p>Do you want to automatically generate an index.html file when you create a gallery? Start with &lsquo;yes&rsquo; for this tutorial. If you decide to use this script with WordPress, you&rsquo;ll want to turn this off.</p>
 
       <pre>
-        # Do you want to generate an index.html file when you create a gallery?
-        our $flag_html = 'yes';
+      # Do you want to generate an index.html file when you create a gallery?
+      our $flag_html = 'yes';
       </pre>
 
       <br>
@@ -328,8 +329,8 @@ posts:
       <p><b>Save pigg.pl and test drive it.</b> Be sure to use the <i>full path</i> to where you&rsquo;ve saved Example Project 3.</p>
 
       <pre>
-        [jm@local /]$ cd /path/to/pigg/util/
-        [jm@local util]$ perl pigg.pl /path/to/pigg/example-project-3/
+      [jm@local /]$ cd /path/to/pigg/util/
+      [jm@local util]$ perl pigg.pl /path/to/pigg/example-project-3/
       </pre>
 
       <br>
@@ -374,7 +375,7 @@ posts:
       <p><b>Install ImageMagick</b>. Follow the installation instructions on the <a href="https://imagemagick.org/script/download.php">ImageMagick project website</a> to install ImageMagick, a multipurpose image manipulation library. On MacOS:</p>
 
       <pre>
-        brew install imagemagick
+      brew install imagemagick
       </pre>
 
       <br>
@@ -382,8 +383,8 @@ posts:
       <p><b>Install the mini_magick and rspec gems</b>. Once you have ImageMagick successfully installed, get the mini_magick gem and rspec:</p>
 
       <pre>
-        gem install mini_magick
-        gem install rspec
+      gem install mini_magick
+      gem install rspec
       </pre>
 
       <br>
@@ -391,8 +392,8 @@ posts:
       <p><b>Run tests</b></p>
 
       <pre>
-        cd /path/to/pigg/ruby
-        rspec
+      cd /path/to/pigg/ruby
+      rspec
       </pre>
 
       <br>
@@ -400,10 +401,10 @@ posts:
       <p>You should see something like this to indicate the tests all passed:</p>
 
       <pre>
-        ..............
+      ..............
 
-        Finished in 0.29299 seconds (files took 0.07217 seconds to load)
-        14 examples, 0 failures
+      Finished in 0.29299 seconds (files took 0.07217 seconds to load)
+      14 examples, 0 failures
       </pre>
 
       <br>
@@ -411,8 +412,8 @@ posts:
       <p><b>Test it out</b></p>
 
       <pre>
-        cd /path/to/pigg/ruby
-        ruby pigg.rb /path/to/pigg/example-project-3/
+      cd /path/to/pigg/ruby
+      ruby pigg.rb /path/to/pigg/example-project-3/
       </pre>
 
       <br>
@@ -420,30 +421,29 @@ posts:
       <p>You should see some output similar to this:</p>
 
       <pre>
-        -=> Checking source directory: /path/to/test_dir ... OK
-        -=> Creating img directory at /path/to/test_dir/img ... OK
-        -=> Setting up new gallery structure at /path/to/test_dir/img ... OK
-        -=> Generating images ...
-            ✔ /path/to/test_dir/img/20/cambodia-kampong-thom-9.jpeg
-            ✔ /path/to/test_dir/img/100/cambodia-kampong-thom-9.jpeg
-            ✔ /path/to/test_dir/img/250/cambodia-kampong-thom-9.jpeg
-            ✔ /path/to/test_dir/img/500/cambodia-kampong-thom-9.jpeg
-            ✔ /path/to/test_dir/img/20/cambodia-angkor-wat-6.jpeg
-            ✔ /path/to/test_dir/img/100/cambodia-angkor-wat-6.jpeg
-            ✔ /path/to/test_dir/img/250/cambodia-angkor-wat-6.jpeg
-            ✔ /path/to/test_dir/img/500/cambodia-angkor-wat-6.jpeg
-            ✔ /path/to/test_dir/img/20/vietnam-can-tho-to-chau-doc-4.jpeg
-            ✔ /path/to/test_dir/img/100/vietnam-can-tho-to-chau-doc-4.jpeg
-            ✔ /path/to/test_dir/img/250/vietnam-can-tho-to-chau-doc-4.jpeg
-            ✔ /path/to/test_dir/img/500/vietnam-can-tho-to-chau-doc-4.jpeg
-        -=> Generating image manifest for use as a JS var ... OK
+      -=> Checking source directory: /path/to/test_dir ... OK
+      -=> Creating img directory at /path/to/test_dir/img ... OK
+      -=> Setting up new gallery structure at /path/to/test_dir/img ... OK
+      -=> Generating images ...
+          ✔ /path/to/test_dir/img/20/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/100/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/250/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/500/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/20/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/100/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/250/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/500/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/20/vietnam-can-tho-to-chau-doc-4.jpeg
+          ✔ /path/to/test_dir/img/100/vietnam-can-tho-to-chau-doc-4.jpeg
+          ✔ /path/to/test_dir/img/250/vietnam-can-tho-to-chau-doc-4.jpeg
+          ✔ /path/to/test_dir/img/500/vietnam-can-tho-to-chau-doc-4.jpeg
+      -=> Generating image manifest for use as a JS var ... OK
 
-            var imageData = [
-              {"filename"=>"cambodia-kampong-thom-9.jpeg", "aspectRatio"=>"1.2800"},
-              {"filename"=>"cambodia-angkor-wat-6.jpeg", "aspectRatio"=>"1.3300"},
-              {"filename"=>"vietnam-can-tho-to-chau-doc-4.jpeg", "aspectRatio"=>"1.3300"},
-            ]
-
+          var imageData = [
+            {"filename"=>"cambodia-kampong-thom-9.jpeg", "aspectRatio"=>"1.2800"},
+            {"filename"=>"cambodia-angkor-wat-6.jpeg", "aspectRatio"=>"1.3300"},
+            {"filename"=>"vietnam-can-tho-to-chau-doc-4.jpeg", "aspectRatio"=>"1.3300"},
+          ]
       </pre>
 
       <br>
@@ -480,17 +480,17 @@ posts:
       <p><b>Shortcode summary</b>. The plugin &mdash; which we&rsquo;re going to add manually because it&rsquo;s fun and gives you full control over everything that&rsquo;s happening &mdash; will let you create a gallery with this simple shortcode:</p>
 
       <pre>
-        [pig gallery="gallery-name" images="image1.jpg/1.33,image2.jpg/1.24 . . ."]
+      [pig gallery="gallery-name" images="image1.jpg/1.33,image2.jpg/1.24 . . ."]
       </pre>
 
       <p><b>Configure pigg.php</b>. Once again, we need to tell the robot where <i>pig.js</i> is, and where images will live on the server:</p>
 
       <pre>
-        # Line 27:
-        <script type="text/javascript" src="https://raw.githubusercontent.com/jmodjeska/pigg/master/js/pig.js"></script>
+      # Line 27:
+      &lt;script src="https://raw.githubusercontent.com/jmodjeska/pigg/master/js/pig.js"&gt;&lt;/script&gt;
 
-        # Line 52:
-        $gallery = 'https://yourserver.com/galleries/' . $gallery;
+      # Line 52:
+      $gallery = 'https://yourserver.com/galleries/' . $gallery;
       </pre>
 
       <p>Save the file. You&rsquo;re ready to install it on your server now.</p>
@@ -504,15 +504,15 @@ posts:
       <p>Create a new directory inside <i>plugins</i> called <i>pigg</i>:</p>
 
       <pre>
-        [jm@remote-webserver wp-content]$ cd plugins
-        [jm@remote-webserver plugins]$ mkdir pigg
+      [jm@remote-webserver wp-content]$ cd plugins
+      [jm@remote-webserver plugins]$ mkdir pigg
       </pre>
 
       <p><b>Place pigg.php in the new directory</b>. Use FTP or, if you&rsquo;re logged in to your server:</p>
 
       <pre>
-        [jm@remote-webserver plugins]$ cd pigg
-        [jm@remote-webserver plugins]$ wget https://raw.githubusercontent.com/jmodjeska/pigg/master/wordpress/plugins/pigg/pigg.php
+      [jm@remote-webserver plugins]$ cd pigg
+      [jm@remote-webserver plugins]$ wget https://raw.githubusercontent.com/jmodjeska/pigg/main/wordpress/plugins/pigg/pigg.php
       </pre>
 
       <p><b>Verify the plugin is installed</b> by navigating to your WordPress dashboard &gt; Plugins:</p>
@@ -522,28 +522,28 @@ posts:
       <p><b>Hey, does anyone need this bit for Ruby?</b> Open a <a href="https://github.com/jmodjeska/pigg/tree/main">Github issue</a> and I'll add it!</p>
 
       <pre>
-        # Do you want to generate an index.html file when you create a gallery?
-        our $flag_html = 'no';
+      # Do you want to generate an index.html file when you create a gallery?
+      our $flag_html = 'no';
 
-        # Do you want to output a WordPress shortcode when you create a gallery?
-        our $flag_wordpress = 'yes';
+      # Do you want to output a WordPress shortcode when you create a gallery?
+      our $flag_wordpress = 'yes';
       </pre>
 
       <p><b>Delete everything inside the <i>example-project-3</i> folder except for the four images</b>.</p>
 
       <pre>
-        [jm@local /]$ cd /path/to/pigg/example-project-3/
-        [jm@local example-project-3]$ rm -rf img
-        [jm@local example-project-3]$ rm index.html
-        [jm@local example-project-3]$ ls
-        vn.jpg	vn2.jpg	vn3.jpg	vn4.jpg
+      [jm@local /]$ cd /path/to/pigg/example-project-3/
+      [jm@local example-project-3]$ rm -rf img
+      [jm@local example-project-3]$ rm index.html
+      [jm@local example-project-3]$ ls
+      vn.jpg	vn2.jpg	vn3.jpg	vn4.jpg
       </pre>
 
       <p><b>Re-run pigg.pl with the new configuration</b>. Same command as before:</p>
 
       <pre>
-        [jm@local /]$ cd /path/to/pigg/util/
-        [jm@local util]$ perl pigg.pl /path/to/pigg/example-project-3/
+      [jm@local /]$ cd /path/to/pigg/util/
+      [jm@local util]$ perl pigg.pl /path/to/pigg/example-project-3/
       </pre>
 
       <p>Now examine the bottom of the command output. We generated our image tree again, but now instead of an HTML file, we have a WordPress shortcode:</p>
@@ -651,7 +651,7 @@ posts:
     github_url_name: flighttracker
     post_content: |2
       <p>Here&rsquo;s a <a href="https://github.com/jmodjeska/flighttracker">flight tracker project</a> I&rsquo;ve been working on. This is based on an assignment for a Ruby class. It has a Sinatra-powered server, an inbound flight simulator, a tracker backed by a SQLite database, and a frontend built with jqPlot, Bootstrap, and some rather sloppy jQuery. Full project description and design spec are on the Github project page.</p>
-      <p><a href="https://github.com/jmodjeska/flighttracker"><img decoding="async" src="https://i.modjeska.us/2015/12/tracker_screenshot.png" rel="magnific" alt="tracker_screenshot" width="100%" class="alignleft"></a></p>
+      <p><a href="https://github.com/jmodjeska/flighttracker"><img decoding="async" src="https://i.modjeska.us/2015/12/tracker_screenshot.png" alt="tracker_screenshot" width="100%" class="alignleft"></a></p>
   - title: Project-Style (WBS) Numbering in MS Excel
     slug: project-style-wbs-numbering-in-ms-excel
     description: WBS numbering in Excel. Excel doesn&rsquo;t natively support MS Project-style work breakdown structure &mdash; WBS numbering &mdash; in outline format (1.1.1, 1.1.2, etc.). This Excel VBA function lets you use a spreadsheet like a project plan by automatically generating WBS numbers.
