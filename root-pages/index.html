@@ -23,74 +23,64 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@jmodjeska">
 
-  <!-- Preloads -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://i.modjeska.us/css/fa-6-0-0b3-site-only-min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
   <!-- Fonts + Styles -->
-  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=1.6" type="text/css">
-  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=1.6" type="text/css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://i.modjeska.us/css/fa-6-0-0b3-site-only-min.css?ver=1.0" type="text/css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=1.7" type="text/css">
+  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=1.7" type="text/css">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css"></noscript>
 
   <!-- Index custom style -->
   <style>
-  body, html { background-color: #2f2f2f; }
-  .scroll-down-indicator {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-size: 8vh;
-    color: #555;
-    cursor: pointer;
-    animation: bounce 1.5s infinite;
-  }
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(5px); }
-  }
-  .bg {
-    position: relative;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("https://i.modjeska.us/images/home-11-placeholder.jpg");
-    height: 100%;
-  }
-  .caption {
-    position: absolute;
-    left: 0;
-    top: 40%;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(51, 51, 51, 0.75);
-  }
-  .caption h1 {
-    color: #fff;
-    padding: 18px;
-    font-size: 6vh;
-    letter-spacing: 1vw;
-  }
-  ::selection {
-    background: #666;
-    color: white;
-    text-shadow: none;
-  }
-  #wrapper { background-color: white; }
-  .homepage-row {
-    background-color: white;
-    margin-bottom: 0px;
-    margin-top: 90px;
-  }
-  .homepage-row h2 {
-    color: #428bca;
-    font-size: 45px;
-  }
-  @media only screen and (max-width: 60em) {
-    h1 { font-size: 40px !important; }
-    .navbar-fixed-top { position: fixed; }
-    .ms-item { width: 99%; }
-  }
+    body, html { background-color: #2f2f2f; }
+    #index-wrapper { background-color: white; }
+    .scroll-down-indicator {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 8vh;
+      color: #555;
+      cursor: pointer;
+      animation: bounce 1.5s infinite;
+    }
+    .bg {
+      position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("https://i.modjeska.us/images/home-11-placeholder.jpg");
+      height: 100%;
+    }
+    .caption {
+      position: absolute;
+      left: 0;
+      top: 40%;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(51, 51, 51, 0.75);
+    }
+    .caption h1 {
+      color: #fff;
+      padding: 18px;
+      font-size: 6vh;
+      letter-spacing: 1vw;
+    }
+    .homepage-row {
+      background-color: white;
+      margin: 0;
+      padding-top: 90px;
+    }
+    .homepage-row h2 {
+      color: #428bca;
+      font-size: 45px;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+    @media only screen and (max-width: 60em) {
+      h1 { font-size: 40px !important; }
+      .navbar-fixed-top { position: fixed; }
+    }
   </style>
 
   <!-- Icons -->
@@ -162,7 +152,7 @@
     });
   </script>
 
-  <div id="wrapper" class="clearfix">
+  <div class="clearfix" id="index-wrapper">
     <div class="container">
       <div class="row centered mt mb homepage-row">
         <div class="col-lg-4 col-md-4 col-sm-4">

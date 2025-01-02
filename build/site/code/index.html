@@ -26,14 +26,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
   <!-- Fonts + Styles -->
-  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=1.6" type="text/css">
-  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=1.6" type="text/css">
-
+  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=1.7" type="text/css">
+  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=1.7" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://i.modjeska.us/css/fa-6-0-0b3-site-only-min.css?ver=1.0" type="text/css">
 
   <!-- Scripts -->
-  <script src="https://i.modjeska.us/js/jquery.min.js?ver=3.6.1" id="jquery-core-js"></script>
+  <script src="https://i.modjeska.us/js/jquery.min.js?ver=4.0" id="jquery-core-js"></script>
   <script src="https://i.modjeska.us/js/bootstrap.min.js?ver=1.1" id="bootstrap-script-js"></script>
   <script src="https://i.modjeska.us/js/newwindow.js?ver=1.0" id="newwindow-js"></script>
 
@@ -65,33 +63,42 @@
 <body class="portfolio-template-default single single-portfolio">
 
   
-  <header>
-    <nav role="navigation">
-      <div class="navbar navbar-default navbar-fixed-top">
+  <div id="nav-full">
+    <nav>
+      <div class="desktop-navbar">
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
-          </div><!-- /navbar-header -->
-          <div class="navbar-collapse collapse navbar-right navbar-responsive-collapse">
-			      <ul id="menu-top-menu" class="nav navbar-nav-jm">
-              <li id="menu-item-102" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-102"><a href="https://modjeska.us/pictures/">Pictures</a></li>
-              <li id="menu-item-103" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-103"><a href="https://modjeska.us/words/">Words</a></li>
-              <li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-104"><a href="https://modjeska.us/code/">Code</a></li>
+          <a class="navbar-brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
+          <div class="navbar-right">
+            <ul class="nav navbar-nav-jm">
+              <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
+              <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
+              <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
             </ul>
           </div>
-        </div><!-- /container -->
-      </div><!-- /navbar -->
-    </nav><!-- /navigation -->
-  </header>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div id="nav-phone">
+    <input type="checkbox" id="mobile-nav"></input>
+    <div class="mobile-navbar">
+      <label for="mobile-nav"><i class="fa-solid fa-bars"></i></label>
+    </div>
+    <div class="overlay overlay-cover">
+      <label for="mobile-nav">x</label>
+      <nav>
+        <ul>
+          <li><a href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage"><b>Home</b></a></li>
+          <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
+          <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
+          <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
 
-  <div id="wrapper" class="clearfix">
+  <div class="clearfix">
     <div id="workwrap" style="background-image: url('https://i.modjeska.us/2018/04/code.jpg');">
       <div class="container">
         <div class="row">
@@ -103,7 +110,6 @@
     </div><!-- /workwrap -->
   </div><!-- /wrapper -->
 
-  <section id="works"></section>
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-12 col-lg-offset-0">
@@ -155,11 +161,7 @@
           <span class="github-code github-ruby"></span><span class="github-text">Ruby</span><span class="github-code github-js"></span><span class="github-text">JavaScript</span><span class="github-code github-css"></span><span class="github-text">CSS</span><span class="github-code github-html"></span><span class="github-text">HTML</span>
         </div>
       </div><!-- /col -->
-
       <div class="col-lg-10 col-lg-offset-1 mt"></div>
-      <footer class="article-footer">
-        <div class="post-edit"></div>
-      </footer>
     </div><!-- /row -->
   </div><!-- /container -->
   <div id="social">
@@ -204,17 +206,15 @@
       <div class="row centered">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-          <div id="text-6" class="widget_text">
-            <h4 id="widget-title-one" class="widget-title-footer" style="color:#999">ABOUT</h4>
-            <div class="hline-w"></div>
-            <div class="textwidget">
-              <p>This personal website of Jeremy Modjeska is &copy; by the author. All rights reserved. Code projects are licensed
-              <a class="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>.
-              This website is not suitable for carbon-based lifeforms.</p>
-              <p id="tw-quote-placeholder"></p>
-            </div>
-          </div>
+          <h4>ABOUT</h4>
+          <p>This personal website of Jeremy Modjeska is &copy; by the author.
+             All rights reserved. Code projects are licensed
+             <a class="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>.
+             This website is not suitable for carbon-based lifeforms.
+          </p>
+          <p id="tw-quote-placeholder"></p>
         </div><!-- /col -->
+        <div class="col-lg-2"></div>
       </div><!-- /row -->
     </div><!-- /container -->
   </footer>
