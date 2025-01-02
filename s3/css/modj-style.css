@@ -49,25 +49,25 @@ blockquote:before, blockquote:after { content: ""; }
 #footerwrap p { color: #f2f2f2; margin-left: 10px; }
 #workwrap { background: no-repeat center top; }
 #workwrap, #errorwrap {
-	margin-top: -70px;
-	padding-top: 250px;
-	text-align: center;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 650px;
-	width: 100%;
+  margin-top: -70px;
+  padding-top: 250px;
+  text-align: center;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 650px;
+  width: 100%;
   background-size: cover !important;
 }
 #errorwrap {
-	background: url(https://i.modjeska.us/images/about.jpg) no-repeat center top;
-	min-height: 550px;
+  background: url(https://i.modjeska.us/images/about.jpg) no-repeat center top;
+  min-height: 550px;
 }
 #workwrap h1 {
-	color: #ffffff;
-	padding: 10px 0 20px 0;
-	letter-spacing: 4px;
-	font-size: 80px;
-	font-weight: bold;
+  color: #ffffff;
+  padding: 10px 0 20px 0;
+  letter-spacing: 4px;
+  font-size: 80px;
+  font-weight: bold;
 }
 #workwrap h4 { font-weight: 400; color: #ffffff; }
 .blog-wrap {
@@ -86,9 +86,9 @@ pre {
   border-radius: 4px;
   margin-top: 15px;
   padding: 1em;
-	max-width: 100% !important;
+  max-width: 100% !important;
   font: normal 0.8em/1.3 Consolas, "Bitstream Vera Sans Mono", monospace;
-	white-space: pre-wrap;
+  white-space: pre-wrap;
   overflow-wrap: break-word;
 }
 .gallery { margin: 0 auto 18px; }
@@ -129,14 +129,14 @@ p.jm-gallery { color: #666; font-size: 13px; line-height: 1.6em; }
   font-size: 18px;
   line-height: 1.9em;
   max-width: 750px;
-	margin: 0 auto;
+  margin: 0 auto;
 }
 .jm-words h2, .jm-pictures h2, .error404 h1 {
-	font-size: 40px;
-	margin-bottom: 0 0 40px 0;
-	color: #666;
-	padding-left: 0 !important;
-	text-align: left;
+  font-size: 40px;
+  margin-bottom: 0 0 40px 0;
+  color: #666;
+  padding-left: 0 !important;
+  text-align: left;
 }
 .post-data { clear: both; font-size: 11px; margin-top: 20px; }
 .post-desc { padding: 0; margin-top: 10px; }
@@ -191,8 +191,8 @@ label { display: block; padding: 2px 0; font-weight: 700; margin: 0; }
 ol.bignum {
   color: #ccc;
   list-style-type: none;
-	margin-bottom: 40px;
-	padding-top: 10px;
+  margin-bottom: 40px;
+  padding-top: 10px;
 }
 ol.bignum li {
   position: relative;
@@ -207,14 +207,14 @@ ol.bignum li p {
 ol.bignum span { position: absolute; margin-top: -5px; }
 ol.bignum > li::before { display: none; }
 .github-link, .publication-link {
-	font: normal 20px Helvetica, Arial, sans-serif;
-	margin: 20px 0;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #eee;
+  font: normal 20px Helvetica, Arial, sans-serif;
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
 .github-link:before, .publication-link:before {
   display: inline-block;
-	padding: 2px 6px 0 0;
+  padding: 2px 6px 0 0;
 }
 .github-link:before { font-family: "Font Awesome 6 Brands"; content: "\f09b"; }
 .publication-link:before {
@@ -223,27 +223,27 @@ ol.bignum > li::before { display: none; }
   content: "\f15c";
 }
 .publication-meta {
-	margin: 0 0 -18px 0;
-	padding: 0;
-	text-transform: uppercase;
-	font-size: 10px;
-	line-height: 1.0em;
-	color: #666;
+  margin: 0 0 -18px 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 1.0em;
+  color: #666;
 }
 .pig-figure img { padding: 0px !important; }
 .jm-words .publication-link { border-bottom: none; margin-bottom: 0; }
 .jm-words .publication-link a { color: #666; }
 .jm-words .publication-link a:hover { color: #428bca; }
-.jm-words .publication-meta {	margin-top: 20px; }
+.jm-words .publication-meta { margin-top: 20px; }
 .github-text {
-	font: normal 13px Arial, sans-serif;
-	text-transform: uppercase;
-	padding-right: 14px;
+  font: normal 13px Arial, sans-serif;
+  text-transform: uppercase;
+  padding-right: 14px;
 }
 .github-code:before {
   font: 900 14px "Font Awesome 6 Free";
   display: inline-block;
-	padding-right: 6px;
+  padding-right: 6px;
   content: "\f111";
 }
 .github-c { color: #555555; }
