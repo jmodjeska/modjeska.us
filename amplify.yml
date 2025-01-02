@@ -6,10 +6,12 @@ frontend:
     build:
       commands:
         - gem install rspec
+        - gem install aws-sdk-s3
         - rspec
         - pwd
         - ruby build/write_posts.rb
         - ruby build/copy_wp_style_slugs.rb
+        - ruby save_assets_to_s3.rb
   artifacts:
     baseDirectory: /build/site
     files:
