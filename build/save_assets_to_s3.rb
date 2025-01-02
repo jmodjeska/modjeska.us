@@ -29,8 +29,8 @@ end
 S3_PATHS.each do |directory_name|
   Dir.each_child("#{S3_ASSETS_DIR}/#{directory_name}") do |file|
     ext = File.extname(file)[1..]
-    next unless S3_PATHS.include?(ext)
-    content_type = CONTENT_TYPES[ext.to_sym]
+    next unless CONTENT_TYPES.key?(ext)
+    content_type = CONTENT_TYPES[ext]
     object_key = "#{ext}/#{file}"
     file_path = "#{S3_ASSETS_DIR}/#{directory_name}/#{file}"
     print "-=> Putting object #{S3_BUCKET}/#{object_key} as #{content_type}... "
