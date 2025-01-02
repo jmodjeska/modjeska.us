@@ -1,25 +1,34 @@
 
-  <header>
-    <nav role="navigation">
-      <div class="navbar navbar-default navbar-fixed-top">
+  <div id="nav-full">
+    <nav>
+      <div class="desktop-navbar">
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
-          </div><!-- /navbar-header -->
-          <div class="navbar-collapse collapse navbar-right navbar-responsive-collapse">
-			      <ul id="menu-top-menu" class="nav navbar-nav-jm">
-              <li id="menu-item-102" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-102"><a href="https://modjeska.us/pictures/">Pictures</a></li>
-              <li id="menu-item-103" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-103"><a href="https://modjeska.us/words/">Words</a></li>
-              <li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-104"><a href="https://modjeska.us/code/">Code</a></li>
+          <a class="navbar-brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
+          <div class="navbar-right">
+            <ul class="nav navbar-nav-jm">
+              <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
+              <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
+              <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
             </ul>
           </div>
-        </div><!-- /container -->
-      </div><!-- /navbar -->
-    </nav><!-- /navigation -->
-  </header>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div id="nav-phone">
+    <input type="checkbox" id="mobile-nav"></input>
+    <div class="mobile-navbar">
+      <label for="mobile-nav"><i class="fa-solid fa-bars"></i></label>
+    </div>
+    <div class="overlay overlay-cover">
+      <label for="mobile-nav">x</label>
+      <nav>
+        <ul>
+          <li><a href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage"><b>Home</b></a></li>
+          <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
+          <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
+          <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>

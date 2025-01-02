@@ -259,7 +259,7 @@ posts:
       <br>
 
       <h3>Automation with Perl</h3>
-      <div class="alert alert-danger" role="alert">
+      <div class="alert" role="alert">
         <b>Caution</b>: As of December 2024, Image::Scale seems to no longer work on MacOS, even with the requisite packages installed. I'm keeping these instructions for those who know what they're doing, but I suggest you skip down to the <b>Automation with Ruby</b> section for an easier and more reliable experience.
       </div>
 
@@ -651,7 +651,7 @@ posts:
     github_url_name: flighttracker
     post_content: |2
       <p>Here&rsquo;s a <a href="https://github.com/jmodjeska/flighttracker">flight tracker project</a> I&rsquo;ve been working on. This is based on an assignment for a Ruby class. It has a Sinatra-powered server, an inbound flight simulator, a tracker backed by a SQLite database, and a frontend built with jqPlot, Bootstrap, and some rather sloppy jQuery. Full project description and design spec are on the Github project page.</p>
-      <p><a href="https://github.com/jmodjeska/flighttracker"><img decoding="async" src="https://i.modjeska.us/2015/12/tracker_screenshot.png" alt="tracker_screenshot" width="100%" class="alignleft"></a></p>
+      <p><a href="https://github.com/jmodjeska/flighttracker"><img decoding="async" src="https://i.modjeska.us/2015/12/tracker_screenshot.png" alt="tracker_screenshot" width="100%"></a></p>
   - title: Project-Style (WBS) Numbering in MS Excel
     slug: project-style-wbs-numbering-in-ms-excel
     description: WBS numbering in Excel. Excel doesn&rsquo;t natively support MS Project-style work breakdown structure &mdash; WBS numbering &mdash; in outline format (1.1.1, 1.1.2, etc.). This Excel VBA function lets you use a spreadsheet like a project plan by automatically generating WBS numbers.
