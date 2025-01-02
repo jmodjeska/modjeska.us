@@ -26,6 +26,7 @@ ROOT_PAGES = [
 S3_BUCKET = 'i.modjeska.us'
 S3_ASSETS_DIR = 's3'
 S3_PATHS = %w[css js].freeze
+CONTENT_TYPES = { 'css': 'text/css', 'js': 'application/javascript' }.freeze
 
 # Directory location check
 def check_dir(current_dir)

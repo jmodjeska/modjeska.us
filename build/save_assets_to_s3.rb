@@ -11,12 +11,14 @@ check_dir(current_dir)
 
 puts '-=> Build step: copy assets to s3'
 
-def upload_file_to_s3(object_key, file)
+def upload_file_to_s3(object_key, file, content_type)
   begin
     @s3.put_object(
       bucket: S3_BUCKET,
       key: object_key,
-      body: File.open(file, 'rb')
+      body: File.open(file, 'rb'),
+      acl: 'public-read',
+      content_type: content_type
     )
   rescue Aws::S3::Errors::ServiceError => e
     return "\n#{e.message}"
@@ -28,9 +30,10 @@ S3_PATHS.each do |directory_name|
   Dir.each_child("#{S3_ASSETS_DIR}/#{directory_name}") do |file|
     ext = File.extname(file)[1..]
     next unless S3_PATHS.include?(ext)
+    content_type = CONTENT_TYPES[ext.to_sym]
     object_key = "#{ext}/#{file}"
     file_path = "#{S3_ASSETS_DIR}/#{directory_name}/#{file}"
-    print "-=> Putting object #{S3_BUCKET}/#{object_key} ... "
-    print upload_file_to_s3(object_key, file_path)
+    print "-=> Putting object #{S3_BUCKET}/#{object_key} as #{content_type}... "
+    print upload_file_to_s3(object_key, file_path, content_type)
   end
 end
