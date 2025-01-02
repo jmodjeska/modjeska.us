@@ -11,7 +11,7 @@ frontend:
         - pwd
         - ruby build/write_posts.rb
         - ruby build/copy_wp_style_slugs.rb
-        - ruby save_assets_to_s3.rb
+        - ruby build/save_assets_to_s3.rb
   artifacts:
     baseDirectory: /build/site
     files:
