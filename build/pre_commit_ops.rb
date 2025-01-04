@@ -64,9 +64,10 @@ end
 puts '-=> Updating asset versions ...' unless @versions_to_update.empty?
 
 @versions_to_update&.each do |asset_name|
-  template_file = find_template(asset_name)
-  asset_versions = @v.links_in_template(template_file)
+  template = find_template(asset_name)
+  asset_versions = @v.links_in_template(template)
   new_ver = @v.increment_version(asset_versions[asset_name])
-  puts truncate("-   Updating #{asset_name} in #{template_file} to v#{new_ver}")
-  @v.replace_version(template_file, asset_name, new_ver)
+  puts truncate("-   Updating #{asset_name} in #{template} to v#{new_ver}")
+  content = @v.replace_version(template, asset_name, new_ver)
+  File.write(template, content)
 end

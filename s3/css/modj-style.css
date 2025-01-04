@@ -106,7 +106,7 @@ pre {
   visibility: hidden;
 }
 ::selection { background: #666; color: white; text-shadow: none; }
-.homepage-row { margin-bottom: 0px; margin-top: 90px; }
+.homepage-row { margin-bottom: 0; margin-top: 90px; }
 .homepage-row h2 { font-size: 45px; }
 .jm-gallery { text-align: left; }
 .jm-gallery>h2, .jm-gallery>p { padding-left: 15px; }
@@ -223,7 +223,7 @@ ol.bignum > li::before { display: none; }
   line-height: 1.0em;
   color: #666;
 }
-.pig-figure img { padding: 0px !important; }
+.pig-figure img { padding: 0 !important; }
 .jm-words .publication-link { border-bottom: none; margin-bottom: 0; }
 .jm-words .publication-link a { color: #666; }
 .jm-words .publication-link a:hover { color: #428bca; }
