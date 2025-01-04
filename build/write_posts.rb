@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'lib/builder'
 require_relative 'lib/config'
+require_relative 'lib/builder'
 
 current_dir = File.basename(Dir.getwd)
 check_dir(current_dir)

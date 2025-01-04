@@ -55,12 +55,16 @@ class Builder
     return data.is_a?(Hash) && data.key?('posts')
   end
 
-  # Validates that data.yml will merge correctly into template.html
+  # Convert post data keys (e.g., 'title') into tags ('@@TITLE@@')
+  def transform_keys_to_tags(post_data)
+    return post_data['posts'][0].keys.map { |key| "@@#{key.upcase}@@" }
+  end
+
+  # Validates data.yml will merge correctly into template.html
   def match_data_to_template(template, data)
-    data_keys = data['posts'][0].keys
-    template_keys = template.scan(/@@(.*?)@@/).flatten.uniq.map(&:downcase)
-    template_keys -= RESERVED_PAGE_PARTS
-    return data_keys.sort == template_keys.sort
+    tags = template.scan(/@@.*?@@/).flatten.uniq
+    tags -= PAGE_PARTS.keys
+    return transform_keys_to_tags(data).sort == tags.sort
   end
 
   # Returns an array of posts
@@ -78,9 +82,12 @@ class Builder
 
   # Add page parts
   def add_page_parts(content)
-    content.gsub!('@@HEAD@@', File.read(HEAD))
-    content.gsub!('@@NAV@@', File.read(NAV))
-    content << File.read(FOOTER)
+    content.prepend(File.read(PAGE_PARTS[:top]))
+    PAGE_PARTS.each do |k, v|
+      next if k.is_a?(Symbol)
+      content.gsub!(k, File.read(v))
+    end
+    content << (File.read(PAGE_PARTS[:footer]))
     return content
   end
 

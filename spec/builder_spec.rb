@@ -2,21 +2,21 @@
 
 require_relative '../build/lib/builder'
 
-def create_instance_vars
-  test_template_file = 'spec/support/test_template.html'
-  test_data_file = 'spec/support/test_data.yml'
-  test_data_bad = 'spec/support/test_data_bad.yml'
-  out_file_1 = 'spec/support/snow-day.html'
-  out_file_2 = 'spec/support/spain-2019.html'
-
-  @test_template = File.read(File.expand_path(test_template_file, Dir.pwd))
-  @test_data = YAML.load_file(File.expand_path(test_data_file, Dir.pwd))
-  @test_data_bad = YAML.load_file(File.expand_path(test_data_bad, Dir.pwd))
-  @stub_output_1 = File.read(File.expand_path(out_file_1, Dir.pwd))
-  @stub_output_2 = File.read(File.expand_path(out_file_2, Dir.pwd))
-end
-
 describe 'Build pipeline' do
+  def create_instance_vars
+    test_template_file = 'spec/support/test_template.html'
+    test_data_file = 'spec/support/test_data.yml'
+    test_data_bad = 'spec/support/test_data_bad.yml'
+    out_file_1 = 'spec/support/snow-day.html'
+    out_file_2 = 'spec/support/spain-2019.html'
+
+    @test_template = File.read(File.expand_path(test_template_file, Dir.pwd))
+    @test_data = YAML.load_file(File.expand_path(test_data_file, Dir.pwd))
+    @test_data_bad = YAML.load_file(File.expand_path(test_data_bad, Dir.pwd))
+    @stub_output_1 = File.read(File.expand_path(out_file_1, Dir.pwd))
+    @stub_output_2 = File.read(File.expand_path(out_file_2, Dir.pwd))
+  end
+
   before(:all) do
     create_instance_vars
   end
@@ -57,6 +57,14 @@ describe 'Build pipeline' do
   it 'returns false if a data object has no posts' do
     data = { a: 'hello', b: 'world' }
     expect(@b.check_for_posts(data)).to be false
+  end
+
+  it 'converts post data keys into tags' do
+    tags = [
+      '@@TITLE@@', '@@SLUG@@', '@@DESCRIPTION@@', '@@PARAGRAPH_TEXT@@',
+      '@@IMAGEDATA_ARRAY@@'
+    ]
+    expect(@b.transform_keys_to_tags(@test_data)).to eq tags
   end
 
   it 'returns true if the data object conforms to the template' do

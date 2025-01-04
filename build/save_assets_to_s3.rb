@@ -2,7 +2,6 @@
 
 require_relative 'lib/config'
 require 'aws-sdk-s3'
-require 'fileutils'
 
 current_dir = File.basename(Dir.getwd)
 check_dir(current_dir)
@@ -26,14 +25,11 @@ def upload_file_to_s3(object_key, file, content_type)
   return "OK\n"
 end
 
-S3_PATHS.each do |directory_name|
-  Dir.each_child("#{S3_ASSETS_DIR}/#{directory_name}") do |file|
-    ext = File.extname(file)[1..]
-    next unless CONTENT_TYPES.key?(ext)
-    content_type = CONTENT_TYPES[ext]
-    object_key = "#{ext}/#{file}"
-    file_path = "#{S3_ASSETS_DIR}/#{directory_name}/#{file}"
-    print "-=> Putting object #{S3_BUCKET}/#{object_key} as #{content_type}... "
-    print upload_file_to_s3(object_key, file_path, content_type)
-  end
+s3_asset_files.each do |file|
+  type = get_file_type(file)
+  content_type = CONTENT_TYPES[type]
+  object_key = "#{type}/#{file}"
+  file_path = "#{S3_ASSETS_DIR}/#{object_key}"
+  print "-   Putting #{S3_BUCKET}/#{object_key} as #{content_type} ... "
+  print upload_file_to_s3(object_key, file_path, content_type)
 end

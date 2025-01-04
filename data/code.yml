@@ -119,7 +119,7 @@ posts:
       <li>
       <span>1.</span>
       <p><strong><a href="#basic-pig">Basic PIG</a></strong>.
-      Progressive Image Grid (PIG.js) is the JavaScript library that will power our image gallery. We&rsquo;ll get a simple test page up and running with out-of-the-box PIG.</p></li>
+      Progressive Image Grid (PIG.js) is the JavaScript library that will power our image gallery. We&rsquo;ll get a test page up and running with out-of-the-box PIG.</p></li>
 
       <li>
       <span>2.</span>
@@ -142,14 +142,14 @@ posts:
 
       <p><a href="https://github.com/schlosser/pig.js">Dan Schlosser&rsquo;s Progressive Image Grid (PIG.js)</a> is a responsive and lightweight JavaScript library that progressively and elegantly loads images as you scroll. It looks similar to the Google Photos album layout, which is the look I was interested in for my photo galleries. To get started, let&rsquo;s see a test project using pure standard PIG without any modifications.</p>
 
-      <p><b>Click on the source code link at the top</b> and clone the Github project, or just <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-1">download the files for example-project-1</a>. You should be able to open index.html locally in your browser and see a simple gallery with four images:</p>
+      <p><b>Click on the source code link at the top</b> and clone the Github project, or just <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-1">download the files for example-project-1</a>. You should be able to open index.html locally in your browser and see a gallery with four images:</p>
 
       <img decoding="async" loading="lazy" width="768" height="684" class="alignnone size-medium post-image-border" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1" srcset="https://i.modjeska.us/2018/04/pig-example-1-768x684.png 768w, https://i.modjeska.us/2018/04/pig-example-1-300x267.png 300w, https://i.modjeska.us/2018/04/pig-example-1-1024x912.png 1024w, https://i.modjeska.us/2018/04/pig-example-1.png 1262w" sizes="(max-width: 768px) 100vw, 768px">
 
       <p>Easy, right? But wait &hellip;</p>
 
       <p><b>These images aren&rsquo;t clickable!</b> PIG doesn&rsquo;t have support for image modals or linking.</p>
-      <p><b>There are a lot of extra images!</b> While there are only four images on the page, each full-size image requires four additional thumbnails in the /img directory &mdash; that&rsquo;s 16 additional images I had to create for this simple page.</p>
+      <p><b>There are a lot of extra images!</b> While there are only four images on the page, each full-size image requires four additional thumbnails in the /img directory &mdash; that&rsquo;s 16 additional images I had to create for this page.</p>
       <pre>&#9500;&#9472;&#9472; img
       &#9474;   &#9500;&#9472;&#9472; 20
       &#9474;   |   &#9500;&#9472;&#9472; vn.jpg
@@ -477,7 +477,7 @@ posts:
 
       <p>Better, right? OK, now let&rsquo;s configure a WordPress plugin that will be compatible with this straightforward image hierarchy.</p>
 
-      <p><b>Shortcode summary</b>. The plugin &mdash; which we&rsquo;re going to add manually because it&rsquo;s fun and gives you full control over everything that&rsquo;s happening &mdash; will let you create a gallery with this simple shortcode:</p>
+      <p><b>Shortcode summary</b>. The plugin &mdash; which we&rsquo;re going to add manually because it&rsquo;s fun and gives you full control over everything that&rsquo;s happening &mdash; will let you create a gallery with this shortcode:</p>
 
       <pre>
       [pig gallery="gallery-name" images="image1.jpg/1.33,image2.jpg/1.24 . . ."]
@@ -576,16 +576,16 @@ posts:
     github_url: https://gist.github.com/jmodjeska/b2ed67c6901622fe35094595b7e456ac#file-rollbar-pl
     github_url_name: rollbar.pl
     post_content: |2
-      <p>Here&rsquo;s a simple way to log to <a href="https://rollbar.com/">Rollbar</a> with Perl. I found that <a href="https://github.com/zoffixznet/WebService-Rollbar-Notifier">WebService::Rollbar::Notifier</a> didn&rsquo;t compile without failures, and didn&rsquo;t work out of the box. Since all I needed was very simple logging, I rolled my own solution.</p>
+      <p>Here&rsquo;s a simple way to log to <a href="https://rollbar.com/">Rollbar</a> with Perl. I found that <a href="https://github.com/zoffixznet/WebService-Rollbar-Notifier">WebService::Rollbar::Notifier</a> didn&rsquo;t compile without failures, and didn&rsquo;t work out of the box. Since all I needed was basic logging, I rolled my own solution.</p>
       <p><script src="https://gist.github.com/jmodjeska/b2ed67c6901622fe35094595b7e456ac.js"></script></p>
   - title: Fanyi Translation Script
     slug: fanyi-translation-script
-    description: Fanyi is a simple translation script that employs the free Microsoft Translator API to translate a newline-separated text file, line by line, into almost any language. This is a simple internationalization proof-of-concept.
+    description: Fanyi is a proof-of-concept translation script that employs the free Microsoft Translator API to translate a newline-separated text file, line by line, into almost any language.
     published_on: April 10, 2018
     github_url: https://github.com/jmodjeska/fanyi
     github_url_name: fanyi
     post_content: |2
-      <p>Fanyi is a simple translation script that employs the free <a href="http://www.microsoft.com/en-us/translator/getstarted.aspx">Microsoft Translator API</a> in order to translate a newline-separated text file, line by line, into almost any language. I wrote it to facilitate an internationalization proof-of-concept. Of course it isn&rsquo;t meant for production use since the quality of the translations will be poor.</p>
+      <p>Fanyi is a translation script that employs the free <a href="http://www.microsoft.com/en-us/translator/getstarted.aspx">Microsoft Translator API</a> in order to translate a newline-separated text file, line by line, into almost any language. I wrote it to facilitate an internationalization proof-of-concept. Of course it isn&rsquo;t meant for production use since the quality of the translations will be poor.</p>
       <p>The script allows for a custom list of excluded words or phrases, so you can exempt from translation your brand names, HTML entities, and other untranslatable strings. Since each line is treated as a single entity, excluded strings are skipped, then merged back in.</p>
       <h3>Example</h3>
       <p>Translate a three-line file into Chinese, excluding HTML entities and two brand names.</p>
