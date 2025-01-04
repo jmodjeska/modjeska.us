@@ -16,7 +16,7 @@ describe 'Version ops' do
     @v = Version.new
   end
 
-  it 'returns an array of CSS files and versions in a template' do
+  it 'returns a hash of CSS files and versions in a template' do
     file_list = {
       'bootstrap-site-only.css' => '2.2',
       'modj-style.css'          => '2.3'

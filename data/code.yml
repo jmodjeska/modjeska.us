@@ -616,10 +616,6 @@ posts:
         mv $0.new $0
         ' {} \;
       </pre>
-
-      <br>
-
-      <p>Check out the <a href="https://github.com/jmodjeska/fanyi" target="_blank" rel="noopener">project on Github</a>.</p>
   - title: Short URL Generator for Playground Plus Talkers
     slug: short-url-generator-for-playground-plus-talkers
     description: Short link generator that you can build into your Playground Plus talker, as found on UberWorld.

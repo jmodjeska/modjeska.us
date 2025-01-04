@@ -20,7 +20,7 @@ figure { margin: 0; }
 h1, h2, h3, h4, .h1, .h2, .h3, .h4 { line-height: 1.1; }
 h1, .h1, h2, .h2, h3, .h3 { margin-top: 20px; margin-bottom: 10px; }
 h4, .h4 { margin-top: 10px; margin-bottom: 10px; }
-h2 { color: #43afec; }
+h3, .jm-gallery h1, h2.jm-gallery { font-weight: normal; }
 img { height: auto; max-width: 100%; vertical-align: middle; border: 0; }
 .left, .alignleft { float: left; }
 .mt { margin-top: 80px; }
@@ -47,8 +47,7 @@ blockquote:before, blockquote:after { content: ""; }
 #footerwrap { padding: 70px 0 50px 0; background-color: #2f2f2f; }
 #footerwrap h4 { color: #999; }
 #footerwrap p { color: #f2f2f2; margin-left: 10px; }
-#workwrap { background: no-repeat center top; }
-#workwrap, #errorwrap {
+#workwrap {
   margin-top: -70px;
   padding-top: 250px;
   text-align: center;
@@ -57,10 +56,6 @@ blockquote:before, blockquote:after { content: ""; }
   min-height: 650px;
   width: 100%;
   background-size: cover !important;
-}
-#errorwrap {
-  background: url(https://i.modjeska.us/images/about.jpg) no-repeat center top;
-  min-height: 550px;
 }
 #workwrap h1 {
   color: #ffffff;
@@ -114,9 +109,8 @@ pre {
 .homepage-row { margin-bottom: 0px; margin-top: 90px; }
 .homepage-row h2 { font-size: 45px; }
 .jm-gallery { text-align: left; }
-.jm-gallery>h1, .jm-gallery>h2, .jm-gallery>p { padding-left: 15px; }
-.jm-gallery h1, h2.jm-gallery, .jm-words h3 { font-weight: normal; }
-.jm-gallery h1 { font-size: 45px; }
+.jm-gallery>h2, .jm-gallery>p { padding-left: 15px; }
+.jm-gallery h1 { font-size: 45px; padding-left: 15px; }
 .jm-gallery h4 { margin-top: 40px; }
 .jm-gallery img { padding: 5px !important; }
 .jm-pictures { margin: 0 auto; padding-bottom: 40px; }
@@ -131,7 +125,7 @@ p.jm-gallery { color: #666; font-size: 13px; line-height: 1.6em; }
   max-width: 750px;
   margin: 0 auto;
 }
-.jm-words h2, .jm-pictures h2, .error404 h1 {
+.jm-words h2, .jm-pictures h2 {
   font-size: 40px;
   margin-bottom: 0 0 40px 0;
   color: #666;
@@ -150,7 +144,6 @@ p.jm-gallery { color: #666; font-size: 13px; line-height: 1.6em; }
 .post-entry, .post-meta { clear: both; margin-bottom: 10px; }
 .post-meta, label { color: #666; font-size: 0.9em; }
 label { display: block; padding: 2px 0; font-weight: 700; margin: 0; }
-.error404 .post-entry { text-align: left; }
 .post-entry ol > li {
   counter-increment: foo;
   display: table-row;
