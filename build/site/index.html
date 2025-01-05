@@ -7,15 +7,15 @@
   
   <!-- Fonts + Styles -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=2.2" type="text/css">
-  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=2.3" type="text/css"> -->
+  <!-- <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=2.3" type="text/css"> -->
+  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=2.4" type="text/css"> -->
   <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css"></noscript>
-
 
   <!-- Local Dev -->
   <link rel="stylesheet" id="local-dev-1" href="../../s3/css/modj-style.css" type="text/css">
   <link rel="stylesheet" id="local-dev-2" href="../../../s3/css/modj-style.css" type="text/css">
-
+  <link rel="stylesheet" id="bootstrap-css" href="../../s3/css/bootstrap-site-only.css?ver=2.3" type="text/css">
+  <link rel="stylesheet" id="bootstrap-css" href="../../../s3/css/bootstrap-site-only.css?ver=2.3" type="text/css">
 
   <!-- Icons -->
   <link rel="icon" href="https://i.modjeska.us/icon/android-chrome-192x192.png?v=2" sizes="192x192">
@@ -44,8 +44,6 @@
 
   <!-- Index custom style -->
   <style>
-    body, html { background-color: #2f2f2f; }
-    #index-wrapper { background-color: white; }
     .scroll-down-indicator {
       position: fixed;
       bottom: 10px;
@@ -77,15 +75,9 @@
       font-size: 6vh;
       letter-spacing: 1vw;
     }
-    .homepage-row {
-      background-color: white;
-      margin: 0;
-      padding-top: 90px;
-    }
-    .homepage-row h2 {
-      color: #428bca;
-      font-size: 45px;
-    }
+    .homepage-row { margin: 0; padding-top: 90px; }
+    .homepage-row h2 { font-size: 45px; }
+    .homepage-row h2 a:hover { color: #428bca; }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(5px); }
@@ -158,29 +150,27 @@
     });
   </script>
 
-  <div class="clearfix" id="index-wrapper">
-    <div class="container" role="main">
-      <div class="row centered mt mb homepage-row">
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <a href="https://modjeska.us/code">
-            <h2>CODE</h2>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <a href="https://modjeska.us/pictures">
-            <h2>PICTURES</h2>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <a href="https://modjeska.us/words">
-            <h2>WORDS</h2>
-          </a>
-        </div>
-      </div><!-- /row -->
-      <div class="row centered mt mb" style="margin-top: 0px;">
+  <div class="container" role="main">
+    <div class="row centered mt mb homepage-row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <a href="https://modjeska.us/code">
+          <h2>CODE</h2>
+        </a>
       </div>
-    </div><!-- /container -->
-  </div><!-- /wrapper -->
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <a href="https://modjeska.us/pictures">
+          <h2>PICTURES</h2>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <a href="https://modjeska.us/words">
+          <h2>WORDS</h2>
+        </a>
+      </div>
+    </div><!-- /row -->
+    <div class="row centered mt mb" style="margin-top: 0px;">
+    </div>
+  </div><!-- /container -->
   <div id="social">
     <div class="container">
       <div class="row centered">

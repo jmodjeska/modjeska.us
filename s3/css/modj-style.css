@@ -95,7 +95,7 @@ strong { font-weight: 700; }
   padding-bottom: 20px;
 }
 .category-index {
-  margin: 100px auto 0 auto;
+  margin: 80px auto 0 auto;
   box-sizing: border-box;
   text-align: left;
   max-width: 750px;
@@ -180,7 +180,6 @@ label { display: block; padding: 2px 0; font-weight: 700; margin: 0; }
 .post-entry .general-title {
   font-size: 45px;
   font-weight: normal;
-  margin-top: 100px;
 }
 .post-entry ol > li {
   counter-increment: foo;
