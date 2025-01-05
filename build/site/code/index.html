@@ -8,13 +8,14 @@
   <!-- Fonts + Styles -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=2.2" type="text/css">
-  <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=2.2" type="text/css">
+  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=2.3" type="text/css"> -->
   <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css"></noscript>
 
-  <!-- Local Dev
-    <link rel="stylesheet" href="../../s3/css/modj-style.css?ver=2.2" type="text/css">
-    <link rel="stylesheet" href="../../../s3/css/modj-style.css?ver=2.2" type="text/css">
-  -->
+
+  <!-- Local Dev -->
+  <link rel="stylesheet" id="local-dev-1" href="../../s3/css/modj-style.css" type="text/css">
+  <link rel="stylesheet" id="local-dev-2" href="../../../s3/css/modj-style.css" type="text/css">
+
 
   <!-- Icons -->
   <link rel="icon" href="https://i.modjeska.us/icon/android-chrome-192x192.png?v=2" sizes="192x192">
@@ -113,56 +114,56 @@
     </div><!-- /workwrap -->
   </div><!-- /wrapper -->
 
-  <div class="container">
-    <div class="row centered mt mb">
+  <div class="container code" role="main">
+    <div class="row mt mb">
       <div class="col-lg-12 col-lg-offset-0">
-        <div class="jm-gallery jm-words" style="font-size: 18px; line-height: 1.9em;">
-          <h2>int main(void) { while(1) { fork(); } }</h2>
+        <div class="category-index">
+          <span class="j12a-heading" role="heading">int main(void) { while(1) { fork(); } }</span>
 
-          <h3><a href="/diy-image-gallery/">DIY Masonry Image Gallery</a></h3>
+          <h2><a href="diy-image-gallery/">DIY Masonry Image Gallery</a></h2>
           <p>A masonry-style image gallery with progressive loading like Google Photos. A combination of off-the-shelf JS with some custom automation scripts offers full control, simplicity, and a beautiful layout. This project provides utilities for PIG.js to fully automate image galleries including thumbnails, layout, and directory structure. It also includes an optional plugin for WordPress.</p>
           <span class="github-code github-ruby"></span><span class="github-text">Ruby</span><span class="github-code github-perl"></span><span class="github-text">Perl</span><span class="github-code github-php"></span><span class="github-text">PHP</span><span class="github-code github-js"></span><span class="github-text">JS</span><span class="github-code github-html"></span><span class="github-text">HTML</span>
 
-          <h3><a href="/project-style-wbs-numbering-in-ms-excel/">WBS Numbering in Excel</a></h3>
+          <h2><a href="project-style-wbs-numbering-in-ms-excel/">WBS Numbering in Excel</a></h2>
           <p>Use a spreadsheet like a project plan by automatically generating work breakdown structure-style numbers in Excel.</p>
           <span class="github-code github-vb"></span><span class="github-text">Excel VBA</span>
 
-          <h3><a href="https://github.com/jmodjeska/modjeska.us" target="_blank">Static Website on AWS Amplify</a></h3>
-          <p>My brand new (identical to the old) website served as static assets on Amplify. Includes a simple Ruby script to build pages from HTML templates and YML files.</p>
+          <h2><a href="https://github.com/jmodjeska/modjeska.us" target="_blank">Static Website on AWS Amplify</a></h2>
+          <p>Code for this website. A Ruby build pipeline generates static pages from HTML templates and YML files.</p>
           <span class="github-code github-ruby"></span><span class="github-text">Ruby</span><span class="github-code github-html"></span><span class="github-text">HTML</span><span class="github-code github-js"></span><span class="github-text">JS</span><span class="github-code github-css"></span><span class="github-text">CSS</span>
 
-          <h3><a href="/ai-bot-playground-plus-talkers/">PG+ AI Chatbot</a></h3>
+          <h2><a href="ai-bot-playground-plus-talkers/">PG+ AI Chatbot</a></h2>
           <p>Aiyu (爱语) is a ChatGPT-powered, Ruby chatbot designed to interact, as a standalone user, with Playground Plus talkers.</p>
           <span class="github-code github-ruby"></span><span class="github-text">Ruby</span>
 
-          <h3><a href="/test-harness-playground-plus-talkers/">PG+ Test Harness</a></h3>
+          <h2><a href="test-harness-playground-plus-talkers/">PG+ Test Harness</a></h2>
           <p>A Ruby test harness for your Playground Plus talker.</p>
           <span class="github-code github-ruby"></span><span class="github-text">Ruby</span>
 
-          <h3><a href="/short-url-generator-for-playground-plus-talkers/">PG+ Short URL Generator</a></h3>
+          <h2><a href="short-url-generator-for-playground-plus-talkers/">PG+ Short URL Generator</a></h2>
           <p>A URL-shortener that you can build into your Playground Plus talker.</p>
           <span class="github-code github-c"></span><span class="github-text">C</span><span class="github-code github-perl"></span><span class="github-text">Perl</span><span class="github-code github-html"></span><span class="github-text">HTML</span>
 
-          <h3><a href="/cocktail-for-playground-plus-talkers/">PG+ Cocktail Recipe Generator</a></h3>
+          <h2><a href="cocktail-for-playground-plus-talkers/">PG+ Cocktail Recipe Generator</a></h2>
           <p>Cocktail recipe generator that you can build into your Playground Plus talker, as found on UberWorld.</p>
           <span class="github-code github-c"></span><span class="github-text">C</span>
 
-          <h3><a href="/csv-google-sheets-basic-auth/">Fetch a Remote CSV in Google Sheets</a></h3>
+          <h2><a href="csv-google-sheets-basic-auth/">Fetch a Remote CSV in Google Sheets</a></h2>
           <p>A Google Apps Script function that facilitates importing a remote CSV file into your Google Sheets document. It provides for basic HTTP auth traversal.</p>
           <span class="github-code github-js"></span><span class="github-text">JavaScript</span>
 
-          <h3><a href="/rollbar-perl/">Perl Rollbar Notifier</a></h3>
+          <h2><a href="rollbar-perl/">Perl Rollbar Notifier</a></h2>
           <p>A solution for logging basic messages to the Rollbar monitoring service from a Perl application. Lightweight alternative to WebService::Rollbar::Notifier.</p>
           <span class="github-code github-perl"></span><span class="github-text">Perl</span>
 
-          <h3><a href="/fanyi-translation-script/">Translation Script for i18n</a></h3>
+          <h2><a href="fanyi-translation-script/">Translation Script for i18n</a></h2>
           <p>Fanyi is an internationalization proof of concept. It employs the free Microsoft Translator API to translate a newline-separated text file, line by line, into almost any language. Supports an exclusion list for brand names and other untranslatable entities.</p>
           <span class="github-code github-perl"></span><span class="github-text">Perl</span>
 
-          <h3><a href="/flight-tracker/">Flight Tracker</a></h3>
+          <h2><a href="flight-tracker/">Flight Tracker</a></h2>
           <p>Air traffic control simulator project. Calculates X, Y coordinates and altitude for incoming flights; regulates descent speed and diversions; and tracks planes in flight with a web interface.</p>
           <span class="github-code github-ruby"></span><span class="github-text">Ruby</span><span class="github-code github-js"></span><span class="github-text">JS</span><span class="github-code github-css"></span><span class="github-text">CSS</span><span class="github-code github-html"></span><span class="github-text">HTML</span>
-        </div>
+        </div><!-- /category-index -->
       </div><!-- /col -->
       <div class="col-lg-10 col-lg-offset-1 mt"></div>
     </div><!-- /row -->
@@ -171,33 +172,33 @@
     <div class="container">
       <div class="row centered">
         <div class="col-xs-2">
-          <a href="https://linkedin.com/in/modjeska" title="linkedin" target="_blank">
-            <i class="fa-brands fa-linkedin"></i>
+          <a href="https://linkedin.com/in/modjeska" title="linkedin" target="_blank" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
-          <a href="https://instagr.am/jmodjeska" title="instagram" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
+          <a href="https://instagr.am/jmodjeska" title="instagram" target="_blank" aria-label="Instagram profile">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
-          <a href="https://github.com/jmodjeska" title="github" target="_blank">
-            <i class="fa-brands fa-github"></i>
+          <a href="https://github.com/jmodjeska" title="github" target="_blank" aria-label="Github profile">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
-          <a href="https://canyoutrustrobots.com" title="can you trust robots?" target="_blank">
-            <i class="fa fa-robot"></i>
+          <a href="https://canyoutrustrobots.com" title="can you trust robots?" target="_blank" aria-label="Project website: Can you trust robots?">
+            <i class="fa fa-robot" aria-hidden="true"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
-          <a href="https://uberworld.org" title="uberworld" target="_blank">
-            <i class="fa fa-terminal" style="font-size: 28px; padding-top: 4px;"></i>
+          <a href="https://uberworld.org" title="uberworld" target="_blank" aria-label="Project website: UberWorld.org">
+            <i class="fa fa-terminal" style="font-size: 28px; padding-top: 4px;" aria-hidden="true"></i>
           </a>
         </div><!-- /col -->
         <div class="col-xs-2">
-          <a href="https://whereisjeremy.live" title="where is jeremy?" target="_blank">
-            <i class="fa-solid fa-earth-americas"></i>
+          <a href="https://whereisjeremy.live" title="where is jeremy?" target="_blank" aria-label="Project website: Where is Jeremy?">
+            <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
           </a>
         </div><!-- /col -->
       </div><!-- /row -->
@@ -209,7 +210,7 @@
       <div class="row centered">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-          <h4>ABOUT</h4>
+          <span class="footer-about" role="heading">ABOUT</span>
           <p>This personal website of Jeremy Modjeska is &copy; by the author.
              All rights reserved. Code projects are licensed
              <a class="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>.

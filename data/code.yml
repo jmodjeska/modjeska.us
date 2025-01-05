@@ -7,7 +7,7 @@ posts:
     github_url_name: pgplus-aiyu
     post_content: |2
       <p>Aiyu (爱语) is a ChatGPT-powered, Ruby chatbot designed to interact, as a standalone user, with PG+ talkers.</p>
-      <h3>Synopsis</h3>
+      <h2>Synopsis</h2>
       <pre>-=> Connecting to: uberworld_test
       ___________
       | UberLogIn `.   aiyu has connected to UberWorld ...
@@ -50,7 +50,7 @@ posts:
       <li>Does not interact directly with talker source code</li>
       </ul>
 
-      <h3>Synopsis</h3>
+      <h2>Synopsis</h2>
       <pre>$ ruby pgplus-test.rb
       ------------------------------------------- [ 2023-03-25 21:17:40.251332 -0700 ]
 
@@ -82,7 +82,7 @@ posts:
     github_url_name: pgplus-cocktail
     post_content: |2
       <p>A cocktail recipe generator that you can build into your <a href="https://github.com/talkers/pgplus">Playground Plus</a> talker.</p>
-      <h3>Usage</h3>
+      <h2>Usage</h2>
       <pre>$ cocktail old fashioned
       ==================== Cocktail recipe for: Old Fashioned ===================
 
@@ -99,7 +99,7 @@ posts:
 
       ===========================================================================
       </pre>
-      <h3>Live Example</h3>
+      <h2>Live Example</h2>
       <p>This code is running on the <a href="https://uberworld.org">UberWorld</a> talker.</p>
   - title: DIY Masonry-Style Image Gallery
     slug: diy-image-gallery
@@ -110,11 +110,12 @@ posts:
     post_content: |2
       <p>Image gallery plugins come with extra overhead: they do too many things I don&rsquo;t need, and they don&rsquo;t do enough of what I want. I want control, automation, and a beautiful masonry layout, like this:</p>
 
-      <img decoding="async" width="1000" height="615" class="alignnone size-full post-image-border" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us" srcset="https://i.modjeska.us/2018/04/gallery_final.png 1000w, https://i.modjeska.us/2018/04/gallery_final-300x185.png 300w, https://i.modjeska.us/2018/04/gallery_final-768x472.png 768w" sizes="(max-width: 1000px) 100vw, 1000px">
+      <img decoding="async" width="1000" class="alignnone post-image-border" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us">
 
       <p>Take a look at one of my <b><a href="/pictures-china-2014/" target="_blank" rel="noopener">image galleries</a></b> for a working demo of what I came up with. This post will walk you through how to build image galleries like this one.</p>
 
-      <h3>Steps</h3>
+      <h2>Steps</h2>
+
       <ol class="bignum">
       <li>
       <span>1.</span>
@@ -138,18 +139,20 @@ posts:
       </ol>
 
       <span id="basic-pig"></span>
-      <h3>Basic PIG</h3>
+      <h2>Basic PIG</h2>
 
-      <p><a href="https://github.com/schlosser/pig.js">Dan Schlosser&rsquo;s Progressive Image Grid (PIG.js)</a> is a responsive and lightweight JavaScript library that progressively and elegantly loads images as you scroll. It looks similar to the Google Photos album layout, which is the look I was interested in for my photo galleries. To get started, let&rsquo;s see a test project using pure standard PIG without any modifications.</p>
+      <p><a href="https://github.com/schlosser/pig.js rel="noopener">Dan Schlosser&rsquo;s Progressive Image Grid (PIG.js)</a> is a responsive and lightweight JavaScript library that progressively and elegantly loads images as you scroll. It looks similar to the Google Photos album layout, which is the look I was interested in for my photo galleries. To get started, let&rsquo;s see a test project using pure standard PIG without any modifications.</p>
 
       <p><b>Click on the source code link at the top</b> and clone the Github project, or just <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-1">download the files for example-project-1</a>. You should be able to open index.html locally in your browser and see a gallery with four images:</p>
 
-      <img decoding="async" loading="lazy" width="768" height="684" class="alignnone size-medium post-image-border" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1" srcset="https://i.modjeska.us/2018/04/pig-example-1-768x684.png 768w, https://i.modjeska.us/2018/04/pig-example-1-300x267.png 300w, https://i.modjeska.us/2018/04/pig-example-1-1024x912.png 1024w, https://i.modjeska.us/2018/04/pig-example-1.png 1262w" sizes="(max-width: 768px) 100vw, 768px">
+      <img decoding="async" loading="lazy" width="1000" class="alignnone post-image-border" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1">
 
       <p>Easy, right? But wait &hellip;</p>
 
       <p><b>These images aren&rsquo;t clickable!</b> PIG doesn&rsquo;t have support for image modals or linking.</p>
+
       <p><b>There are a lot of extra images!</b> While there are only four images on the page, each full-size image requires four additional thumbnails in the /img directory &mdash; that&rsquo;s 16 additional images I had to create for this page.</p>
+
       <pre>&#9500;&#9472;&#9472; img
       &#9474;   &#9500;&#9472;&#9472; 20
       &#9474;   |   &#9500;&#9472;&#9472; vn.jpg
@@ -172,6 +175,7 @@ posts:
       &#9474;       ...
       ...
       </pre>
+
       <p><b>There is math happening in here!</b> The JavaScript contains an aspect ratio for each image in order for PIG to work its magic. So, on top of creating 16 images, I had to divide height and width to get ratios.</p>
 
       <pre>
@@ -186,11 +190,11 @@ posts:
       <p>Obviously, Dan has created a great tool for us to get started, but it doesn&rsquo;t yet do the dishes or double on sax for us, so in the next steps we&rsquo;ll fix it up and automate like crazy.</p>
       <p><a name="more-pig"></a></p>
 
-      <h3>Extending PIG</h3>
+      <h2>Extending PIG</h2>
 
       <p>Let&rsquo;s move on to <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-2">Example Project 2</a>. Copy the files as before and open index.html.</p>
 
-      <img decoding="async" loading="lazy" width="1000" height="875" class="alignnone size-full post-image-border" src="https://i.modjeska.us/2018/04/pig-example-2.png" alt="PIGG Example 2" srcset="https://i.modjeska.us/2018/04/pig-example-2.png 1000w, https://i.modjeska.us/2018/04/pig-example-2-300x263.png 300w, https://i.modjeska.us/2018/04/pig-example-2-768x672.png 768w" sizes="(max-width: 1000px) 100vw, 1000px">
+      <img decoding="async" loading="lazy" width="1000" class="alignnone post-image-border" src="https://i.modjeska.us/2018/04/pig-example-2.png" alt="PIGG Example 2">
 
       <p>Well that&rsquo;s underwheming: it looks exactly the same!</p>
 
@@ -234,6 +238,7 @@ posts:
       </pre>
 
       <p>In this case, we&rsquo;re using my version of pig.js as the source. It&rsquo;s identical to Mark&rsquo;s, except with a minor change to improve compatibility with WordPress (more on that later). This is the version we&rsquo;ll be using for the remainder of the process. What else changed?</p>
+
       <p>We also have some <b>anchor text directives</b> in the JavaScript.</p>
 
       <pre>
@@ -248,31 +253,26 @@ posts:
 
       <p>So this gallery does what we want it to now! Let&rsquo;s move on to automating things.</p>
 
-      <br>
-
       <a name="automation"></a>
-      <h3>Automation</h3>
+      <h2>Automation</h2>
 
       <p>Now for the fun part: making a robot do all the math, image resizing, and directory setup so we don&rsquo;t have to. Let&rsquo;s even have it output a ready-to-use HTML file. This section assumes a basic understanding of running scripts, and a Mac or Unix/Linux system. This probably won&rsquo;t work on Windows.</p>
+
       <p>We&rsquo;ll work with <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-3">Example Project 3</a>, which right now is just four images. Using <a href="https://github.com/jmodjeska/pigg/blob/main//perl/">pigg.pl (Perl)</a> or <a href="https://github.com/jmodjeska/pigg/tree/main/ruby">pigg.rb (Ruby)</a>, we&rsquo;ll transform those four images into a gallery without any math or manual file creation. This automation script is the reason you&rsquo;re here, and the first step in this process featuring any work I&rsquo;ve actually done myself and not just copied from others. Let&rsquo;s walk through configuration and setup.</p>
 
-      <br>
-
-      <h3>Automation with Perl</h3>
+      <h2>Automation with Perl</h2>
       <div class="alert" role="alert">
         <b>Caution</b>: As of December 2024, Image::Scale seems to no longer work on MacOS, even with the requisite packages installed. I'm keeping these instructions for those who know what they're doing, but I suggest you skip down to the <b>Automation with Ruby</b> section for an easier and more reliable experience.
       </div>
 
-      <br>
+      <h3>Install Perl dependencies</h3>
 
-      <p><b>Install Perl dependencies</b>. If using the Perl script, and assuming you have <a href="https://www.cpan.org/">CPAN</a> setup locally or on the server where you&rsquo;ll run this script, install these libraries:</p>
+      <p>If using the Perl script, and assuming you have <a href="https://www.cpan.org/">CPAN</a> setup locally or on the server where you&rsquo;ll run this script, install these libraries:</p>
 
       <pre>
       cpan Image::Size
       cpan Image::Scale
       </pre>
-
-      <br>
 
       <p>If you get an error regarding <b>libpng</b> and/or <b>ligjpeg</b>, you may need to install those explicitly:</p>
 
@@ -290,9 +290,7 @@ posts:
       brew install libpng
       </pre>
 
-      <br>
-
-      <p><b>Open pigg.pl for configuration</b>.</p>
+      <h3>Open pigg.pl for configuration</h3>
 
       <p>Decide where to serve pig.js from. It&rsquo;s fine to serve my version from Github, but safer to upload it to your own server in case I change/break it in the future.</p>
 
@@ -304,8 +302,6 @@ posts:
       our $pig = 'https://yourwebserver.com/css/pig.js';
       </pre>
 
-      <br>
-
       <p>Where will images live on your server?</p>
 
       <pre>
@@ -315,8 +311,6 @@ posts:
       our $uri = 'https://yourwebsite.com/galleries/';
       </pre>
 
-      <br>
-
       <p>Do you want to automatically generate an index.html file when you create a gallery? Start with &lsquo;yes&rsquo; for this tutorial. If you decide to use this script with WordPress, you&rsquo;ll want to turn this off.</p>
 
       <pre>
@@ -324,18 +318,90 @@ posts:
       our $flag_html = 'yes';
       </pre>
 
-      <br>
+      <h3>Save pigg.pl and test drive it</h3>
 
-      <p><b>Save pigg.pl and test drive it.</b> Be sure to use the <i>full path</i> to where you&rsquo;ve saved Example Project 3.</p>
+      <p>Be sure to use the <i>full path</i> to where you&rsquo;ve saved Example Project 3.</p>
 
       <pre>
       [jm@local /]$ cd /path/to/pigg/util/
       [jm@local util]$ perl pigg.pl /path/to/pigg/example-project-3/
       </pre>
 
-      <br>
-
       <p>You should see output like this:</p>
+
+
+      <h2>Automation with Ruby</h2>
+
+      <h3>Install ImageMagick</h3>
+
+      <p>Follow the installation instructions on the <a href="https://imagemagick.org/script/download.php">ImageMagick project website</a> to install ImageMagick, a multipurpose image manipulation library. On MacOS:</p>
+
+      <pre>
+      brew install imagemagick
+      </pre>
+
+      <h3>Install the mini_magick and rspec gems</h3>
+
+      <p>Once you have ImageMagick successfully installed, get the mini_magick gem and rspec:</p>
+
+      <pre>
+      gem install mini_magick
+      gem install rspec
+      </pre>
+
+      <h3>Run tests</h3>
+
+      <pre>
+      cd /path/to/pigg/ruby
+      rspec
+      </pre>
+
+      <p>You should see something like this to indicate the tests all passed:</p>
+
+      <pre>
+      ..............
+
+      Finished in 0.29299 seconds (files took 0.07217 seconds to load)
+      14 examples, 0 failures
+      </pre>
+
+      <h3>Test it out</h3>
+
+      <pre>
+      cd /path/to/pigg/ruby
+      ruby pigg.rb /path/to/pigg/example-project-3/
+      </pre>
+
+      <p>You should see some output similar to this:</p>
+
+      <pre>
+      -=> Checking source directory: /path/to/test_dir ... OK
+      -=> Creating img directory at /path/to/test_dir/img ... OK
+      -=> Setting up new gallery structure at /path/to/test_dir/img ... OK
+      -=> Generating images ...
+          ✔ /path/to/test_dir/img/20/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/100/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/250/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/500/cambodia-kampong-thom-9.jpeg
+          ✔ /path/to/test_dir/img/20/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/100/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/250/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/500/cambodia-angkor-wat-6.jpeg
+          ✔ /path/to/test_dir/img/20/vietnam-can-tho-to-chau-doc-4.jpeg
+          ✔ /path/to/test_dir/img/100/vietnam-can-tho-to-chau-doc-4.jpeg
+          ✔ /path/to/test_dir/img/250/vietnam-can-tho-to-chau-doc-4.jpeg
+          ✔ /path/to/test_dir/img/500/vietnam-can-tho-to-chau-doc-4.jpeg
+      -=> Generating image manifest for use as a JS var ... OK
+
+          var imageData = [
+            {"filename"=>"cambodia-kampong-thom-9.jpeg", "aspectRatio"=>"1.2800"},
+            {"filename"=>"cambodia-angkor-wat-6.jpeg", "aspectRatio"=>"1.3300"},
+            {"filename"=>"vietnam-can-tho-to-chau-doc-4.jpeg", "aspectRatio"=>"1.3300"},
+          ]
+      </pre>
+
+      <span id="wordpress"></span>
+      <h2>WordPress</h2>
       <pre>
       -=&gt; Checking source directory ...                           [ OK ]
       -=&gt; Setting up new gallery structure ...                    [ OK ]
@@ -368,91 +434,11 @@ posts:
 
       <p>You now have a full gallery project ready to use. If you upload it to yourwebsite.com/galleries/example-project-3, you can browse to https://yourwebsite.com/galleries/example-project-3 to view your new gallery!</p>
 
-      <br>
-
-      <h3>Automation with Ruby</h3>
-
-      <p><b>Install ImageMagick</b>. Follow the installation instructions on the <a href="https://imagemagick.org/script/download.php">ImageMagick project website</a> to install ImageMagick, a multipurpose image manipulation library. On MacOS:</p>
-
-      <pre>
-      brew install imagemagick
-      </pre>
-
-      <br>
-
-      <p><b>Install the mini_magick and rspec gems</b>. Once you have ImageMagick successfully installed, get the mini_magick gem and rspec:</p>
-
-      <pre>
-      gem install mini_magick
-      gem install rspec
-      </pre>
-
-      <br>
-
-      <p><b>Run tests</b></p>
-
-      <pre>
-      cd /path/to/pigg/ruby
-      rspec
-      </pre>
-
-      <br>
-
-      <p>You should see something like this to indicate the tests all passed:</p>
-
-      <pre>
-      ..............
-
-      Finished in 0.29299 seconds (files took 0.07217 seconds to load)
-      14 examples, 0 failures
-      </pre>
-
-      <br>
-
-      <p><b>Test it out</b></p>
-
-      <pre>
-      cd /path/to/pigg/ruby
-      ruby pigg.rb /path/to/pigg/example-project-3/
-      </pre>
-
-      <br>
-
-      <p>You should see some output similar to this:</p>
-
-      <pre>
-      -=> Checking source directory: /path/to/test_dir ... OK
-      -=> Creating img directory at /path/to/test_dir/img ... OK
-      -=> Setting up new gallery structure at /path/to/test_dir/img ... OK
-      -=> Generating images ...
-          ✔ /path/to/test_dir/img/20/cambodia-kampong-thom-9.jpeg
-          ✔ /path/to/test_dir/img/100/cambodia-kampong-thom-9.jpeg
-          ✔ /path/to/test_dir/img/250/cambodia-kampong-thom-9.jpeg
-          ✔ /path/to/test_dir/img/500/cambodia-kampong-thom-9.jpeg
-          ✔ /path/to/test_dir/img/20/cambodia-angkor-wat-6.jpeg
-          ✔ /path/to/test_dir/img/100/cambodia-angkor-wat-6.jpeg
-          ✔ /path/to/test_dir/img/250/cambodia-angkor-wat-6.jpeg
-          ✔ /path/to/test_dir/img/500/cambodia-angkor-wat-6.jpeg
-          ✔ /path/to/test_dir/img/20/vietnam-can-tho-to-chau-doc-4.jpeg
-          ✔ /path/to/test_dir/img/100/vietnam-can-tho-to-chau-doc-4.jpeg
-          ✔ /path/to/test_dir/img/250/vietnam-can-tho-to-chau-doc-4.jpeg
-          ✔ /path/to/test_dir/img/500/vietnam-can-tho-to-chau-doc-4.jpeg
-      -=> Generating image manifest for use as a JS var ... OK
-
-          var imageData = [
-            {"filename"=>"cambodia-kampong-thom-9.jpeg", "aspectRatio"=>"1.2800"},
-            {"filename"=>"cambodia-angkor-wat-6.jpeg", "aspectRatio"=>"1.3300"},
-            {"filename"=>"vietnam-can-tho-to-chau-doc-4.jpeg", "aspectRatio"=>"1.3300"},
-          ]
-      </pre>
-
-      <br>
-
-      <span id="wordpress"></span>
-      <h3>WordPress</h3>
       <p>You don&rsquo;t want to upload a plain HTML file to serve your gallery on WordPress, so let&rsquo;s turn now to <a href="https://github.com/jmodjeska/pigg/blob/master/wordpress/plugins/pigg/pigg.php">pigg.php</a>, a WordPress plugin file.</p>
 
-      <p><b>First, a note about image storage</b>. I don&rsquo;t like how WordPress organizes image uploads, so I&rsquo;m storing my gallery data directly on my server. Instead of this garbage that has a bunch of extra files I&rsquo;ll never use:</p>
+      <h3>First, a note about image storage</h3>
+
+      <p>I don&rsquo;t like how WordPress organizes image uploads, so I&rsquo;m storing my gallery data directly on my server. Instead of this garbage that has a bunch of extra files I&rsquo;ll never use:</p>
 
       <pre>&#9500;&#9472;&#9472; /uploads/
         &#9500;&#9472;&#9472; 2018/
@@ -483,7 +469,9 @@ posts:
       [pig gallery="gallery-name" images="image1.jpg/1.33,image2.jpg/1.24 . . ."]
       </pre>
 
-      <p><b>Configure pigg.php</b>. Once again, we need to tell the robot where <i>pig.js</i> is, and where images will live on the server:</p>
+      <h3>Configure pigg.php</h3>
+
+      <p>Once again, we need to tell the robot where <i>pig.js</i> is, and where images will live on the server:</p>
 
       <pre>
       # Line 27:
@@ -495,7 +483,9 @@ posts:
 
       <p>Save the file. You&rsquo;re ready to install it on your server now.</p>
 
-      <p><b>Manual plugin installation</b>. Locate your WordPress plugins folder on your web server or using your FTP client. It should be in <i>wp-content</i>:</p>
+      <h3>Manual plugin installation</h3>
+
+      <p>Locate your WordPress plugins folder on your web server or using your FTP client. It should be in <i>wp-content</i>:</p>
 
       <pre>[jm@remote-webserver wp-content]$ ls
       index.php  plugins  themes  upgrade  uploads
@@ -508,18 +498,22 @@ posts:
       [jm@remote-webserver plugins]$ mkdir pigg
       </pre>
 
-      <p><b>Place pigg.php in the new directory</b>. Use FTP or, if you&rsquo;re logged in to your server:</p>
+      <h3>Place pigg.php in the new directory</h3>
+
+      <p>Use FTP or, if you&rsquo;re logged in to your server:</p>
 
       <pre>
       [jm@remote-webserver plugins]$ cd pigg
       [jm@remote-webserver plugins]$ wget https://raw.githubusercontent.com/jmodjeska/pigg/main/wordpress/plugins/pigg/pigg.php
       </pre>
 
-      <p><b>Verify the plugin is installed</b> by navigating to your WordPress dashboard &gt; Plugins:</p>
-      <p><img decoding="async" loading="lazy" width="2056" height="310" class="alignnone size-full wp-image-1828" src="https://i.modjeska.us/2018/04/pig-plugin.png" alt="" srcset="https://i.modjeska.us/2018/04/pig-plugin.png 2056w, https://i.modjeska.us/2018/04/pig-plugin-300x45.png 300w, https://i.modjeska.us/2018/04/pig-plugin-768x116.png 768w, https://i.modjeska.us/2018/04/pig-plugin-1024x154.png 1024w" sizes="(max-width: 2056px) 100vw, 2056px"></p>
+      <h3>Verify the plugin is installed</h3>
+
+      <p>Navigate to your WordPress dashboard &gt; Plugins:</p>
+      <img decoding="async" loading="lazy" width="2056" height="310" class="alignnone" src="https://i.modjeska.us/2018/04/pig-plugin.png" alt="Wordpress dashboard">
       <p><b>Update pigg.pl configuration</b>. Back on your local machine, let&rsquo;s change some config values in the Perl script to tell it we&rsquo;re using WordPress now.</p>
 
-      <p><b>Hey, does anyone need this bit for Ruby?</b> Open a <a href="https://github.com/jmodjeska/pigg/tree/main">Github issue</a> and I'll add it!</p>
+      <div class="alert" role="alert"><b>Hey, does anyone need this bit for Ruby?</b> Open a <a href="https://github.com/jmodjeska/pigg/tree/main">Github issue</a> and I'll add it!</div>
 
       <pre>
       # Do you want to generate an index.html file when you create a gallery?
@@ -529,7 +523,9 @@ posts:
       our $flag_wordpress = 'yes';
       </pre>
 
-      <p><b>Delete everything inside the <i>example-project-3</i> folder except for the four images</b>.</p>
+      <h3>Clean the project folder</h3>
+
+      <p>Delete everything inside the <i>example-project-3</i> folder except for the four images.</p>
 
       <pre>
       [jm@local /]$ cd /path/to/pigg/example-project-3/
@@ -539,7 +535,9 @@ posts:
       vn.jpg	vn2.jpg	vn3.jpg	vn4.jpg
       </pre>
 
-      <p><b>Re-run pigg.pl with the new configuration</b>. Same command as before:</p>
+      <h3>Re-run pigg.pl with the new configuration</h3>
+
+      <p>Same command as before:</p>
 
       <pre>
       [jm@local /]$ cd /path/to/pigg/util/
@@ -557,9 +555,10 @@ posts:
 
       [pig gallery="example-project-3" images="vn.jpg/1.3300,vn4.jpg/1.3300,vn2.jpg/1.6300,vn3.jpg/1.3300"]
       </pre>
-      <br>
 
-      <p><b>Upload your files and use the shortcode in a post.</b> Place the whole directory, <i>example-project-3</i>, on your server where designated. Then, create a new WordPress post and include the shortcode provided. You should now have a fully-functional gallery on WordPress.</p>
+      <h3>Upload your files and use the shortcode in a post</h3>
+
+      <p>Place the whole directory, <i>example-project-3</i>, on your server where designated. Then, create a new WordPress post and include the shortcode provided. You should now have a fully-functional gallery on WordPress.</p>
   - title: Fetch a Remote CSV in Google Sheets with Basic Auth
     slug: csv-google-sheets-basic-auth
     description: Google Apps Script custom function that facilitates importing a remote CSV file into your Google Sheets document. It provides for basic HTTP auth traversal.
@@ -568,7 +567,9 @@ posts:
     github_url_name: google_csv.js
     post_content: |2
       <p>This is a Google Apps Script custom function that facilitates importing a remote CSV file into your Google Sheets document. It provides for basic HTTP auth traversal. This is based upon an older solution described on the <a href="https://redfin.engineering/when-importdata-isnt-good-enough-retrieving-csv-files-behind-basic-auth-with-a-google-apps-script-6c563f3328c5">Redfin engineering blog</a>, which no longer works (probably due to changes over time in Google Sheets functionality).</p>
-      <p><script src="https://gist.github.com/jmodjeska/b0af2372c75c903700aeca4afb1fd56f.js"></script></p>
+      <div class="gist-container">
+        <script src="https://gist.github.com/jmodjeska/b0af2372c75c903700aeca4afb1fd56f.js"></script>
+      </div>
   - title: Perl Rollbar Notifier
     slug: rollbar-perl
     description: A solution for logging basic messages to the Rollbar monitoring service from a Perl application. Lightweight alternative to WebService::Rollbar::Notifier.
@@ -577,7 +578,9 @@ posts:
     github_url_name: rollbar.pl
     post_content: |2
       <p>Here&rsquo;s a simple way to log to <a href="https://rollbar.com/">Rollbar</a> with Perl. I found that <a href="https://github.com/zoffixznet/WebService-Rollbar-Notifier">WebService::Rollbar::Notifier</a> didn&rsquo;t compile without failures, and didn&rsquo;t work out of the box. Since all I needed was basic logging, I rolled my own solution.</p>
-      <p><script src="https://gist.github.com/jmodjeska/b2ed67c6901622fe35094595b7e456ac.js"></script></p>
+      <div class="gist-container">
+        <script src="https://gist.github.com/jmodjeska/b2ed67c6901622fe35094595b7e456ac.js"></script>
+      </div>
   - title: Fanyi Translation Script
     slug: fanyi-translation-script
     description: Fanyi is a proof-of-concept translation script that employs the free Microsoft Translator API to translate a newline-separated text file, line by line, into almost any language.
@@ -587,7 +590,7 @@ posts:
     post_content: |2
       <p>Fanyi is a translation script that employs the free <a href="http://www.microsoft.com/en-us/translator/getstarted.aspx">Microsoft Translator API</a> in order to translate a newline-separated text file, line by line, into almost any language. I wrote it to facilitate an internationalization proof-of-concept. Of course it isn&rsquo;t meant for production use since the quality of the translations will be poor.</p>
       <p>The script allows for a custom list of excluded words or phrases, so you can exempt from translation your brand names, HTML entities, and other untranslatable strings. Since each line is treated as a single entity, excluded strings are skipped, then merged back in.</p>
-      <h3>Example</h3>
+      <h2>Example</h2>
       <p>Translate a three-line file into Chinese, excluding HTML entities and two brand names.</p>
       <p><b>Input</b>:</p>
       <pre>Acme company product home page
@@ -599,7 +602,7 @@ posts:
       &#28857;&#20987;&lt;b&gt;&#36825;&#37324;&lt;/b&gt;&#30331;&#24405;
       &#38405;&#35835;Acme&#30340;&#26032;&#20135;&#21697;, Cornballer!
       </pre>
-      <h3>Usage Synopsis</h3>
+      <h2>Usage Synopsis</h2>
       <p>Single file conversion:</p>
 
       <pre>
@@ -624,7 +627,7 @@ posts:
     github_url_name: pgplus_shortlink
     post_content: |2
       <p>A short link generator that you can build into your <a href="https://github.com/talkers/pgplus">Playground Plus</a> talker.</p>
-      <h3>Usage</h3>
+      <h2>Usage</h2>
       <pre>$ mlink http://thisisaverylongurlexample.com/omg=12345
 
       =================== You have added the following link:  ===================
@@ -637,7 +640,7 @@ posts:
 
       ===========================================================================
       </pre>
-      <h3>Live Example</h3>
+      <h2>Live Example</h2>
       <p>This code is running on the <a href="https://uberworld.org">UberWorld</a> talker, where I created this link: <a href="http://uberworld.org/url/e296">http://uberworld.org/url/e296</a>.</p>
   - title: Flight Tracker
     slug: flight-tracker
@@ -646,7 +649,7 @@ posts:
     github_url: https://github.com/jmodjeska/flighttracker
     github_url_name: flighttracker
     post_content: |2
-      <p>Here&rsquo;s a <a href="https://github.com/jmodjeska/flighttracker">flight tracker project</a> I&rsquo;ve been working on. This is based on an assignment for a Ruby class. It has a Sinatra-powered server, an inbound flight simulator, a tracker backed by a SQLite database, and a frontend built with jqPlot, Bootstrap, and some rather sloppy jQuery. Full project description and design spec are on the Github project page.</p>
+      <p>Here&rsquo;s a <a href="https://github.com/jmodjeska/flighttracker">flight tracker project</a> I made for a Ruby class. It has a Sinatra-powered server, an inbound flight simulator, a tracker backed by a SQLite database, and a frontend built with jqPlot, Bootstrap, and some rather sloppy jQuery. Full project description and design spec are on the Github project page.</p>
       <p><a href="https://github.com/jmodjeska/flighttracker"><img decoding="async" src="https://i.modjeska.us/2015/12/tracker_screenshot.png" alt="tracker_screenshot" width="100%"></a></p>
   - title: Project-Style (WBS) Numbering in MS Excel
     slug: project-style-wbs-numbering-in-ms-excel
@@ -660,7 +663,7 @@ posts:
       <p><br style="clear:both;"></p>
       <p>Instead of sequentially numbering the tasks, we assign subtask numbers to those tasks that roll up under other tasks. <em>Assemble spaceship</em> is a subtask of <em>Build a spaceship</em> so it gets <em>Build a spaceship</em>&lsquo;s number (1) plus a subtask number (3, since it&rsquo;s the third subtask) so its WBS number is 1.3. <em>Attach top part to middle part</em> is a subtask of <em>Assemble spaceship</em>, so it gets 1.3 plus a sub-subtask number (1.3.1), and so on. MS Project also bolds any items with subtasks.</p>
       <p>Since this type of WBS or outline numbering functionality isn&rsquo;t available in Excel, it requires a VBA macro.</p>
-      <h3>Notes</h3>
+      <h2>Notes</h2>
       <ol class="bignum">
       <li><span>1.</span>
       <p><strong><a href="https://i.modjeska.us/2009/03/wbs_numbering.xlsm.zip">Here is a sample spreadsheet</a></strong>, complete with the code and a command button, for those who want something ready-to-use.</p>
@@ -678,6 +681,8 @@ posts:
       <p>It requires certain formatting. Read all of the formatting assumptions, commented at the top of the macro.</p>
       </li>
       </ol>
-      <h3>VBA Code for WBS numbering in Excel</h3>
+      <h2>VBA Code for WBS numbering in Excel</h2>
       <br>
-      <p><script src="https://gist.github.com/jmodjeska/2b589fb92486e8bb0fc1364ca8157efc.js"></script></p>
+      <div class="gist-container">
+        <script src="https://gist.github.com/jmodjeska/2b589fb92486e8bb0fc1364ca8157efc.js"></script>
+      </div>

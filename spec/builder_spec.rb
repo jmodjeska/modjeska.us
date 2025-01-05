@@ -23,7 +23,10 @@ describe 'Build pipeline' do
 
   before(:each) do
     @b = Builder.new
-    stub_const 'FOOTER', 'spec/support/footer.html'
+    stub_const('PAGE_PARTS', {
+      top: 'spec/support/top.html',
+      footer: 'spec/support/footer.html'
+    }.freeze)
   end
 
   it 'verifies that a list of required files was built' do
