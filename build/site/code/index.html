@@ -7,8 +7,8 @@
   
   <!-- Fonts + Styles -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <!-- <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=2.3" type="text/css"> -->
-  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=2.4" type="text/css"> -->
+  <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=2.4" type="text/css">
+  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=2.5" type="text/css"> -->
   <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css"></noscript>
 
   <!-- Local Dev -->
@@ -84,9 +84,9 @@
     </nav>
   </div>
   <div id="nav-phone">
-    <input type="checkbox" id="mobile-nav"></input>
-    <div class="mobile-navbar">
-      <label for="mobile-nav"><i class="fa-solid fa-bars"></i></label>
+    <input type="checkbox" id="mobile-nav" aria-hidden="true"></input>
+    <div class="mobile-navbar" aria-hidden="true">
+      <label for="mobile-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></label>
     </div>
     <div class="overlay overlay-cover">
       <label for="mobile-nav">x</label>
@@ -118,7 +118,7 @@
     <div class="row mt mb">
       <div class="col-lg-12 col-lg-offset-0">
         <div class="category-index">
-          <span class="j12a-heading" role="heading">int main(void) { while(1) { fork(); } }</span>
+          <span class="j12a-heading" aria-label="Code Index Heading">int main(void) { while(1) { fork(); } }</span>
 
           <h2><a href="diy-image-gallery/">DIY Masonry Image Gallery</a></h2>
           <p>A masonry-style image gallery with progressive loading like Google Photos. A combination of off-the-shelf JS with some custom automation scripts offers full control, simplicity, and a beautiful layout. This project provides utilities for PIG.js to fully automate image galleries including thumbnails, layout, and directory structure. It also includes an optional plugin for WordPress.</p>
@@ -206,11 +206,11 @@
   </div><!-- /social -->
 
   <footer id="footerwrap">
-    <div class="container">
+    <div class="container" role="region" aria-label="About this site">
       <div class="row centered">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-          <span class="footer-about" role="heading">ABOUT</span>
+          <span class="footer-about">ABOUT</span>
           <p>This personal website of Jeremy Modjeska is &copy; by the author.
              All rights reserved. Code projects are licensed
              <a class="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>.

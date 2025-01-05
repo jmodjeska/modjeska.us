@@ -117,25 +117,21 @@ posts:
       <h2>Steps</h2>
 
       <ol class="bignum">
-      <li>
-      <span>1.</span>
-      <p><strong><a href="#basic-pig">Basic PIG</a></strong>.
-      Progressive Image Grid (PIG.js) is the JavaScript library that will power our image gallery. We&rsquo;ll get a test page up and running with out-of-the-box PIG.</p></li>
+        <li><span aria-label="1">1.</span>
+          <p><strong><a href="#basic-pig">Basic PIG</a></strong>. Progressive Image Grid (PIG.js) is the JavaScript library that will power our image gallery. We&rsquo;ll get a test page up and running with out-of-the-box PIG.</p>
+        </li>
 
-      <li>
-      <span>2.</span>
-      <p><strong><a href="#more-pig">Extending PIG</a></strong>.
-      PIG needs a few tweaks to reach its full potential. We&rsquo;ll make a few quick adaptations, including adding Swipebox support.</p></li>
+        <li><span aria-label="2">2.</span>
+          <p><strong><a href="#more-pig">Extending PIG</a></strong>. PIG needs a few tweaks to reach its full potential. We&rsquo;ll make a few quick adaptations, including adding Swipebox support.</p>
+        </li>
 
-      <li>
-      <span>3.</span>
-      <p><strong><a href="#automation">Automation</a></strong>.
-      While the PIG library is handy, it doesn&rsquo;t do the heavy lifting of generating all those image thumbnails and directory structures we need. As with all problems in the universe, the solution is a script to automate things. I provide Ruby and Perl versions.</p></li>
+        <li><span aria-label="3">3.</span>
+          <p><strong><a href="#automation">Automation</a></strong>. While the PIG library is handy, it doesn&rsquo;t do the heavy lifting of generating all those image thumbnails and directory structures we need. As with all problems in the universe, the solution is a script to automate things. I provide Ruby and Perl versions.</p>
+        </li>
 
-      <li>
-      <span>4.</span>
-      <p><strong><a href="#wordpress">WordPress Integration (optional)</a></strong>.
-      The above steps are sufficient to facilitate the creation of image galleries with minimal effort. You can stop there if you want to, or optionally add some code to WordPress to simplify adding PIG-powered galleries. This step will not require any plugin installation. Instead, we&rsquo;ll build a lightweight custom plugin from scratch so you have complete visibility and control over what is going on.</p></li>
+        <li><span aria-label="4">4.</span>
+          <p><strong><a href="#wordpress">WordPress Integration (optional)</a></strong>. The above steps are sufficient to facilitate the creation of image galleries with minimal effort. You can stop there if you want to, or optionally add some code to WordPress to simplify adding PIG-powered galleries. This step will not require any plugin installation. Instead, we&rsquo;ll build a lightweight custom plugin from scratch so you have complete visibility and control over what is going on.</p>
+        </li>
       </ol>
 
       <span id="basic-pig"></span>
@@ -665,21 +661,21 @@ posts:
       <p>Since this type of WBS or outline numbering functionality isn&rsquo;t available in Excel, it requires a VBA macro.</p>
       <h2>Notes</h2>
       <ol class="bignum">
-      <li><span>1.</span>
-      <p><strong><a href="https://i.modjeska.us/2009/03/wbs_numbering.xlsm.zip">Here is a sample spreadsheet</a></strong>, complete with the code and a command button, for those who want something ready-to-use.</p>
-      </li>
-      <li><span>2.</span>
-      <p>Tested in Excel 2003 and 2007 for Windows.</p>
-      </li>
-      <li><span>3.</span>
-      <p>The macro is based on the concept that the indentation of a particular task in column B dictates its WBS &ldquo;depth&rdquo; (whether it&rsquo;s a task, sub-task, sub-sub-task, etc.). WBS numbering will be created in column A.</p>
-      </li>
-      <li><span>4.</span>
-      <p>The macro renumbers everything at once, so after you add this macro to your project&rsquo;s VB code, create a button or other control that runs the macro.</p>
-      </li>
-      <li><span>5.</span>
-      <p>It requires certain formatting. Read all of the formatting assumptions, commented at the top of the macro.</p>
-      </li>
+        <li><span aria-label="1">1.</span>
+          <p><strong><a href="https://i.modjeska.us/2009/03/wbs_numbering.xlsm.zip">Here is a sample spreadsheet</a></strong>, complete with the code and a command button, for those who want something ready-to-use.</p>
+        </li>
+        <li><span aria-label="2">2.</span>
+          <p>Tested in Excel 2003 and 2007 for Windows.</p>
+        </li>
+        <li><span aria-label="3">3.</span>
+          <p>The macro is based on the concept that the indentation of a particular task in column B dictates its WBS &ldquo;depth&rdquo; (whether it&rsquo;s a task, sub-task, sub-sub-task, etc.). WBS numbering will be created in column A.</p>
+        </li>
+        <li><span aria-label="4">4.</span>
+          <p>The macro renumbers everything at once, so after you add this macro to your project&rsquo;s VB code, create a button or other control that runs the macro.</p>
+        </li>
+        <li><span aria-label="5">5.</span>
+          <p>It requires certain formatting. Read all of the formatting assumptions, commented at the top of the macro.</p>
+        </li>
       </ol>
       <h2>VBA Code for WBS numbering in Excel</h2>
       <br>

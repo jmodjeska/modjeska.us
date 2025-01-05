@@ -8,11 +8,11 @@ body {
   color: #333;
   background-color: #fff;
 }
-a, :any-link { color: #428bca; text-decoration: none; }
-a:hover, a:focus, a:active { color: #205685; }
+a, :any-link { color: #357bb1; text-decoration: none; }
+a:hover, a:focus, a:active { color: #0091ff; }
 a:focus { outline: none; }
 a:focus-visible {
-  outline: 2px dashed #428bca;
+  outline: 2px dashed #0091ff;
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -73,7 +73,7 @@ strong { font-weight: 700; }
 }
 
 /* Footer */
-.license, .license:hover { color: #43afec; text-decoration: underline; }
+.license, .license:hover { color: #0091ff; text-decoration: underline; }
 #social { margin-top: 100px; padding: 50px 0; background-color: #f2f2f2; }
 #social i { font-size: 30px; color: #4a4a4a }
 #social i:hover { color: #999; }
@@ -105,7 +105,7 @@ strong { font-weight: 700; }
 .pictures h2, .pictures p { text-align: left; }
 .pictures h2 {
   font-size: 32px;
-  color: #428bca;
+  color: #357bb1;
   font-weight: normal;
 }
 .pictures p {
@@ -264,7 +264,7 @@ ol.bignum > li::before { display: none; }
 }
 .words .publication-link { border-bottom: none; margin-bottom: 0; }
 .words .publication-link a { color: #666; }
-.publication-link a:hover { color: #428bca; }
+.publication-link a:hover { color: #0091ff; }
 .publication-meta { margin-top: 20px; }
 .github-text {
   font: normal 13px Arial, sans-serif;

@@ -11,12 +11,23 @@ posts:
 
       <h2>General Advice</h2>
 
-      <ol class="bignum"><li><span>1.</span>
-      <p><strong>Use Zoom Pro</strong>. Your show will probably exceed 40 minutes, and you&rsquo;ll want to record it, and you&rsquo;ll want some of the advanced settings below. All of those depend on a non-free version of Zoom. You may already have a Zoom Business account, and since Zoom accounts incur a flat monthly rate, your company may not mind your using it for personal endeavors like bringing beautiful music to your friends and family. Of course, responsible corporate citizens will want to check with their IT team before they use a company Zoom account for personal meetings.</p></li><li><span>2.</span>
-      <p><strong>Have a single source of music</strong>. Latency is unpredictable and varies by participant, so it&rsquo;s unlikely that you can pull off a coordinated performance with multiple Zoom participants playing music simultaneously. A single source of music is your best bet.</p></li><li><span>3.</span>
-      <p><strong>Use a stereo line out for the music / performers</strong>. Don&rsquo;t rely on the built-in microphone on a laptop, tablet, or phone to transmit quality audio. The music source should be a stereo line out from a sound board (or whatever you kids use to mix music these days). Optionally, the musician(s) can also Zoom in from a secondary device when they want to take a break and casually chat with other attendees.</p></li><li><span>4.</span>
-      <p><strong>Do a sound check with a remote participant</strong>. Before you perform in front of your masses of fans, friends, mom, etc., experiment with all of the settings described below to dial-in your perfect audio configuration prior to the show. Take detailed notes as you discover the optimal settings because musicians drink a lot and they won&rsquo;t remember all of the configuration steps on the day of the show.</p></li><li><span>5.</span>
-      <p><strong>Have a non-performer (co-)host the meeting</strong>. Throughout the beautiful performance, people will insist on unmuting themselves and making irritating noises (e.g., &ldquo;singing along&rdquo;). To maximize the audio quality of the music, and minimize interruptions during the performance, a designated host or co-host can mute and unmute all non-performer guests at appropriate times. Don&rsquo;t expect the musicians to do this; they will be preoccupied with making music. And drinking.</p></li></ol>
+      <ol class="bignum">
+        <li><span aria-label="1">1.</span>
+          <p><strong>Use Zoom Pro</strong>. Your show will probably exceed 40 minutes, and you&rsquo;ll want to record it, and you&rsquo;ll want some of the advanced settings below. All of those depend on a non-free version of Zoom. You may already have a Zoom Business account, and since Zoom accounts incur a flat monthly rate, your company may not mind your using it for personal endeavors like bringing beautiful music to your friends and family. Of course, responsible corporate citizens will want to check with their IT team before they use a company Zoom account for personal meetings.</p>
+        </li>
+        <li><span aria-label="2">2.</span>
+          <p><strong>Have a single source of music</strong>. Latency is unpredictable and varies by participant, so it&rsquo;s unlikely that you can pull off a coordinated performance with multiple Zoom participants playing music simultaneously. A single source of music is your best bet.</p>
+        </li>
+        <li><span aria-label="3">3.</span>
+          <p><strong>Use a stereo line out for the music / performers</strong>. Don&rsquo;t rely on the built-in microphone on a laptop, tablet, or phone to transmit quality audio. The music source should be a stereo line out from a sound board (or whatever you kids use to mix music these days). Optionally, the musician(s) can also Zoom in from a secondary device when they want to take a break and casually chat with other attendees.</p>
+        </li>
+        <li><span aria-label="4">4.</span>
+          <p><strong>Do a sound check with a remote participant</strong>. Before you perform in front of your masses of fans, friends, mom, etc., experiment with all of the settings described below to dial-in your perfect audio configuration prior to the show. Take detailed notes as you discover the optimal settings because musicians drink a lot and they won&rsquo;t remember all of the configuration steps on the day of the show.</p>
+        </li>
+        <li><span aria-label="5">5.</span>
+          <p><strong>Have a non-performer (co-)host the meeting</strong>. Throughout the beautiful performance, people will insist on unmuting themselves and making irritating noises (e.g., &ldquo;singing along&rdquo;). To maximize the audio quality of the music, and minimize interruptions during the performance, a designated host or co-host can mute and unmute all non-performer guests at appropriate times. Don&rsquo;t expect the musicians to do this; they will be preoccupied with making music. And drinking.</p>
+        </li>
+      </ol>
 
       <h2>Host Configuration</h2>
 
