@@ -8,7 +8,6 @@ body {
   color: #333;
   background-color: #2f2f2f;
 }
-.wrapper-white-bg { margin: 0; background-color: #fff; }
 a, :any-link { color: #357bb1; text-decoration: none; }
 a:hover, a:focus, a:active { color: #0091ff; }
 a:focus { outline: none; }
@@ -17,21 +16,26 @@ a:focus-visible {
   outline-offset: 4px;
   border-radius: 4px;
 }
-a img.alignnone { margin: 5px 20px 20px 0; max-width: 100%; height: auto; }
 article, figure, footer, header, main, section, summary { display: block; }
 button { appearance: button; cursor: pointer; }
 .center, .centered { text-align: center; }
 em { font-style: italic; }
 figure { margin: 0; }
 h1, h2, h3, .h1, .h2, .h3 { line-height: 1.1; margin: 20px 0 10px 0; }
-img { height: auto; max-width: 100% !important; vertical-align: middle; border: 0; }
+a img.alignnone { margin: 5px 20px 20px 0; max-width: 100%; height: auto; }
 p { margin: 0 0 10px; }
 strong { font-weight: 700; }
 ::selection { background: #666; color: white; text-shadow: none; }
 .show { display: block !important; }
 .hide, .hidden { display: none !important; }
+img {
+  height: auto;
+  max-width: 100% !important;
+  vertical-align: middle; border: 0;
+}
 
 /* Container elements */
+.wrapper-white-bg { margin: 0; background-color: #fff; }
 .container { padding: 0 15px; margin: 0 auto; }
 .container:after, .row:after { clear: both; }
 .blog-wrap {
@@ -132,16 +136,7 @@ strong { font-weight: 700; }
 }
 
 /* Text styles */
-.pdf { width: 100%; aspect-ratio: 8.5 / 13.1; margin: 0; padding: 0; }
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-}
+.pdf { width: 100%; aspect-ratio: 8.5 / 13.8; margin: 0; padding: 0; }
 blockquote {
   padding: 25px 20px 10px 20px;
   margin: 0 0 20px;

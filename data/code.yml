@@ -141,13 +141,14 @@ posts:
 
       <p><b>Click on the source code link at the top</b> and clone the Github project, or just <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-1">download the files for example-project-1</a>. You should be able to open index.html locally in your browser and see a gallery with four images:</p>
 
-      <img decoding="async" loading="lazy" width="1000" class="alignnone post-image-border" src="https://i.modjeska.us/2018/04/pig-example-1-768x684.png" alt="PIG Example 1">
-
-      <p>Easy, right? But wait &hellip;</p>
-
-      <p><b>These images aren&rsquo;t clickable!</b> PIG doesn&rsquo;t have support for image modals or linking.</p>
-
-      <p><b>There are a lot of extra images!</b> While there are only four images on the page, each full-size image requires four additional thumbnails in the /img directory &mdash; that&rsquo;s 16 additional images I had to create for this page.</p>
+      <div class="intro">
+        <img decoding="async" src="https://i.modjeska.us/images/pigg-example-1.jpg?ver=1" alt="Pig Example 1" width="50%" class="float-left post-image-border">
+        <p>Easy, right? But wait &hellip; <b>
+        <br><br>
+        These images aren&rsquo;t clickable!</b> PIG doesn&rsquo;t have support for image modals or linking.
+        <br><br>
+        Also, <b>there are a lot of extra images!</b> While there are only four images on the page, each full-size image requires four additional thumbnails in the /img directory &mdash; that&rsquo;s 16 additional images I had to create for this page.</p>
+      </div>
 
       <pre>&#9500;&#9472;&#9472; img
       &#9474;   &#9500;&#9472;&#9472; 20
@@ -190,12 +191,6 @@ posts:
 
       <p>Let&rsquo;s move on to <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-2">Example Project 2</a>. Copy the files as before and open index.html.</p>
 
-      <img decoding="async" loading="lazy" width="1000" class="alignnone post-image-border" src="https://i.modjeska.us/2018/04/pig-example-2.png" alt="PIGG Example 2">
-
-      <p>Well that&rsquo;s underwheming: it looks exactly the same!</p>
-
-      <p>But a few things changed under the hood. First, <b>images are clickable now</b>. How&rsquo;d we accomplish that? Cheating, of course: our friend <a href="https://github.com/mark-rodgers/pig.js">Mark Rodgers has modified PIG</a> to support the Swipebox library. Now images are clickable and open in fancy modals &mdash; go ahead, click on them!</p>
-
         <div id="pig">
           <img id="gsPreviewImg">
         </div>
@@ -205,9 +200,9 @@ posts:
         <script type="text/javascript">
           var imageData = [
             {"filename": "2018-02-04 16.20.02.jpg", "aspectRatio": "1.3300"},
-            {"filename": "2018-02-04 16.55.53.jpg", "aspectRatio": "1.3300"},
-            {"filename": "2018-02-04 16.29.34.jpg", "aspectRatio": "1.3300"},
             {"filename": "2018-02-04 16.23.00.jpg", "aspectRatio": "1.6300"},
+            {"filename": "2018-02-04 16.29.34.jpg", "aspectRatio": "1.3300"},
+            {"filename": "2018-02-04 16.55.53.jpg", "aspectRatio": "1.3300"},
           ];
           var pig = new Pig(imageData, {
             urlForSize: function(filename, size) {
@@ -223,14 +218,14 @@ posts:
         </script>
 
       <br>
-
-      <p>How did we do that? Let&rsquo;s take a look at what changed in the index.html source. First, we&rsquo;ve <b>added the Swipebox libraries</b>, and we&rsquo;ve modified the source for pig.js:</p>
+      <p>Well that&rsquo;s underwheming: the images look exactly the same!</p>
+      <p>But a few things changed under the hood. First, <b>images are clickable now</b>. How&rsquo;d we accomplish that? Cheating, of course: our friend <a href="https://github.com/mark-rodgers/pig.js">Mark Rodgers has modified PIG</a> to support the Swipebox library. Now images are clickable and open in fancy modals. Go ahead, click on them!</p>
+      <p>Let&rsquo;s see what changed in the index.html source. First, we&rsquo;ve <b>added the Swipebox libraries</b>, and we&rsquo;ve modified the source for pig.js:</p>
 
       <pre>
       &lt;script src="https://code.jquery.com/jquery-2.0.3.min.js"&gt;&lt;/script&gt;
-      &lt;script src=".../jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"&gt;&lt;/script>
-      &lt;script type="text/javascript"
-        src="https://rawgit.com/jmodjeska/pigg/master/js/pig.js"&gt;&lt;/script>
+      &lt;script src=".../jquery.swipebox/1.4.4/js/jquery.swipebox.min.js"&gt;&lt;/script&gt;
+      &lt;script type="text/javascript" src="https://i.modjeska.us/js/pig.js"&gt;&lt;/script&gt;
       </pre>
 
       <p>In this case, we&rsquo;re using my version of pig.js as the source. It&rsquo;s identical to Mark&rsquo;s, except with a minor change to improve compatibility with WordPress (more on that later). This is the version we&rsquo;ll be using for the remainder of the process. What else changed?</p>
@@ -243,7 +238,7 @@ posts:
       anchorClass: "swipebox"
       }).enable();
         ;( function( $ ) {
-        $( '.swipebox' ).swipebox();
+          $( '.swipebox' ).swipebox();
       } )( jQuery );
       </pre>
 
@@ -509,7 +504,7 @@ posts:
       <img decoding="async" loading="lazy" width="2056" height="310" class="alignnone" src="https://i.modjeska.us/2018/04/pig-plugin.png" alt="Wordpress dashboard">
       <p><b>Update pigg.pl configuration</b>. Back on your local machine, let&rsquo;s change some config values in the Perl script to tell it we&rsquo;re using WordPress now.</p>
 
-      <div class="alert" role="alert"><b>Hey, does anyone need this bit for Ruby?</b> Open a <a href="https://github.com/jmodjeska/pigg/tree/main">Github issue</a> and I'll add it!</div>
+      <div class="alert-info" role="alert"><b>Hey, does anyone need this bit for Ruby?</b> Open a <a href="https://github.com/jmodjeska/pigg/tree/main">Github issue</a> and I'll add it!</div>
 
       <pre>
       # Do you want to generate an index.html file when you create a gallery?

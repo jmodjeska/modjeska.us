@@ -1,10 +1,29 @@
-/*! Bootstrap rows and columns: https://getbootstrap.com
+/*! Bootstrap alerts, rows, and columns: https://getbootstrap.com
  * https://github.com/twbs/bootstrap/blob/main/LICENSE */
 
-.row { margin: 0 -15px; }
-.row:before, .row:after { display: table; content: " "; }
+ .alert, .alert-info {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-info {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
+.alert a, .alert a:visited { font-weight: bold; color: #491217; }
+.alert a:hover, .alert-info a:hover { text-decoration: underline; }
+.alert-info a, .alert-info a:visited { font-weight: bold; color: #002752; }
 .mt { margin-top: 40px; }
 .mb { margin-bottom: 40px; }
+.row { margin: 0 -15px; }
+.row:before, .row:after { display: table; content: " "; }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2,
 .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4,
 .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6,

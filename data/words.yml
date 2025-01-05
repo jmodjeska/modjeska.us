@@ -33,12 +33,12 @@ posts:
 
       <p>As the Zoom meeting owner, you will need to preconfigure some settings in your Zoom account. Follow these steps <em>before</em> you create the Zoom meeting.</p>
       <h3>Enable stereo</h3>
-      <p>As the host, you must allow your participants to enable stereo sound. To do that, login to your Zoom account in a browser (not the app) and navigate to <strong><em>Settings &gt; In Meeting (Advanced)</em></strong>. Enable <strong><em>Allow users to select stereo audio in their client settings</em></strong>. (<a href="https://support.zoom.us/hc/en-us/articles/115004830406-Enabling-stereo-audio">Zoom help</a>)</p>
+      <p>As the host, you must allow your participants to enable stereo sound. To do that, login to your Zoom account in a browser (not the app) and navigate to <strong><em>Settings &gt; In Meeting (Advanced)</em></strong>. Enable <strong><em>Allow users to select stereo audio in their client settings</em></strong>. (<a href="https://support.zoom.us/hc/en-us/articles/115004830406-Enabling-stereo-audio">Zoom help for Enabling Stereo</a>)</p>
       <h3>Enable original sound</h3>
-      <p>This is the most important setting. As the host, you have to explicitly enable this (and then some more complicated shit happens later in the Musician configuration detailed below). As above, login to your Zoom account in a browser (not the app) and navigate to <strong><em>Settings &gt; In Meeting (Advanced)</em></strong>. Enable the option for <strong><em>Allow users to select original sound in their client settings.</em></strong> (<a href="https://support.zoom.us/hc/en-us/articles/115003279466-Preserve-original-sound">Zoom help</a>)</p>
+      <p>This is the most important setting. As the host, you have to explicitly enable this (and then some more complicated shit happens later in the Musician configuration detailed below). As above, login to your Zoom account in a browser (not the app) and navigate to <strong><em>Settings &gt; In Meeting (Advanced)</em></strong>. Enable the option for <strong><em>Allow users to select original sound in their client settings.</em></strong> (<a href="https://support.zoom.us/hc/en-us/articles/115003279466-Preserve-original-sound">Zoom help for Original Sound</a>)</p>
       <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-stereo-original-sound.png" alt=""></figure>
       <h3>Mute participants on entry</h3>
-      <p>This will help prevent disruptions in the middle of a performance. Per General Advice above, make sure a designated (co-)host can also <em>unmute</em> participants at appropriate times. Protip: people will turn on you quickly you if you forget to unmute them. (<a href="https://support.zoom.us/hc/en-us/articles/115005759423-Managing-participants-in-a-meeting">Zoom help</a>)</p>
+      <p>This will help prevent disruptions in the middle of a performance. Per General Advice above, make sure a designated (co-)host can also <em>unmute</em> participants at appropriate times. Protip: people will turn on you quickly you if you forget to unmute them. (<a href="https://support.zoom.us/hc/en-us/articles/115005759423-Managing-participants-in-a-meeting">Zoom help for Managing Participants</a>)</p>
       <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-mute-on-entry.png" alt=""></figure>
 
       <h2>Musician Configuration</h2>
@@ -223,9 +223,9 @@ posts:
     post_content: |2
       <p>This is a ridiculous flow chart. I made it as a study tool I made for a business law class I took long ago. It covers the basics of contract law in the United States, including common law contracts, Uniform Commercial Code (UCC) contracts, and the basic requirements and terminology associated with contracts. My main sources were <a href="http://www.amazon.com/dp/0538470828">Clarkson&rsquo;s Business Law: Text and Cases</a> and the <a href="http://www.law.cornell.edu/ucc/ucc.table.html">U.C.C</a>.</p>
       <div class="alert" role="alert">
-        <b>Warning</b>: I disclaim any and all expert and non-expert knowledge of all laws of any kind, real or imaginary, especially contract law. Do not, under any circumstances, use this document for any consequential matters. As with everything else on this blog, it is posted for the sole purpose of my own entertainment.
+        <b>Warning</b>: I disclaim any and all expert and non-expert knowledge of all laws of any kind, real or imaginary, especially contract law. Do not, under any circumstances, use this document for any consequential matters. As with everything else on this site, it is posted for the sole purpose of my own entertainment.
       </div>
-      <object class="pdf" data="https://i.modjeska.us/2011/04/Contract-Law-Flowchart.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" type="application/pdf">
+      <object class="pdf" data="https://i.modjeska.us/2011/04/Contract-Law-Flowchart.pdf#navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" type="application/pdf">
       </object>
       <br>
       <p><a href="https://i.modjeska.us/2011/04/Contract-Law-Flowchart.pdf" target="_blank" title="Download the Contract Law Flowchart PDF">Download the PDF</a></p>
