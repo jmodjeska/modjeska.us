@@ -68,12 +68,12 @@ strong { font-weight: 700; }
   color: #ffffff;
   padding: 10px 0 20px 0;
   letter-spacing: 4px;
-  font-size: 80px;
+  font-size: 90px;
   font-weight: bold;
 }
 
 /* Footer */
-.license, .license:hover { color: #0091ff; text-decoration: underline; }
+.license, .license:hover { color: #61baff; text-decoration: underline; }
 #social { margin-top: 100px; padding: 50px 0; background-color: #f2f2f2; }
 #social i { font-size: 30px; color: #4a4a4a }
 #social i:hover { color: #999; }
@@ -161,13 +161,10 @@ pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
-ul, ol { list-style: none; margin: 0; padding: 0; }
-ul, ol, ul ul, ol ul, ul ol, ol ol { margin-bottom: 0; }
-ul { list-style-type: disc; }
-ul ul { list-style-type: square; }
-ul ul ul { list-style-type: circle; }
+.page-header { border-bottom: 1px solid #eee; margin: 0; padding-bottom: 0; }
 .post-data { clear: both; font-size: 11px; margin-top: 20px; }
 .post-desc { padding: 0; margin-top: 10px; }
+.post-entry .general-title { font-size: 45px; font-weight: normal; }
 .post-entry img { padding: 10px; }
 .post-entry p { line-height: 1.7em; margin-bottom: 20px; }
 .post-entry ol ul { list-style-type: circle; }
@@ -177,17 +174,12 @@ ul ul ul { list-style-type: circle; }
 .post-entry, .post-meta { clear: both; margin-bottom: 10px; }
 .post-meta, label { color: #666; font-size: 0.9em; }
 label { display: block; padding: 2px 0; font-weight: 700; margin: 0; }
-.post-entry .general-title {
-  font-size: 45px;
-  font-weight: normal;
-}
 .post-entry ol > li {
   counter-increment: foo;
   display: table-row;
   padding-left: 10px;
 }
-.post-entry ul {
-  display: table;
+.post-entry ul { display: table;
   list-style-position: outside;
   padding-bottom: 20px;
 }
@@ -213,11 +205,15 @@ label { display: block; padding: 2px 0; font-weight: 700; margin: 0; }
   border-radius: 4px;
   margin-bottom: 15px;
 }
-.page-header {
-  border-bottom: 1px solid #eee;
-  margin: 0;
-  padding-bottom: 0;
-}
+
+/* Lists */
+ul, ol { list-style: none; margin: 0; padding: 0; }
+ul, ol, ul ul, ol ul, ul ol, ol ol { margin-bottom: 0; }
+ul { list-style-type: disc; }
+ul ul { list-style-type: square; }
+ul ul ul { list-style-type: circle; }
+ol.bignum span { position: absolute; margin-top: -5px; }
+ol.bignum > li::before { display: none; }
 ol.bignum {
   color: #ccc;
   list-style-type: none;
@@ -234,8 +230,6 @@ ol.bignum li p {
   padding-left: 40px;
   color: #555;
 }
-ol.bignum span { position: absolute; margin-top: -5px; }
-ol.bignum > li::before { display: none; }
 
 /* Github & publication links */
 .github-link, .publication-link {
@@ -248,7 +242,6 @@ ol.bignum > li::before { display: none; }
   display: inline-block;
   padding: 2px 6px 0 0;
 }
-.github-link:before { font-family: "Font Awesome 6 Brands"; content: "\f09b"; }
 .publication-link:before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
@@ -266,6 +259,7 @@ ol.bignum > li::before { display: none; }
 .words .publication-link a { color: #666; }
 .publication-link a:hover { color: #0091ff; }
 .publication-meta { margin-top: 20px; }
+.github-link:before { font-family: "Font Awesome 6 Brands"; content: "\f09b"; }
 .github-text {
   font: normal 13px Arial, sans-serif;
   text-transform: uppercase;
@@ -292,6 +286,7 @@ ol.bignum > li::before { display: none; }
 .pig-figure img { padding: 0 !important; }
 
 /* Nav */
+.accessible-nav { height: 0; width: 0; overflow: hidden; }
 #nav-phone, input#mobile-nav { display: none; }
 #nav-full { display: block; }
 .mobile-navbar label:hover{ cursor: pointer; }
@@ -327,11 +322,9 @@ ol.bignum > li::before { display: none; }
   padding-left: 10px;
 }
 .overlay {
-  position: absolute;
+  position: absolute; top: 0; left: 0;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
   background: rgba(51,51,51,.94);
   z-index: 100;
 }
@@ -359,12 +352,7 @@ ol.bignum > li::before { display: none; }
   height: 100%;
   position: relative;
 }
-.overlay ul li {
-  display: block;
-  height: 20%;
-  height: calc(100% / 5);
-  min-height: 30px;
-}
+.overlay ul li { display: block; height: 20%; min-height: 30px; }
 .overlay ul li a {
   font-weight: 300;
   display: block;
@@ -430,7 +418,7 @@ ol.bignum > li::before { display: none; }
   src: url(https://i.modjeska.us/webfonts/fa-solid-900.woff2) format("woff2"),
     url(https://i.modjeska.us/webfonts/webfonts/fa-solid-900.ttf) format("truetype");
 }
-@media only screen and (max-width: 60em) { h1 { font-size: 40px !important; } }
+@media only screen and (max-width: 60em) { h1 { font-size: 55px !important; } }
 @media (min-width: 768px) { .container { width: 750px; } }
 @media (min-width: 992px) { .container { width: 970px; } }
 @media (min-width: 1200px) { .container { width: 1170px; } }

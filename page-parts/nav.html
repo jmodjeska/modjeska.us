@@ -1,5 +1,5 @@
 
-  <div id="nav-full">
+  <div id="nav-full" aria-hidden="true" role="presentation">
     <nav>
       <div class="desktop-navbar">
         <div class="container">
@@ -15,10 +15,10 @@
       </div>
     </nav>
   </div>
-  <div id="nav-phone">
+  <div id="nav-phone" aria-hidden="true" role="presentation">
     <input type="checkbox" id="mobile-nav" aria-hidden="true"></input>
     <div class="mobile-navbar" aria-hidden="true">
-      <label for="mobile-nav"><i class="fa-solid fa-bars" aria-hidden="true"></i></label>
+      <label for="mobile-nav"><i class="fa-solid fa-bars"></i></label>
     </div>
     <div class="overlay overlay-cover">
       <label for="mobile-nav">x</label>
@@ -32,3 +32,12 @@
       </nav>
     </div>
   </div>
+
+  <nav class="accessible-nav" aria-labelledby="accessible-navigation">
+    <ul>
+      <li><a href="https://modjeska.us">Home</a></li>
+      <li><a href="https://modjeska.us/code">Code</a></li>
+      <li><a href="https://modjeska.us/words">Words</a></li>
+      <li><a href="https://modjeska.us/pictures">Pictures</a></li>
+    </ul>
+  </nav>
