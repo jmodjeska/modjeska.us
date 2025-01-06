@@ -162,6 +162,7 @@ pre {
 .post-desc { padding: 0; margin-top: 10px; }
 .post-entry .general-title { font-size: 45px; font-weight: normal; }
 .post-entry img { padding: 10px; }
+img.post-center { display: block; margin: 0 auto; clear: both; }
 .post-entry p { line-height: 1.7em; margin-bottom: 20px; }
 .post-entry ol ul { list-style-type: circle; }
 .post-entry ol { counter-reset: foo; display: table; margin-bottom: 15px; }
@@ -299,6 +300,7 @@ ol.bignum li p {
 }
 .nav > li { float: left; line-height: 20px; padding-top: 5px; }
 .nav > li > a { position: relative; display: block; padding: 10px 15px; }
+.navbar-right { float: right; }
 .navbar-brand {
   float: left;
   padding: 15px 0;
@@ -420,7 +422,6 @@ ol.bignum li p {
 @media (min-width: 768px) { .container { width: 750px; } }
 @media (min-width: 992px) { .container { width: 970px; } }
 @media (min-width: 1200px) { .container { width: 1170px; } }
-@media (min-width: 768px) { .navbar-right { float: right !important; } }
 @media (max-width: 768px) {
   #nav-phone { display: block; }
   #nav-full { display: none; }
