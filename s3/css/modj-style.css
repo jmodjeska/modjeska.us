@@ -414,7 +414,9 @@ ol.bignum li p {
   src: url(https://i.modjeska.us/webfonts/fa-solid-900.woff2) format("woff2"),
     url(https://i.modjeska.us/webfonts/webfonts/fa-solid-900.ttf) format("truetype");
 }
-@media only screen and (max-width: 60em) { h1 { font-size: 55px !important; } }
+@media only screen and (max-width: 60em) {
+  #workwrap h1 { font-size: 55px !important; }
+}
 @media (min-width: 768px) { .container { width: 750px; } }
 @media (min-width: 992px) { .container { width: 970px; } }
 @media (min-width: 1200px) { .container { width: 1170px; } }
