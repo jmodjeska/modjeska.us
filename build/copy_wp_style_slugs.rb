@@ -18,8 +18,7 @@ require 'fileutils'
 # Ensure this script runs after the build in amplify.yml.
 #
 
-current_dir = File.basename(Dir.getwd)
-check_dir(current_dir)
+check_dir(File.basename(Dir.getwd))
 
 puts '-=> Build step: copy files to support WP-style slugs'
 

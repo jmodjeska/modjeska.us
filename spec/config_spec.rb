@@ -45,4 +45,12 @@ describe 'Config verification' do
       expect(File.file?(full_path)).to eq(true), "File missing: #{full_path}"
     end
   end
+
+  it 'returns false for a directory path without local dirs' do
+    expect(local?('/path/to/Code/modjeska.us')).to be false
+  end
+
+  it 'returns true for a directory path with local dirs' do
+    expect(local?('/path/to/Dropbox/Code/modjeska.us/build')).to be true
+  end
 end

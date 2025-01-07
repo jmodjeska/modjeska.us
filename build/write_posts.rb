@@ -2,9 +2,9 @@
 
 require_relative 'lib/config'
 require_relative 'lib/builder'
+require_relative 'lib/local'
 
-current_dir = File.basename(Dir.getwd)
-check_dir(current_dir)
+check_dir(File.basename(Dir.getwd))
 
 @b = Builder.new
 
@@ -22,7 +22,21 @@ if build_list.nil? || build_list.empty?
 end
 puts "-=> Building directories: #{build_list.join(', ')} ..."
 
+# If on a local dev env, setup the styles to work locally
+
+if local?(File.expand_path(__dir__))
+  puts '-=> Uncommenting assets for local dev ...'
+  loc = Local.new
+  page = PAGE_PARTS['@@STYLE@@']
+  loc.uncomment(page, 'local-dev-')
+  loc.comment(page, 'responsive-style-css')
+  loc.comment(page, 'bootstrap-css')
+else
+  puts '-=> Skipped asset commenting in non-local env'
+end
+
 # Write pages if directory is in the build list
+
 build_list.each do |cat|
   template_f = @b.file_list.detect { |e| e.include?("templates/#{cat}.html") }
   data_file = @b.file_list.detect { |e| e.include?("data/#{cat}.yml") }
@@ -48,6 +62,7 @@ build_list.each do |cat|
 end
 
 # Create root pages
+
 puts '-=> Building root pages ...'
 ROOT_PAGES.each do |page|
   puts "-   #{page}"

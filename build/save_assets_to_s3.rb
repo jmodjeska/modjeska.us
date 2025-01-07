@@ -3,8 +3,7 @@
 require_relative 'lib/config'
 require 'aws-sdk-s3'
 
-current_dir = File.basename(Dir.getwd)
-check_dir(current_dir)
+check_dir(File.basename(Dir.getwd))
 
 @s3 = Aws::S3::Client.new(region: 'us-west-2')
 

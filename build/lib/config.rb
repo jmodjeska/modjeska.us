@@ -47,6 +47,11 @@ def check_dir(current_dir)
     "#{EXECUTION_DIR} (currently calling from '#{current_dir})'."
 end
 
+# Locality check
+def local?(dir)
+  return dir.include?('Dropbox/Code')
+end
+
 # Truncate string for CLI output
 def truncate(string)
   return string.length > MAX_WIDTH ? "#{string[0...MAX_WIDTH]}..." : string
