@@ -8,7 +8,7 @@
   <!-- Fonts and Styles -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <!-- <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=2.5" type="text/css"> -->
-  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=3.8" type="text/css"> -->
+  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=3.9" type="text/css"> -->
   <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css"></noscript>
 
   <!-- Local Dev -->
@@ -74,12 +74,12 @@
       <nav>
         <div class="desktop-navbar">
           <div class="container">
-            <a class="navbar-brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
+            <a class="brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
             <div class="navbar-right">
               <ul class="nav navbar-nav-jm">
+                <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
                 <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
                 <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
-                <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
               </ul>
             </div>
           </div>
@@ -96,9 +96,9 @@
         <nav>
           <ul>
             <li><a href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage"><b>Home</b></a></li>
+            <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
             <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
             <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
-            <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
           </ul>
         </nav>
       </div>
@@ -108,13 +108,13 @@
       <ul>
         <li><a href="https://modjeska.us">Home</a></li>
         <li><a href="https://modjeska.us/code">Code</a></li>
-        <li><a href="https://modjeska.us/words">Words</a></li>
         <li><a href="https://modjeska.us/pictures">Pictures</a></li>
+        <li><a href="https://modjeska.us/words">Words</a></li>
       </ul>
     </nav>
 
 
-  <div id="workwrap" style="background-image: url('https://i.modjeska.us/2018/04/home-5.jpg');">
+  <div id="hero" style="background-image: url('https://i.modjeska.us/2018/04/home-5.jpg');">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
@@ -122,13 +122,13 @@
         </div>
       </div><!-- /row -->
     </div><!-- /container -->
-  </div><!-- /workwrap -->
+  </div><!-- /hero -->
 
   <div class="container words" role="main">
     <div class="row mt mb">
       <div class="col-lg-12 col-lg-offset-0">
         <div class="category-index">
-          <span class="j12a-heading" aria-label="Code Index Heading">Mournful shades of vermillion tinged with regret and stupid rhino tears.</span>
+          <span class="category-heading" aria-label="Code Index Heading">Mournful shades of vermillion tinged with regret and stupid rhino tears.</span>
 
           <h2><a href="/empowering-leaders-with-g-r-e-a-t-decision-making/">Empowering Leaders with G.R.E.A.T. Decision Making</a></h2>
           <div class="publication-meta">published on</div><div class="publication-link"><a href="https://www.highspot.com/blog/empowering-leaders-with-g-r-e-a-t-decision-making/" target="_blank" title="Highspot Blog - December 2022">Highspot Blog (December 2022)</a></div>
@@ -214,18 +214,23 @@
       </div><!-- /container -->
     </div><!-- /social -->
 
-    <footer id="footerwrap">
+    <footer>
       <div class="container" role="region" aria-label="About this site">
         <div class="row centered">
           <div class="col-lg-2"></div>
           <div class="col-lg-8">
-            <span class="footer-about">ABOUT</span>
+            <span class="about">ABOUT</span>
             <p>This personal website of Jeremy Modjeska is &copy; by the author.
               All rights reserved. Code projects are licensed
               <a class="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>.
               This website is not suitable for carbon-based lifeforms.
             </p>
             <p id="tw-quote-placeholder"></p>
+            <p id="bottom-nav">
+              <a href="/code" title="Code">Code</a> <span class="seperator">|</span>
+              <a href="/pictures" title="Pictures">Pictures</a> <span class="seperator">|</span>
+              <a href="/words" title="Words">Words</a>
+            </p>
           </div><!-- /col -->
           <div class="col-lg-2"></div>
         </div><!-- /row -->

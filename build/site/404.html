@@ -9,7 +9,7 @@
   <!-- Fonts and Styles -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <!-- <link rel="stylesheet" id="bootstrap-css" href="https://i.modjeska.us/css/bootstrap-site-only.css?ver=2.5" type="text/css"> -->
-  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=3.8" type="text/css"> -->
+  <!-- <link rel="stylesheet" id="responsive-style-css" href="https://i.modjeska.us/css/modj-style.css?ver=3.9" type="text/css"> -->
   <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700" rel="stylesheet" type="text/css"></noscript>
 
   <!-- Local Dev -->
@@ -52,12 +52,12 @@
       <nav>
         <div class="desktop-navbar">
           <div class="container">
-            <a class="navbar-brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
+            <a class="brand" href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage">Jeremy Modjeska</a>
             <div class="navbar-right">
               <ul class="nav navbar-nav-jm">
+                <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
                 <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
                 <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
-                <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
               </ul>
             </div>
           </div>
@@ -74,9 +74,9 @@
         <nav>
           <ul>
             <li><a href="https://modjeska.us/" title="Jeremy Modjeska" rel="homepage"><b>Home</b></a></li>
+            <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
             <li><a href="https://modjeska.us/pictures/" title="Pictures">Pictures</a></li>
             <li><a href="https://modjeska.us/words/" title="Words">Words</a></li>
-            <li><a href="https://modjeska.us/code/" title="Code">Code</a></li>
           </ul>
         </nav>
       </div>
@@ -86,13 +86,13 @@
       <ul>
         <li><a href="https://modjeska.us">Home</a></li>
         <li><a href="https://modjeska.us/code">Code</a></li>
-        <li><a href="https://modjeska.us/words">Words</a></li>
         <li><a href="https://modjeska.us/pictures">Pictures</a></li>
+        <li><a href="https://modjeska.us/words">Words</a></li>
       </ul>
     </nav>
 
 
-  <div id="workwrap" style="background-image: url('https://i.modjeska.us/images/about.jpg');">
+  <div id="hero" style="background-image: url('https://i.modjeska.us/images/about.jpg');">
     <div class="container" role="main">
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
@@ -100,12 +100,12 @@
         </div>
       </div>
     </div><!-- /container -->
-  </div><!-- /workwrap -->
+  </div><!-- /hero -->
 
   <div class="container">
     <div class="row mt mb">
       <div class="col-lg-8 col-lg-offset-2">
-        <article class="blog-wrap left">
+        <article class="left">
           <section class="post-entry">
             <h2 class="general-title">Looking for something?</h2>
 
@@ -164,18 +164,23 @@
       </div><!-- /container -->
     </div><!-- /social -->
 
-    <footer id="footerwrap">
+    <footer>
       <div class="container" role="region" aria-label="About this site">
         <div class="row centered">
           <div class="col-lg-2"></div>
           <div class="col-lg-8">
-            <span class="footer-about">ABOUT</span>
+            <span class="about">ABOUT</span>
             <p>This personal website of Jeremy Modjeska is &copy; by the author.
               All rights reserved. Code projects are licensed
               <a class="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>.
               This website is not suitable for carbon-based lifeforms.
             </p>
             <p id="tw-quote-placeholder"></p>
+            <p id="bottom-nav">
+              <a href="/code" title="Code">Code</a> <span class="seperator">|</span>
+              <a href="/pictures" title="Pictures">Pictures</a> <span class="seperator">|</span>
+              <a href="/words" title="Words">Words</a>
+            </p>
           </div><!-- /col -->
           <div class="col-lg-2"></div>
         </div><!-- /row -->

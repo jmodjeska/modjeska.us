@@ -110,7 +110,7 @@ posts:
     post_content: |2
       <p>Image gallery plugins come with extra overhead: they do too many things I don&rsquo;t need, and they don&rsquo;t do enough of what I want. I want control, automation, and a beautiful masonry layout, like this:</p>
 
-      <img decoding="async" width="1000" class="alignnone post-image-border" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us">
+      <img decoding="async" width="1000" class="border" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us">
 
       <p>Take a look at one of my <b><a href="/pictures-china-2014/" target="_blank" rel="noopener">image galleries</a></b> for a working demo of what I came up with. This post will walk you through how to build image galleries like this one.</p>
 
@@ -142,7 +142,7 @@ posts:
       <p><b>Click on the source code link at the top</b> and clone the Github project, or just <a href="https://github.com/jmodjeska/pigg/tree/master/example-project-1">download the files for example-project-1</a>. You should be able to open index.html locally in your browser and see a gallery with four images:</p>
 
       <div class="intro">
-        <img decoding="async" src="https://i.modjeska.us/images/pigg-example-1.jpg?ver=1" alt="Pig Example 1" width="50%" class="float-left post-image-border">
+        <img decoding="async" src="https://i.modjeska.us/images/pigg-example-1.jpg?ver=1" alt="Pig Example 1" width="50%" class="float-left border">
         <p>Easy, right? But wait &hellip; <b>
         <br><br>
         These images aren&rsquo;t clickable!</b> PIG doesn&rsquo;t have support for image modals or linking.
@@ -290,7 +290,7 @@ posts:
       # You can use my version on Github, or upload and serve your own
       # on your website (I recommend the second thing, in case I change
       # or break my version in the future!)
-      our $pig = 'https://yourwebserver.com/css/pig.js';
+      our $pig = 'https://yourserver.com/css/pig.js';
       </pre>
 
       <p>Where will images live on your server?</p>
@@ -299,7 +299,7 @@ posts:
       # Base URI to where the images will live
       # Do not use WordPress's media uploader; upload the finished product
       # directly to your server
-      our $uri = 'https://yourwebsite.com/galleries/';
+      our $uri = 'https://yoursite.com/galleries/';
       </pre>
 
       <p>Do you want to automatically generate an index.html file when you create a gallery? Start with &lsquo;yes&rsquo; for this tutorial. If you decide to use this script with WordPress, you&rsquo;ll want to turn this off.</p>
@@ -420,10 +420,10 @@ posts:
       Done!
 
       ----------------------------------------------------------------
-      Upload example-project-3 to https://yourwebsite.com/galleries/example-project-3
+      Upload example-project-3 to https://yoursite.com/galleries/example-project-3
       </pre>
 
-      <p>You now have a full gallery project ready to use. If you upload it to yourwebsite.com/galleries/example-project-3, you can browse to https://yourwebsite.com/galleries/example-project-3 to view your new gallery!</p>
+      <p>You now have a full gallery project ready to use. You can browse to galleries/example-project-3 to view your new gallery!</p>
 
       <p>You don&rsquo;t want to upload a plain HTML file to serve your gallery on WordPress, so let&rsquo;s turn now to <a href="https://github.com/jmodjeska/pigg/blob/master/wordpress/plugins/pigg/pigg.php">pigg.php</a>, a WordPress plugin file.</p>
 
@@ -501,7 +501,7 @@ posts:
       <h3>Verify the plugin is installed</h3>
 
       <p>Navigate to your WordPress dashboard &gt; Plugins:</p>
-      <img decoding="async" loading="lazy" width="2056" height="310" class="alignnone" src="https://i.modjeska.us/2018/04/pig-plugin.png" alt="Wordpress dashboard">
+      <img decoding="async" loading="lazy" width="2056" height="310" src="https://i.modjeska.us/2018/04/pig-plugin.png" alt="Wordpress dashboard">
       <p><b>Update pigg.pl configuration</b>. Back on your local machine, let&rsquo;s change some config values in the Perl script to tell it we&rsquo;re using WordPress now.</p>
 
       <div class="alert-info" role="alert"><b>Hey, does anyone need this bit for Ruby?</b> Open a <a href="https://github.com/jmodjeska/pigg/tree/main">Github issue</a> and I'll add it!</div>
@@ -540,7 +540,7 @@ posts:
       Done!
 
       ----------------------------------------------------------------
-      Upload example-project-3 to https://yourwebsite.com/galleries/example-project-3
+      Upload example-project-3 to https://yoursite.com/galleries/example-project-3
 
       WordPress shortcode for this gallery:
 

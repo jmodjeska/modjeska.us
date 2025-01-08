@@ -7,7 +7,7 @@ posts:
     post_content: |2
       <p>During these times of great stress and mandatory quarantine, we need live music more than ever. And while videoconference apps are the new normal for staying in touch, they are optimized for the kind of low-quality audio that business people need when they&rsquo;re talking about business in their business meetings. With a little work, though, you can unlock the full potential of your VC app and make your live music sound good to your remote listeners. Here are some tips for configuring <a href="https://zoom.us/">Zoom</a> for a live music event.</p>
       <p><em><strong>Disclaimer</strong>: I don&rsquo;t work for Zoom and I am in no way qualified to give musical advice to anyone. These are suggestions based on experimentation. Your mileage may vary. No musicians were harmed in the making of this post.</em></p>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/live-music-zoom-sm.png" alt=""></figure>
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/live-music-zoom-sm.png" alt="Live Zoom Music">
 
       <h2>General Advice</h2>
 
@@ -36,10 +36,10 @@ posts:
       <p>As the host, you must allow your participants to enable stereo sound. To do that, login to your Zoom account in a browser (not the app) and navigate to <strong><em>Settings &gt; In Meeting (Advanced)</em></strong>. Enable <strong><em>Allow users to select stereo audio in their client settings</em></strong>. (<a href="https://support.zoom.us/hc/en-us/articles/115004830406-Enabling-stereo-audio">Zoom help for Enabling Stereo</a>)</p>
       <h3>Enable original sound</h3>
       <p>This is the most important setting. As the host, you have to explicitly enable this (and then some more complicated shit happens later in the Musician configuration detailed below). As above, login to your Zoom account in a browser (not the app) and navigate to <strong><em>Settings &gt; In Meeting (Advanced)</em></strong>. Enable the option for <strong><em>Allow users to select original sound in their client settings.</em></strong> (<a href="https://support.zoom.us/hc/en-us/articles/115003279466-Preserve-original-sound">Zoom help for Original Sound</a>)</p>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-stereo-original-sound.png" alt=""></figure>
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-stereo-original-sound.png" alt="Zoom Original Sound">
       <h3>Mute participants on entry</h3>
       <p>This will help prevent disruptions in the middle of a performance. Per General Advice above, make sure a designated (co-)host can also <em>unmute</em> participants at appropriate times. Protip: people will turn on you quickly you if you forget to unmute them. (<a href="https://support.zoom.us/hc/en-us/articles/115005759423-Managing-participants-in-a-meeting">Zoom help for Managing Participants</a>)</p>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-mute-on-entry.png" alt=""></figure>
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-mute-on-entry.png" alt="Zoom Mute on Entry">
 
       <h2>Musician Configuration</h2>
 
@@ -52,22 +52,22 @@ posts:
       <h3>Enable stereo</h3>
 
       <p>After joining the Zoom, you&rsquo;ll find this setting in your Zoom app under <strong><em>Audio (bottom left) &gt; Audio Settings &gt; Enable Stereo.</em></strong></p>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-enable-stereo.png" alt=""></figure>
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-enable-stereo.png" alt="Zoom Enable Stereo">
 
       <h3>Enable original sound</h3>
 
       <p>This one is complicated, but stay with me because it&rsquo;s the most important step. After you join the Zoom on your Mac or PC, in your main Zoom window, click on <strong><em>Audio (bottom left) &gt; Audio Settings &gt; Advanced</em></strong>. Check the box for <strong><em>Show in-meeting option to &lsquo;Enable Original Sound&rsquo; from microphone.</em></strong> </p>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-audio-advanced.png" alt=""></figure>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-advanced-enable-original.png" alt=""></figure>
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-audio-advanced.png" alt="Zoom Audio Advanced">
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-advanced-enable-original.png" alt="Zoom Advanced Enable Original">
       <p>With that setting enabled, close the settings window, and, back in your main Zoom window, look for <strong><em>Turn on original sound</em></strong> in the top left. Click on that to enable original sound (when it says <em>Turn off original sound,</em> you&rsquo;ll know it&rsquo;s turned on). </p>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-turn-on-original.png" alt=""></figure>
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-turn-on-original.png" alt="Zoom Turn on Original Sound">
 
       <h3>Experiment with background noise suppression</h3>
 
       <p>During sound check, <em>after</em> completing the above steps, have your remote sound-checker evaluate whether you sound better with the following settings enabled or disabled (my suggestion: disable both). </p>
-      <p><strong><em>Audio (bottom left) &gt; Audio Settings &gt; Suppress Persistent Background Noise.</em></strong> </p>
-      <p><strong><em>Audio (bottom left) &gt; Audio Settings &gt; Suppress Intermittent Background Noise.</em></strong> </p>
-      <figure class="wp-block-image"><img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-suppressions.png" alt=""><figcaption><br></figcaption></figure>
+      <p><strong><em>Audio (bottom left) &gt; Audio Settings &gt; Suppress Persistent Background Noise.</em></strong></p>
+      <p><strong><em>Audio (bottom left) &gt; Audio Settings &gt; Suppress Intermittent Background Noise.</em></strong></p>
+      <img decoding="async" src="https://i.modjeska.us/images/zoom-music/zoom-suppressions.png" alt="Zoom Suppressions"
 
       <h2>Participant (Listener) Configuration</h2>
 

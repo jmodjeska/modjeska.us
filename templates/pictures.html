@@ -31,34 +31,32 @@
     <div class="container" role="main">
       <div class="row mt mb">
         <div class="col-lg-12 mt">
-          <article>
-            <section class="post-entry">
-              <h1 class="general-title mt">@@TITLE@@</h1>
-              <p>@@PARAGRAPH_TEXT@@</p>
-              <div id="pig">
-                <img id="gsPreviewImg">
-              </div>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
-              <script src="https://i.modjeska.us/js/jquery.swipebox.min.js"></script>
-              <script src="https://i.modjeska.us/js/pig.js"></script>
-              <script type="text/javascript">
-                var imageData = [
-                  @@IMAGEDATA_ARRAY@@
-                ];
-                var pig = new Pig(imageData, {
-                  urlForSize: function(filename, size) {
-                    return 'https://i.modjeska.us/galleries/@@SLUG@@/' + 'img/' + size + '/' + filename;
-                  },
-                  addAnchorTag: true,
-                  anchorTargetDir: "https://i.modjeska.us/galleries/@@SLUG@@/",
-                  anchorClass: "swipebox"
-                }).enable();
-                ;( function( $ ) {
-                  $( '.swipebox' ).swipebox();
-                } )( jQuery );
-              </script>
-            </section>
-          </article>
+          <section class="post-entry">
+            <h1 class="general-title mt">@@TITLE@@</h1>
+            <p>@@PARAGRAPH_TEXT@@</p>
+            <div id="pig">
+              <img id="gsPreviewImg">
+            </div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css">
+            <script src="https://i.modjeska.us/js/jquery.swipebox.min.js"></script>
+            <script src="https://i.modjeska.us/js/pig.js"></script>
+            <script type="text/javascript">
+              var imageData = [
+                @@IMAGEDATA_ARRAY@@
+              ];
+              var pig = new Pig(imageData, {
+                urlForSize: function(filename, size) {
+                  return 'https://i.modjeska.us/galleries/@@SLUG@@/' + 'img/' + size + '/' + filename;
+                },
+                addAnchorTag: true,
+                anchorTargetDir: "https://i.modjeska.us/galleries/@@SLUG@@/",
+                anchorClass: "swipebox"
+              }).enable();
+              ;( function( $ ) {
+                $( '.swipebox' ).swipebox();
+              } )( jQuery );
+            </script>
+          </section>
         </div><!-- /col -->
       </div><!-- /row -->
     </div><!-- /container -->
