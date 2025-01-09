@@ -108,13 +108,20 @@ posts:
     github_url: https://github.com/jmodjeska/pigg
     github_url_name: pigg
     post_content: |2
-      <p>Image gallery plugins come with extra overhead: they do too many things I don&rsquo;t need, and they don&rsquo;t do enough of what I want. I want control, automation, and a beautiful masonry layout, like this:</p>
+      <p>This post will walk you through how to build interactive, progressively-loading, Google Photos-style image galleries like the ones in my <a href="https://modjeska.us/pictures/" target="_blank">Pictures collection</a>.</p>
 
-      <img decoding="async" width="1000" class="border" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us">
+      <a href="https://modjeska.us/pictures/pictures-china-2014/" title="China 2014 image gallery" target="_blank"><img decoding="async" width="1000" class="border" src="https://i.modjeska.us/2018/04/gallery_final.png" alt="Final Product - PIG Gallery on modjeska.us"></a>
 
-      <p>Take a look at one of my <b><a href="/pictures-china-2014/" target="_blank" rel="noopener">image galleries</a></b> for a working demo of what I came up with. This post will walk you through how to build image galleries like this one.</p>
+      <p><b>Why do this?</b></p>
 
-      <h2>Steps</h2>
+      <ol>
+        <li>You want a beautiful image gallery with plain Javascript, HTML, and CSS (no framework, CMS, or package management required).</li>
+        <li>You love the Google Photos-style automatic layout and fast, progressive loading.</li>
+        <li>Image gallery plugins for Wordpress and other platforms come with extra overhead: they do too many things you don&rsquo;t need, and they don&rsquo;t do enough of what you want.</li>
+        <li>You want maximum control and automation.</p>
+      </ol>
+
+      <h2>Overview</h2>
 
       <ol class="bignum">
         <li><span aria-label="1">1.</span>

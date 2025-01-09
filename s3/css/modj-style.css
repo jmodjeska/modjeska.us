@@ -68,7 +68,7 @@ footer p { color: #f2f2f2; margin-left: 10px; }
   font-size: 40px; font-weight: bold; color: #666; padding-bottom: 20px;
 }
 .category-index {
-  margin: 90px auto 0 auto;
+  margin: 110px auto 0 auto;
   box-sizing: border-box;
   text-align: left;
   max-width: 750px;
@@ -97,6 +97,10 @@ footer p { color: #f2f2f2; margin-left: 10px; }
 .post-entry .general-title { font-size: 45px; font-weight: normal; }
 .post-entry p { line-height: 1.7em; margin-bottom: 20px; }
 .post-entry, .post-meta { clear: both; margin-bottom: 10px; }
+.post-entry .side-by-side { display: flex; justify-content: space-between; }
+.side-left { text-align: left; }
+.side-right a { text-align: right; color: #999; }
+.side-right a:hover { color: #0091ff; }
 .post-meta, label { color: #666; font-size: 0.9em; }
 label { display: block; padding: 2px 0; font-weight: 700; margin: 0; }
 blockquote {
@@ -189,7 +193,7 @@ img { height: auto; max-width: 100%; vertical-align: middle; border: 0; }
 img.post-center { display: block; margin: 0 auto; clear: both; }
 img.border { border: 1px solid #ccc; border-radius: 4px; margin: 15px 0; }
 .post-entry img { padding: 10px; }
-.pig-figure img { display: block; margin: 0; padding: 0; }
+.pig-figure img { display: block; margin: 0; padding: 0; height: auto; }
 
 /* Nav */
 .accessible-nav { height: 0; width: 0; overflow: hidden; }
@@ -277,6 +281,7 @@ img.border { border: 1px solid #ccc; border-radius: 4px; margin: 15px 0; }
 .fa, .fa-brands, .fa-solid { display: inline-block; font-style: normal; }
 .fa-angle-down:before { content: "\f107"; }
 .fa-bars:before { content: "\f0c9"; }
+.fa-code-fork:before { content: "\e13b"; }
 .fa-earth-americas:before { content: "\f57d"; }
 .fa-robot:before { content: "\f544"; }
 .fa-terminal:before { content: "\f120"; }
@@ -308,6 +313,7 @@ img.border { border: 1px solid #ccc; border-radius: 4px; margin: 15px 0; }
   .intro { display: block; }
   .intro .float-left { float: none; display: block; }
   .intro p { padding-top: 20px; }
+  .side-right { display: none; }
 }
 @media print {
   img, pre { page-break-inside: avoid; }
