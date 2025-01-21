@@ -9,7 +9,7 @@
 body, html { height: 100%; margin: 0; }
 html { -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; }
 body { font-family: var(--font-m); color: #333; background-color: #2f2f2f; }
-footer, header, main, section, summary, article { display: block; }
+footer, header, main, section, article { display: block; }
 ::selection { background: #666; color: white; }
 a { color: #357bb1; text-decoration: none; }
 a:hover, a:focus, a:active { color: #0091ff; }
@@ -189,7 +189,7 @@ ol.bignum li p {
 
 /* Image styles */
 img { height: auto; max-width: 100%; vertical-align: middle; border: 0; }
-.jm-photo-box { padding-bottom: 20px; }
+.jm-photo-box { padding-bottom: 20px; margin-bottom: 40px; }
 img.post-center { display: block; margin: 0 auto; clear: both; }
 img.border { border: 1px solid #ccc; border-radius: 4px; margin: 15px 0; }
 .post-entry img { padding: 10px; }
